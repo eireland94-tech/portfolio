@@ -14,7 +14,7 @@ simulated small-business network. This site tracks certifications, homelab
 projects, and write-ups as I go.
 
 <!-- TODO: replace the LinkedIn URL below with your real profile link -->
-**Find me:** [LinkedIn](www.linkedin.com/in/evan-ireland-302310367) · [GitHub](https://github.com/eireland94-tech) · [Certifications](/certifications/) · [About](/about/)
+**Find me:** [LinkedIn](https://www.linkedin.com/in/evan-ireland94) · [GitHub](https://github.com/eireland94-tech) · [Certifications](/certifications/) · [About](/about/)
 
 ## Recent posts
 
