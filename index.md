@@ -9,9 +9,8 @@ title: Home
      in there, then reference it like:
      ![Evan Ireland](/assets/profile.jpg) -->
 
-IT professional building hands-on skills through a home lab, including a
-simulated small-business network. This site tracks certifications, homelab
-projects, and write-ups as I go.
+IT technician building hands-on skills through a learning, homelabbing, and coding.
+This site tracks my homelab projects, certifications and write-ups as I go along.
 
 <!-- TODO: replace the LinkedIn URL below with your real profile link -->
 **Find me:** [LinkedIn](https://www.linkedin.com/in/evan-ireland94) · [GitHub](https://github.com/eireland94-tech) · [Certifications](/certifications/) · [About](/about/)
