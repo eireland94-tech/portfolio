@@ -5,15 +5,29 @@ title: Home
 
 # Evan Ireland
 
-<!-- TODO: swap this for a real photo. Create an /assets folder, drop the image
-     in there, then reference it like:
-     ![Evan Ireland](/assets/profile.jpg) --> ![Evan Ireland](/assets/pfp2.jpg)
+![Evan Ireland](/assets/pfp2.jpg)
 
-IT technician building hands-on skills through a learning, homelabbing, and coding.
+IT technician building hands-on skills through learning, homelabbing, and coding.
 This site tracks my homelab projects, certifications and write-ups as I go along.
 
-<!-- TODO: replace the LinkedIn URL below with your real profile link -->
-**Find me:** [LinkedIn](https://www.linkedin.com/in/evan-ireland94) · [GitHub](https://github.com/eireland94-tech) · [Certifications](/certifications/) · [About](/about/)
+**Find me:** [LinkedIn](https://www.linkedin.com/in/evan-ireland94) · [GitHub](https://github.com/eireland94-tech) · [Projects](/projects/) · [Certifications](/certifications/) · [About](/about/)
+
+---
+
+## Featured project
+
+### [Hybrid Active Directory & Microsoft 365 Environment](/projects/hybrid-ad-smb/)
+
+A full hybrid identity environment for a simulated small business — built on
+bare metal, torn down, and rebuilt a second time from my own playbook to test
+whether the documentation held up. Round 2 took 5 hours 58 minutes with no
+rework.
+
+Windows Server · Active Directory · Group Policy · Entra ID · Entra Connect · Intune
+
+[Read the case study →](/projects/hybrid-ad-smb/) · [See all projects →](/projects/)
+
+---
 
 ## Recent posts
 

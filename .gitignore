@@ -1,0 +1,10 @@
+# Jekyll build output — only created if you ever build the site locally.
+# These should never be committed; GitHub builds the site for you.
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# OS junk
+.DS_Store
+Thumbs.db

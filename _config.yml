@@ -4,3 +4,9 @@ remote_theme: pages-themes/minimal@v0.2.0
 plugins:
   - jekyll-remote-theme
 show_downloads: false
+
+# Files listed here are ignored by the site builder — they stay in the repo
+# but are never published. HOW-TO-UPDATE.md is a note to yourself, not a page.
+exclude:
+  - HOW-TO-UPDATE.md
+  - README.md
