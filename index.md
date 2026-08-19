@@ -8,7 +8,7 @@ title: Home
 ![Evan Ireland](/assets/pfp2.jpg)
 
 IT technician building hands-on skills through learning, homelabbing, and coding.
-This site tracks my homelab projects, documentatrion, scripts, and certifications as I go along.
+This site tracks my homelab projects, documentation, scripts, and certifications as I go along.
 
 **Find me:** [LinkedIn](https://www.linkedin.com/in/evan-ireland94) · [GitHub](https://github.com/eireland94-tech) · [Projects](/projects/) · [Certifications](/certifications/) · [About](/about/)
 

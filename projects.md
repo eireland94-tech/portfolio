@@ -8,8 +8,7 @@ permalink: /projects/
 
 # Projects
 
-Hands-on builds from my home lab, documented the way I would document them
-for a client or an employer.
+Hands-on builds from my home lab, documented the way I would document them for a client or an employer.
 
 ---
 
