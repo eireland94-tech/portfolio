@@ -7,7 +7,7 @@ title: Home
 
 <!-- TODO: swap this for a real photo. Create an /assets folder, drop the image
      in there, then reference it like:
-     ![Evan Ireland](/assets/profile.jpg) --> ![Evan Ireland](/assets/pfp.jpg)
+     ![Evan Ireland](/assets/profile.jpg) --> ![Evan Ireland](/assets/pfp2.jpg)
 
 IT technician building hands-on skills through a learning, homelabbing, and coding.
 This site tracks my homelab projects, certifications and write-ups as I go along.
