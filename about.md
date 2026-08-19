@@ -27,7 +27,7 @@ and the [Google IT Support Professional Certificate](/certifications/), and I am
 currently working towards [Microsoft 365 Certified: Copilot and Agent Administration Fundamentals](/https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/?practice-assessment-type=certification).
 
 I am looking for IT Support work in the Rapid City/black Hills area. 
-The fastest way to reach me is by [email](evan@evanireland.tech).
+The fastest way to reach me is by [email](318094812+eireland94-tech@users.noreply.github.com).
 
 ## What you will find here
 
