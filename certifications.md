@@ -16,7 +16,7 @@ permalink: /certifications/
 <!-- Listing what you are actively studying for is worth doing — it shows
      direction. Delete this section if you would rather not. -->
 
-- [Cert you are currently studying for — e.g. CompTIA Network+ — target date]
+- **[Microsoft 365 Certified: Copilot and Agent Administration Fundamentals](/https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/?practice-assessment-type=certification)** 
 
 <!-- To add a cert: copy one of the lines above. Always link to a public
      verification page (Credly badge, Microsoft Learn transcript, CompTIA

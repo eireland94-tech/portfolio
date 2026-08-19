@@ -14,24 +14,24 @@ permalink: /about/
 
 Former Army Officer with a logistics background, changing careers into IT.
 
-Rather than wait for a job to teach me, I built a production-shaped environment
-to learn in: a hybrid Active Directory and Microsoft 365 network for a
-simulated small business, running on my own hardware. I built it, broke it,
-diagnosed the breakage, documented the root causes, tore it down, and built it
-again from my own playbook. That project is written up in full under
-[Projects](/projects/hybrid-ad-smb/).
+I enjoy anything and everything that broadens my skillsets and knowledge base in the world of IT.
+From pursuing homelab projects, deepening my proficiency in the Microsoft Ecosystem, to exploring 
+Linux distros (Ubuntu/Ubuntu Server), scripting basics, and so on - I simply can't get enough.
+
+I created this site to serve as my living, breathing portfolio and personal repository. 
+I'll be posting documentation about my homelab projects, storing runbooks/field manuals, as well as
+helpful scripts I find along the way.
 
 I hold the [Microsoft Certified: Azure Fundamentals (AZ-900)](/certifications/)
 and the [Google IT Support Professional Certificate](/certifications/), and I am
-currently working toward [name the next cert you're studying for].
+currently working towards [Microsoft 365 Certified: Copilot and Agent Administration Fundamentals](/https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/?practice-assessment-type=certification).
 
-I am looking for [target role — e.g. help desk, desktop support, junior
-sysadmin] work in [location, or "remote"]. The fastest way to reach me is
-[LinkedIn](https://www.linkedin.com/in/evan-ireland94).
+I am looking for IT Support work in the Rapid City/black Hills area. 
+The fastest way to reach me is by [email](evan@evanireland.tech).
 
 ## What you will find here
 
 - **[Projects](/projects/)** — full write-ups of what I have built, including
   what went wrong and how I diagnosed it
 - **[Certifications](/certifications/)** — with verification links
-- **Posts** — shorter notes and runbooks as I go
+- **Posts** — shorter notes and runbooks as I go along!

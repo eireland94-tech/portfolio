@@ -8,7 +8,7 @@ title: Home
 ![Evan Ireland](/assets/pfp2.jpg)
 
 IT technician building hands-on skills through learning, homelabbing, and coding.
-This site tracks my homelab projects, certifications and write-ups as I go along.
+This site tracks my homelab projects, documentatrion, scripts, and certifications as I go along.
 
 **Find me:** [LinkedIn](https://www.linkedin.com/in/evan-ireland94) · [GitHub](https://github.com/eireland94-tech) · [Projects](/projects/) · [Certifications](/certifications/) · [About](/about/)
 
@@ -30,6 +30,8 @@ Windows Server · Active Directory · Group Policy · Entra ID · Entra Connect 
 ---
 
 ## Recent posts
+
+Check back Later! - Evan
 
 <ul>
 {% for post in site.posts limit:10 %}
