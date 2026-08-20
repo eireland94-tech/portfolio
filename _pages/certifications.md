@@ -6,9 +6,8 @@ permalink: /certifications/
 image:
 ---
 
-Every certification below links to a public verification record — a Credly badge
-or a Microsoft Learn transcript. A screenshot or a PDF proves nothing; a
-verification link is what makes the claim checkable.
+Every certification below links to a public verification record — a Credly badge, 
+Microsoft Learn transcript, etc.
 
 ## Held
 
