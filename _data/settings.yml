@@ -21,7 +21,7 @@ description: "IT support technician — home lab builds, runbooks, scripting, an
 
 # Leave `logo` blank to show the title as text (current behaviour). To use an
 # image instead, drop a PNG in /assets/ and put the path here, e.g. '/assets/logo.png'
-logo: "/assets/logo.png"
+logo:
 
 
 # -----------------------------------------------------------------------------
@@ -95,7 +95,7 @@ author:
   name: "Evan Ireland"
 
   # These two build the fake shell prompt in the hero: evan@evanireland ~ $
-  username: "evan"
+  username: "sysadmin"
   hostname: "evanireland"
 
   role: "IT Support Technician"
@@ -154,7 +154,7 @@ author:
     |  (    )  |
     +----++----+
         ||
-    [evan@evanireland]
+    [user@evanireland]
     >_ build · break · document
 
 
