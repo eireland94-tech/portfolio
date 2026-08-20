@@ -1,10 +1,25 @@
-# Jekyll build output — only created if you ever build the site locally.
-# These should never be committed; GitHub builds the site for you.
+# =============================================================================
+#  Files git should ignore — they exist on your PC but never get committed
+# =============================================================================
+
+# Jekyll build output. Only created when you preview the site locally with
+# `bundle exec jekyll serve`. It is generated from your source files, so
+# committing it would just be duplicating the whole site into the repo.
 _site/
 .jekyll-cache/
 .jekyll-metadata
 .sass-cache/
 
-# OS junk
+# Bundler's local install directory and its config.
+vendor/
+.bundle/
+
+# The holding pen for files replaced during the theme change. Delete this
+# folder from File Explorer once you are happy the new site works. It is
+# ignored so it never reaches GitHub either way.
+_to_delete/
+
+# Operating system junk files.
 .DS_Store
 Thumbs.db
+desktop.ini

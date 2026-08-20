@@ -1,0 +1,102 @@
+# =============================================================================
+#  Build and deploy evanireland.tech to GitHub Pages
+# =============================================================================
+#  WHAT THIS FILE IS
+#  A GitHub Actions workflow. GitHub reads it, and every time you push to the
+#  main branch it spins up a temporary Linux machine, installs Ruby and Jekyll,
+#  builds the site, and publishes the result.
+#
+#  WHY IT EXISTS
+#  GitHub Pages has a built-in Jekyll builder, but it runs Jekyll 3 with an old
+#  Sass compiler. The Hexdump theme is written for Jekyll 4 and modern Sass, so
+#  the built-in builder cannot compile it. This workflow runs the versions the
+#  theme actually needs.
+#
+#  ONE-TIME SETUP REQUIRED
+#  In the repo on github.com: Settings -> Pages -> "Build and deployment" ->
+#  Source -> change from "Deploy from a branch" to "GitHub Actions".
+#  Until you do that, this workflow will run but the deploy step will fail.
+#
+#  WATCHING A BUILD
+#  Repo -> "Actions" tab. Green tick = live. Red X = click it to read the log;
+#  the error is almost always near the bottom in red.
+# =============================================================================
+
+name: Build and deploy site
+
+# ---- WHEN to run -------------------------------------------------------------
+on:
+  # Every push to main — i.e. every time you hit "Push origin" in GitHub Desktop.
+  push:
+    branches: ["main"]
+  # Adds a "Run workflow" button in the Actions tab so you can rebuild by hand
+  # without making a commit. Useful when a build failed for a transient reason.
+  workflow_dispatch:
+
+# ---- WHAT this workflow is allowed to do -------------------------------------
+# Least privilege: read the repo, write to Pages, and prove its identity to the
+# deploy service. It cannot push commits or change any other setting.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# ---- Stop two builds fighting over the same deployment -----------------------
+# If you push twice quickly, the second run waits for the first to finish
+# rather than both trying to publish at once.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ===========================================================================
+  #  JOB 1 — build the site into a folder of plain HTML/CSS/JS
+  # ===========================================================================
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Copy your repo onto the build machine.
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      # Install Ruby, then run `bundle install` to install everything listed in
+      # the Gemfile. `bundler-cache: true` saves those gems between runs, so the
+      # first build takes a couple of minutes and later ones take seconds.
+      - name: Install Ruby and the gems from the Gemfile
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      # Works out the correct base URL. Because this repo has a CNAME file and a
+      # custom domain, it resolves to an empty string — which is what you want.
+      - name: Work out the Pages URL settings
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # The actual build. JEKYLL_ENV=production is what turns on production-only
+      # behaviour in Jekyll and in themes.
+      - name: Build the site with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      # Package up the built _site folder and hand it to the deploy job.
+      - name: Package the built site
+        uses: actions/upload-pages-artifact@v3
+
+  # ===========================================================================
+  #  JOB 2 — publish that folder to GitHub Pages
+  # ===========================================================================
+  deploy:
+    # `needs: build` means this job does not start until the build succeeds.
+    # If the build fails, nothing is published and the live site stays as it is.
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

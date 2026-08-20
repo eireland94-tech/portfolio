@@ -1,0 +1,276 @@
+# =============================================================================
+#  SITE SETTINGS  —  this is the file you will edit most often
+# =============================================================================
+#  Everything here is content: your name, the menu, your bio, your links.
+#  Nothing here is code. If you change a value, save the file and commit — the
+#  site rebuilds and picks it up.
+#
+#  Two YAML rules that will bite you if you forget them:
+#    1. Indentation is meaningful and must be SPACES, never tabs.
+#    2. If a value contains a colon followed by a space (like "IT: the job"),
+#       wrap the whole value in "double quotes" or the build fails.
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+#  Site identity
+# -----------------------------------------------------------------------------
+# `title` shows in the top-left of the header and in the footer.
+title: "Evan Ireland"
+description: "IT support technician — home lab builds, runbooks, scripting, and certifications."
+
+# Leave `logo` blank to show the title as text (current behaviour). To use an
+# image instead, drop a PNG in /assets/ and put the path here, e.g. '/assets/logo.png'
+logo:
+
+
+# -----------------------------------------------------------------------------
+#  Navigation  —  the menu across the top
+# -----------------------------------------------------------------------------
+#  Each entry needs a `label` (what the visitor reads) and a `url` (where it
+#  goes). Order here = order on screen. To add an item, copy an existing
+#  two-line block and change both values. Keep the leading and trailing
+#  slashes on urls.
+#
+#  Note: /tags/ and /elements/ are live pages but deliberately NOT listed here.
+#  /tags/ is reached by clicking a tag on a post; /elements/ is your private
+#  formatting cheat sheet. Add them here if you ever want them in the menu.
+# -----------------------------------------------------------------------------
+navigation:
+  - label: 'Home'
+    url: '/'
+  - label: 'Projects'
+    url: '/projects/'
+  - label: 'Posts'
+    url: '/posts/'
+  - label: 'Certifications'
+    url: '/certifications/'
+  - label: 'About'
+    url: '/about/'
+
+
+# -----------------------------------------------------------------------------
+#  Colour scheme
+# -----------------------------------------------------------------------------
+#  `default` is the scheme a first-time visitor sees. `theme_switcher: true`
+#  shows the row of coloured dots in the header so visitors can pick their own
+#  (their choice is remembered in their browser). Set it to false to lock
+#  everyone to your default.
+#
+#  Valid values for `default`: matrix | dracula | nord | gruvbox | mono
+# -----------------------------------------------------------------------------
+theme:
+  default: "dracula"
+  theme_switcher: true
+
+# The dots in the header, in this order. `accent` is the colour of the dot.
+# Deleting an entry here removes that dot AND that option — don't delete the
+# one named in `theme.default` above or the site loses its colours.
+themes:
+  - name: "dracula"
+    label: "DRACULA"
+    accent: "#bd93f9"
+
+  - name: "matrix"
+    label: "MATRIX"
+    accent: "#39ff14"
+
+  - name: "nord"
+    label: "NORD"
+    accent: "#88c0d0"
+
+  - name: "gruvbox"
+    label: "GRUVBOX"
+    accent: "#fabd2f"
+
+  - name: "mono"
+    label: "MONO"
+    accent: "#aaaaaa"
+
+
+# -----------------------------------------------------------------------------
+#  You
+# -----------------------------------------------------------------------------
+author:
+  name: "Evan Ireland"
+
+  # These two build the fake shell prompt in the hero: evan@evanireland ~ $
+  username: "evan"
+  hostname: "evanireland"
+
+  role: "IT Support Technician"
+  email: "evan@evanireland.tech"
+
+  # Shown by the terminal's `about` command as "career: NNNd (since ...)".
+  # Set this to the date you decided to move into IT. Change it to whatever is
+  # honest for you — or delete the line entirely and the counter disappears.
+  career_start: "2025-01-01"
+
+  # Counts up as you publish. Keep it matching the number of files in _projects/.
+  projects_completed: 1
+
+  # Shown by the terminal's `status` command.
+  # available | busy | open_to_offers
+  status: "available"
+
+  # Photo in the "Author" box in the sidebar of post and project pages.
+  avatar_image: "/assets/pfp2.jpg"
+
+  bio: "Former Army logistics officer moving into IT. I build it, break it, document it, then build it again to see if the documentation held."
+
+  # Links in that same Author box. Icon names come from Font Awesome — search
+  # https://fontawesome.com/icons and use the class string it shows you.
+  social:
+    - {name: "linkedin", icon: "fa-brands fa-linkedin-in", link: "https://www.linkedin.com/in/evan-ireland94"}
+    - {name: "github", icon: "fa-brands fa-github", link: "https://github.com/eireland94-tech"}
+
+  # ---------------------------------------------------------------------------
+  #  Skills
+  # ---------------------------------------------------------------------------
+  #  HONEST WARNING: these render as percentage bars on the homepage. A number
+  #  here is a claim, and an interviewer WILL ask you to back up anything above
+  #  ~70. I have set these deliberately conservative based only on what your
+  #  case study actually demonstrates. Raise or lower them to match what you
+  #  can defend out loud, and re-read them before every interview.
+  #
+  #  Only the first three appear in the hero terminal's `whoami` output.
+  # ---------------------------------------------------------------------------
+  skills:
+    - name: Windows Server / AD
+      percent: 70
+    - name: Microsoft 365 / Entra ID
+      percent: 65
+    - name: PowerShell
+      percent: 45
+    - name: Linux (Ubuntu)
+      percent: 40
+
+  # ASCII art shown by the terminal's `cat avatar.txt` command.
+  # The | after `avatar:` means "keep every line break below exactly as typed".
+  avatar: |
+    +----------+
+    |  o    o  |
+    |   ____   |
+    |  (    )  |
+    +----++----+
+        ||
+    [evan@evanireland]
+    >_ build · break · document
+
+
+# -----------------------------------------------------------------------------
+#  Hero  —  the big block at the top of the homepage
+# -----------------------------------------------------------------------------
+hero:
+  enable: true
+
+  # The text typed after the $ in the fake prompt above your name.
+  command: "whoami"
+
+  # Anything inside <span></span> gets the accent colour and the glitch effect.
+  title: "Evan <span>Ireland</span>"
+
+  # Responsive text size: minimum, how it scales, maximum.
+  title_size: "32px, 8vw, 110px"
+
+  description: I am an IT technician building hands-on skills through home lab work, documentation, and scripting. This site is my working portfolio — project case studies, runbooks, and the certifications behind them.
+
+  # A full-width photo behind the hero. Left blank on purpose: the interactive
+  # terminal sits on top of this area and a busy photo makes the text hard to
+  # read. To try it anyway, put a path here, e.g. '/assets/battlestation.jpg'
+  image:
+
+  # The interactive command line on the right. Visitors can type: help, about,
+  # contact, skills, status, cat avatar.txt, theme <name>, history, clear.
+  terminal:
+    enable: true
+
+
+# -----------------------------------------------------------------------------
+#  Projects section on the homepage
+# -----------------------------------------------------------------------------
+projects_section:
+  enable: true
+  tagline: ls projects/
+  title: What I <br> <span>build.</span>
+  show_more: true
+
+
+# -----------------------------------------------------------------------------
+#  Posts section on the homepage
+# -----------------------------------------------------------------------------
+posts_section:
+  enable: true
+  title: Latest <br> <span>writeups.</span>
+  limit: 4
+
+
+# -----------------------------------------------------------------------------
+#  /posts/ page
+# -----------------------------------------------------------------------------
+posts_page:
+  # How many posts load before the "Load More" button appears.
+  per_page: 6
+
+
+# -----------------------------------------------------------------------------
+#  About section on the homepage
+# -----------------------------------------------------------------------------
+about:
+  enable: true
+  tagline: whoami
+  title: The person <br> <span>behind it.</span>
+
+  # The | below means "this is a multi-line block". Every line must stay
+  # indented by 4 spaces. Blank lines become paragraph breaks. **bold** works.
+  description: |
+    Former Army officer with a logistics background, now moving
+    into IT full time.
+
+    I like anything that widens the skill set — home lab builds,
+    going deeper into the **Microsoft ecosystem**, poking at
+    **Ubuntu Server**, and picking up scripting as I go.
+
+    This site is the living version of that. Project write-ups
+    with the failures left in, runbooks I actually use, and the
+    certifications behind them.
+
+    Currently looking for IT support work in the
+    Rapid City / Black Hills area.
+
+# The photo slider next to that text. Add or remove blocks of three lines to
+# change what is in the slider. `alt` is read aloud by screen readers and shown
+# if the image fails to load — it is not optional.
+about_images:
+  - image: "/assets/battlestation.jpg"
+    alt: "Evan's home workstation: two monitors and a desktop PC under red lighting"
+    caption: "The desk everything gets built and broken on"
+
+  - image: "/assets/pfp2.jpg"
+    alt: "Portrait of Evan Ireland"
+    caption: "Evan Ireland — IT Support Technician"
+
+
+# -----------------------------------------------------------------------------
+#  Footer
+# -----------------------------------------------------------------------------
+footer_description: "Home lab builds documented the way I would document them for an employer — including what went wrong."
+
+# Icons along the bottom of every page.
+social_footer:
+  - {icon: "fa-brands fa-linkedin-in", link: "https://www.linkedin.com/in/evan-ireland94"}
+  - {icon: "fa-brands fa-github", link: "https://github.com/eireland94-tech"}
+
+
+# -----------------------------------------------------------------------------
+#  Features that are switched OFF
+# -----------------------------------------------------------------------------
+#  The theme ships with a newsletter signup, a testimonials carousel, a
+#  Formspree contact form, Disqus comments and Google Analytics. All five are
+#  off, and the code behind them has been removed rather than just disabled,
+#  so there is nothing half-wired sitting in the page.
+#
+#  If you ever want one back, HOW-TO-UPDATE.md explains exactly which files to
+#  restore from the original theme folder in
+#  C:\Users\evan\Documents\Website\00. Theme\hexdump-jekyll-theme-v1.0\Hexdump
+# -----------------------------------------------------------------------------

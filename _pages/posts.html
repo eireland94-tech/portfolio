@@ -1,0 +1,66 @@
+---
+layout: default
+title: Posts
+description: Thoughts, tutorials, and deep dives on software development, systems, and everything in between.
+permalink: /posts/
+---
+
+<!-- begin posts-page -->
+<section class="section posts-page">
+  <div class="container">
+
+    {% include page-breadcrumb.html %}
+
+    <div class="grid grid-gap-7">
+      <div class="col-8 col-d-12">
+
+        <div class="posts-page__head">
+          <h1 class="posts-page__title">All <span>posts.</span></h1>
+          {% if page.description %}
+          <p class="posts-page__description">{{ page.description }}</p>
+          {% endif %}
+        </div>
+
+        {% assign sorted_tags = site.tags | sort %}
+        {% if sorted_tags.size > 0 %}
+        <div class="posts-page__filters">
+          <button type="button" class="filter-tab filter-control is-active" data-filter="all">All</button>
+          {% for tag in sorted_tags %}
+          <button type="button" class="filter-tab filter-control" data-filter="{{ tag[0] | slugify }}">{{ tag[0] }}</button>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+    <div class="grid grid-gap-7">
+
+      <div class="posts-page__main col-8 col-d-12">
+
+        <div class="post-list">
+          {% for post in site.posts %}
+          {% include post-list-item.html %}
+          {% endfor %}
+        </div>
+
+        <p class="posts-page__empty is-hidden">No posts match this filter.</p>
+
+        <div class="posts-page__load-more">
+          <button type="button" class="button button--secondary load-more-posts">Load More</button>
+        </div>
+
+      </div>
+
+      <div class="posts-page__sidebar col-4 col-d-12">
+        <aside class="sidebar">
+          {% include sidebar-widgets/widget-search.html %}
+          {% include sidebar-widgets/widget-featured-posts.html %}
+          {% include sidebar-widgets/widget-stats.html %}
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- end posts-page -->

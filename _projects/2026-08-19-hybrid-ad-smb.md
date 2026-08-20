@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "Hybrid Active Directory & Microsoft 365 Environment"
-permalink: /projects/hybrid-ad-smb/
----
-
-[← Back to home](/) · [All projects](/projects/)
-
-# Hybrid Active Directory & Microsoft 365 Environment — SMB Simulation
-
-**Bare-metal build of a small-business hybrid identity environment, executed twice to measure process improvement.**
-
-Windows Server · Active Directory · Group Policy · Microsoft Entra ID · Entra Connect · Intune · Azure Arc
-
+description: "Bare-metal build of a small-business hybrid identity environment, executed twice to measure process improvement. Round 2: 5 hours 58 minutes, single operator, no rework."
+date: 2026-08-19 08:00:00 -0600
+labels: [Windows Server, Active Directory, Group Policy, Entra ID, Entra Connect, Intune]
+image: '/assets/projects/hybrid-ad-smb/10-ou-structure.png'
+toc: true
 ---
 
 ## At a glance
@@ -297,170 +290,39 @@ Carried forward, in priority order:
 
 The full capture set, ordered by build phase. Click any image to open it full size.
 
-<div class="gallery">
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/01-design-planning.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/01-design-planning.png" alt="Phase 0 — naming, addressing, and OU design" loading="lazy">
-    </a>
-    <figcaption>Phase 0 — naming, addressing, and OU design</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/02-dc-promotion-complete.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/02-dc-promotion-complete.png" alt="First domain controller promoted" loading="lazy">
-    </a>
-    <figcaption>First domain controller promoted</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/03-dns-resolution.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/03-dns-resolution.png" alt="DNS resolution verified" loading="lazy">
-    </a>
-    <figcaption>DNS resolution verified</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/04-ntp-configuration.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/04-ntp-configuration.png" alt="External NTP time source configured" loading="lazy">
-    </a>
-    <figcaption>External NTP time source configured</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/05-system-state-backup.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/05-system-state-backup.png" alt="System State backup scheduled" loading="lazy">
-    </a>
-    <figcaption>System State backup scheduled</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/06-backup-verification.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/06-backup-verification.png" alt="Backup verification" loading="lazy">
-    </a>
-    <figcaption>Backup verification</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/07-ad-recycle-bin.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/07-ad-recycle-bin.png" alt="AD Recycle Bin enabled" loading="lazy">
-    </a>
-    <figcaption>AD Recycle Bin enabled</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/08-dhcp-dns-delivery.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/08-dhcp-dns-delivery.png" alt="DHCP delivering DC as DNS server" loading="lazy">
-    </a>
-    <figcaption>DHCP delivering DC as DNS server</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/09-firewall-dhcp-options.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/09-firewall-dhcp-options.png" alt="Firewall DHCP options 6 and 15" loading="lazy">
-    </a>
-    <figcaption>Firewall DHCP options 6 and 15</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/10-ou-structure.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/10-ou-structure.png" alt="OU structure with container redirection" loading="lazy">
-    </a>
-    <figcaption>OU structure with container redirection</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/11-security-groups-global.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/11-security-groups-global.png" alt="Global role groups" loading="lazy">
-    </a>
-    <figcaption>Global role groups</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/12-security-groups-nesting.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/12-security-groups-nesting.png" alt="AGDLP group nesting" loading="lazy">
-    </a>
-    <figcaption>AGDLP group nesting</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/13-smb-share-troubleshooting.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/13-smb-share-troubleshooting.png" alt="SMB share troubleshooting" loading="lazy">
-    </a>
-    <figcaption>SMB share troubleshooting</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/14-ntfs-permissions.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/14-ntfs-permissions.png" alt="NTFS permissions by resource group" loading="lazy">
-    </a>
-    <figcaption>NTFS permissions by resource group</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/15-home-folder-acl.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/15-home-folder-acl.png" alt="Home folder ACL" loading="lazy">
-    </a>
-    <figcaption>Home folder ACL</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/16-group-policy-objects.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/16-group-policy-objects.png" alt="Group Policy Objects and links" loading="lazy">
-    </a>
-    <figcaption>Group Policy Objects and links</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/17-password-lockout-policy.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/17-password-lockout-policy.png" alt="Password and lockout policy" loading="lazy">
-    </a>
-    <figcaption>Password and lockout policy</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/18-entra-connect-configured.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/18-entra-connect-configured.png" alt="Entra Connect Sync configured" loading="lazy">
-    </a>
-    <figcaption>Entra Connect Sync configured</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/19-bulk-user-script.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/19-bulk-user-script.png" alt="Scripted bulk user provisioning" loading="lazy">
-    </a>
-    <figcaption>Scripted bulk user provisioning</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/20-users-created-onprem.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/20-users-created-onprem.png" alt="Users created on-premises" loading="lazy">
-    </a>
-    <figcaption>Users created on-premises</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/21-users-synced-entra.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/21-users-synced-entra.png" alt="Users synchronized to Entra ID" loading="lazy">
-    </a>
-    <figcaption>Users synchronized to Entra ID</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/22-scp-verification.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/22-scp-verification.png" alt="Service Connection Point verification" loading="lazy">
-    </a>
-    <figcaption>Service Connection Point verification</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/23-hybrid-join-success.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/23-hybrid-join-success.png" alt="Domain join + hybrid Entra join complete" loading="lazy">
-    </a>
-    <figcaption>Domain join + hybrid Entra join complete</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/24-license-assignment.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/24-license-assignment.png" alt="Group-based license assignment" loading="lazy">
-    </a>
-    <figcaption>Group-based license assignment</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/25-intune-enrollment.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/25-intune-enrollment.png" alt="Intune device enrollment" loading="lazy">
-    </a>
-    <figcaption>Intune device enrollment</figcaption>
-  </figure>
-  <figure class="shot">
-    <a href="/assets/projects/hybrid-ad-smb/26-second-domain-controller.png" target="_blank" rel="noopener">
-      <img src="/assets/projects/hybrid-ad-smb/26-second-domain-controller.png" alt="Second domain controller replicating" loading="lazy">
-    </a>
-    <figcaption>Second domain controller replicating</figcaption>
-  </figure>
+<div class="gallery-box">
+  <div class="gallery gallery-columns-3">
+    {% include img.html src="/assets/projects/hybrid-ad-smb/01-design-planning.png" alt="Phase 0 — naming, addressing, and OU design" caption="Phase 0 — naming, addressing, and OU design" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/02-dc-promotion-complete.png" alt="First domain controller promoted" caption="First domain controller promoted" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/03-dns-resolution.png" alt="DNS resolution verified" caption="DNS resolution verified" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/04-ntp-configuration.png" alt="External NTP time source configured" caption="External NTP time source configured" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/05-system-state-backup.png" alt="System State backup scheduled" caption="System State backup scheduled" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/06-backup-verification.png" alt="Backup verification" caption="Backup verification" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/07-ad-recycle-bin.png" alt="AD Recycle Bin enabled" caption="AD Recycle Bin enabled" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/08-dhcp-dns-delivery.png" alt="DHCP delivering DC as DNS server" caption="DHCP delivering DC as DNS server" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/09-firewall-dhcp-options.png" alt="Firewall DHCP options 6 and 15" caption="Firewall DHCP options 6 and 15" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/10-ou-structure.png" alt="OU structure with container redirection" caption="OU structure with container redirection" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/11-security-groups-global.png" alt="Global role groups" caption="Global role groups" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/12-security-groups-nesting.png" alt="AGDLP group nesting" caption="AGDLP group nesting" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/13-smb-share-troubleshooting.png" alt="SMB share troubleshooting" caption="SMB share troubleshooting" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/14-ntfs-permissions.png" alt="NTFS permissions by resource group" caption="NTFS permissions by resource group" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/15-home-folder-acl.png" alt="Home folder ACL" caption="Home folder ACL" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/16-group-policy-objects.png" alt="Group Policy Objects and links" caption="Group Policy Objects and links" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/17-password-lockout-policy.png" alt="Password and lockout policy" caption="Password and lockout policy" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/18-entra-connect-configured.png" alt="Entra Connect Sync configured" caption="Entra Connect Sync configured" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/19-bulk-user-script.png" alt="Scripted bulk user provisioning" caption="Scripted bulk user provisioning" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/20-users-created-onprem.png" alt="Users created on-premises" caption="Users created on-premises" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/21-users-synced-entra.png" alt="Users synchronized to Entra ID" caption="Users synchronized to Entra ID" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/22-scp-verification.png" alt="Service Connection Point verification" caption="Service Connection Point verification" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/23-hybrid-join-success.png" alt="Domain join + hybrid Entra join complete" caption="Domain join + hybrid Entra join complete" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/24-license-assignment.png" alt="Group-based license assignment" caption="Group-based license assignment" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/25-intune-enrollment.png" alt="Intune device enrollment" caption="Intune device enrollment" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/26-second-domain-controller.png" alt="Second domain controller replicating" caption="Second domain controller replicating" %}
+  </div>
+  <em>Full capture set, ordered by build phase — click any image to open it full size</em>
 </div>
 
 
 ---
 
 *This project was built on personally owned hardware in a home lab. No client or employer data was involved at any stage. All accounts, domains, and data are fictional.*
-
----
-
-[← Back to home](/) · [All projects](/projects/)

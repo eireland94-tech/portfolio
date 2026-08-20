@@ -1,14 +1,11 @@
 ---
-layout: default
 title: "I built a hybrid AD environment, tore it down, and built it again"
-date: 2026-08-19
+description: "Round 1 was tutorial-led and full of failures. Round 2 was a rebuild from my own playbook, timed, to find out whether the documentation actually worked."
+date: 2026-08-19 12:00:00 -0600
+image: '/assets/projects/hybrid-ad-smb/26-second-domain-controller.png'
+tags: [Active Directory, Entra ID, Documentation]
+toc: true
 ---
-
-[← Back to home](/)
-
-# {{ page.title }}
-
-*{{ page.date | date: "%B %-d, %Y" }}*
 
 I have been building a simulated small-business network in my basement — a
 hybrid Active Directory and Microsoft 365 environment of the kind a 5–50 seat

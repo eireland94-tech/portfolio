@@ -1,12 +1,137 @@
-title: Evan Ireland
-description: IT | Home Lab | Scripting | Runbooks
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-  - jekyll-remote-theme
-show_downloads: false
+# =============================================================================
+#  SITE CONFIGURATION  —  evanireland.tech
+# =============================================================================
+#  This file tells Jekyll HOW to build the site (URLs, folders, plugins).
+#  It is read ONCE at the start of a build. If you change anything in here
+#  while running a local preview, you must stop and restart `jekyll serve`.
+#
+#  Day-to-day content (your name, nav menu, bio, social links) does NOT live
+#  here — it lives in  _data/settings.yml . That is the file you will edit
+#  most often. This one you will rarely touch.
+# =============================================================================
 
-# Files listed here are ignored by the site builder — they stay in the repo
-# but are never published. HOW-TO-UPDATE.md is a note to yourself, not a page.
+
+# -----------------------------------------------------------------------------
+#  General
+# -----------------------------------------------------------------------------
+# `url` is the full public address of the site. It is used to build absolute
+# links in the RSS feed, the sitemap, and social-share preview cards. If this
+# is wrong, those links point at the wrong place — everything else still works,
+# which is why it is easy to get wrong and never notice.
+url: "https://evanireland.tech"
+
+# `baseurl` is the sub-folder the site lives in. Yours lives at the root of the
+# domain, so it stays empty. (It would be "/blog" if the site lived at
+# evanireland.tech/blog.)
+baseurl: ""
+
+# Used by the RSS feed and sitemap. The title shown in the header/browser tab
+# comes from _data/settings.yml instead.
+title: Evan Ireland
+description: "IT support technician — home lab builds, runbooks, scripting, and certifications."
+
+
+# -----------------------------------------------------------------------------
+#  Build settings
+# -----------------------------------------------------------------------------
+# kramdown is the Markdown engine. It is what turns **bold** into <b>bold</b>,
+# and it is what makes the {: .note } block syntax work.
+markdown: kramdown
+
+# Post dates are interpreted in this timezone. Without it, Jekyll uses the build
+# server's clock (UTC), which is 6-7 hours ahead of you — a post you date "today"
+# late in the evening can look like it is in the future and silently not publish.
+timezone: America/Denver
+
+# GFM = GitHub Flavored Markdown. This is what makes ```powershell fenced code
+# blocks get syntax highlighting, same as they do in a GitHub README.
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# jekyll-sitemap auto-generates /sitemap.xml so Google can crawl every page.
+# It is the only plugin this site needs.
+plugins:
+  - jekyll-sitemap
+
+# The stylesheet is compiled from css/main.scss. "compressed" strips all the
+# whitespace out of the finished CSS so the file downloads faster.
+sass:
+  style: compressed
+
+
+# -----------------------------------------------------------------------------
+#  Collections  —  the three kinds of content on this site
+# -----------------------------------------------------------------------------
+#  A "collection" is a folder of Markdown files that Jekyll turns into pages.
+#  This site has three, and each one has its own folder and its own URL shape:
+#
+#    _pages/     -> standalone pages     -> /about/, /certifications/
+#    _posts/     -> blog posts           -> /posts/some-post-title/
+#    _projects/  -> project case studies -> /projects/some-project/
+#
+#  `output: true` means "actually publish these as web pages" (without it,
+#  Jekyll would read the files but never write them out).
+#
+#  `permalink` is the URL shape. The trailing slash matters: it makes Jekyll
+#  write /projects/hybrid-ad-smb/index.html instead of /projects/hybrid-ad-smb.html,
+#  which is what keeps your existing project URL working exactly as before.
+# -----------------------------------------------------------------------------
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+  posts:
+    output: true
+    permalink: /posts/:slug/
+  projects:
+    output: true
+    permalink: /projects/:slug/
+
+
+# -----------------------------------------------------------------------------
+#  Defaults  —  so you don't have to repeat yourself in every file
+# -----------------------------------------------------------------------------
+#  A "layout" is the HTML wrapper around your Markdown. Rather than writing
+#  `layout: post` at the top of every single blog post, these rules say:
+#  "anything in _posts/ automatically uses the post layout."
+#
+#  You can still override it per-file if you ever need to.
+# -----------------------------------------------------------------------------
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+
+# -----------------------------------------------------------------------------
+#  Exclude  —  files that stay in the repo but never become web pages
+# -----------------------------------------------------------------------------
+#  HOW-TO-UPDATE.md is your own notes. Gemfile/Gemfile.lock/vendor are build
+#  machinery. _to_delete is the folder holding the old theme's files until you
+#  clear it out. None of these should be visible on the public site.
+# -----------------------------------------------------------------------------
 exclude:
   - HOW-TO-UPDATE.md
   - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - _to_delete
+  - .github
