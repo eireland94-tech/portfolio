@@ -242,13 +242,13 @@ about:
 # change what is in the slider. `alt` is read aloud by screen readers and shown
 # if the image fails to load — it is not optional.
 about_images:
-  - image: "/assets/battlestation.jpg"
-    alt: "Evan's home workstation: two monitors and a desktop PC under red lighting"
-    caption: "The desk everything gets built and broken on"
-
   - image: "/assets/pfp2.jpg"
     alt: "Portrait of Evan Ireland"
     caption: "Evan Ireland — IT Support Technician"
+
+  - image: "/assets/battlestation.jpg"
+    alt: "Evan's home workstation: two monitors and a desktop PC under red lighting"
+    caption: "The desk everything gets built and broken on"
 
 
 # -----------------------------------------------------------------------------
