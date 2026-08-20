@@ -44,6 +44,9 @@ public verification record. A claim you cannot verify is not worth much.
 
 ## What you will find here
 
+- **[Reference Library](/reference/)** — the documentation I actually work
+  from: the [IT Field Manual](/reference/field-manual/), build playbooks, and a
+  script toolkit in progress
 - **[Projects](/projects/)** — full write-ups of what I have built, including
   what went wrong and how I diagnosed it
 - **[Certifications](/certifications/)** — with verification links

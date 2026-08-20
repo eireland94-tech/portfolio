@@ -41,6 +41,8 @@ navigation:
     url: '/'
   - label: 'Projects'
     url: '/projects/'
+  - label: 'Reference'
+    url: '/reference/'
   - label: 'Posts'
     url: '/posts/'
   - label: 'Certifications'
@@ -95,7 +97,7 @@ author:
   name: "Evan Ireland"
 
   # These two build the fake shell prompt in the hero: evan@evanireland ~ $
-  username: "sysadmin"
+  username: "evan"
   hostname: "evanireland"
 
   role: "IT Support Technician"
@@ -116,7 +118,7 @@ author:
   # Photo in the "Author" box in the sidebar of post and project pages.
   avatar_image: "/assets/pfp2.jpg"
 
-  bio: "Former Army logistics officer moving into IT. I build it, break it, document it, then build it again to see if the documentation held."
+  bio: "Former Army logistics officer moving into IT. Build | Break | Fix | Document"
 
   # Links in that same Author box. Icon names come from Font Awesome — search
   # https://fontawesome.com/icons and use the class string it shows you.
@@ -141,7 +143,7 @@ author:
     - name: Microsoft 365 / Entra ID
       percent: 65
     - name: PowerShell
-      percent: 45
+      percent: 55
     - name: Linux (Ubuntu)
       percent: 40
 
@@ -154,7 +156,7 @@ author:
     |  (    )  |
     +----++----+
         ||
-    [user@evanireland]
+    [evan@evanireland]
     >_ build · break · document
 
 

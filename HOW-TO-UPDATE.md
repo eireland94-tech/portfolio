@@ -19,13 +19,14 @@ the **Hexdump** theme.
 6. [Add a blog post](#6-add-a-blog-post)
 7. [Add a project case study](#7-add-a-project-case-study)
 8. [Add a standalone page](#8-add-a-standalone-page)
-9. [Front matter reference](#9-front-matter-reference)
-10. [Images](#10-images)
-11. [Change your details, menu, or colours](#11-change-your-details-menu-or-colours)
-12. [Preview the site on your PC before pushing](#12-preview-the-site-on-your-pc-before-pushing)
-13. [When a build fails](#13-when-a-build-fails)
-14. [Rolling back](#14-rolling-back)
-15. [Things to be careful about](#15-things-to-be-careful-about)
+9. [Update the Reference Library](#9-update-the-reference-library)
+10. [Front matter reference](#10-front-matter-reference)
+11. [Images](#11-images)
+12. [Change your details, menu, or colours](#12-change-your-details-menu-or-colours)
+13. [Preview the site on your PC before pushing](#13-preview-the-site-on-your-pc-before-pushing)
+14. [When a build fails](#14-when-a-build-fails)
+15. [Rolling back](#15-rolling-back)
+16. [Things to be careful about](#16-things-to-be-careful-about)
 
 ---
 
@@ -209,20 +210,27 @@ portfolio/
 ├── _pages/                        Standalone pages
 │   ├── about.md                     -> /about/
 │   ├── certifications.md            -> /certifications/
+│   ├── reference.md                 -> /reference/                the library hub
+│   ├── field-manual.md              -> /reference/field-manual/   GENERATED - see §9
+│   ├── playbooks.md                 -> /reference/playbooks/
+│   ├── scripts.md                   -> /reference/scripts/
 │   ├── elements.md                  -> /elements/  (your formatting cheat sheet)
 │   ├── posts.html                   -> /posts/     (auto-lists all posts)
 │   ├── projects.html                -> /projects/  (auto-lists all projects)
 │   └── tags.html                    -> /tags/      (auto-lists all tags)
 ├── _posts/                        Blog posts     -> /posts/<slug>/
 ├── _projects/                     Case studies   -> /projects/<slug>/
+├── tools/
+│   └── build-field-manual.py      Regenerates the Field Manual page. See §9.
 ├── _layouts/                      Page skeletons        } theme internals —
 ├── _includes/                     Reusable HTML blocks  } you can edit these,
 ├── css/                           Sass source           } but you rarely need
 ├── js/                            Terminal, search, etc } to
-├── assets/                        YOUR images
+├── assets/                        YOUR images and documents
 │   ├── pfp2.jpg
 │   ├── battlestation.jpg
-│   └── projects/<slug>/*.png
+│   ├── projects/<slug>/*.png        project screenshots
+│   └── docs/                        downloadable PDFs and the raw Field Manual
 ├── index.html                     Homepage — just picks which sections show
 ├── 404.html, feed.xml, search.json, favicon.ico
 ├── CNAME                          "evanireland.tech" — NEVER DELETE
@@ -371,7 +379,93 @@ That is exactly what `/elements/` is.
 
 ---
 
-## 9. Front matter reference
+## 9. Update the Reference Library
+
+`/reference/` is a hub page with three sub-pages under it. All four are ordinary
+files in `_pages/`:
+
+| File | URL | What it is |
+|---|---|---|
+| `_pages/reference.md` | `/reference/` | The hub. Four numbered areas, each linking onward. |
+| `_pages/field-manual.md` | `/reference/field-manual/` | **Generated — do not hand-edit.** See below. |
+| `_pages/playbooks.md` | `/reference/playbooks/` | Downloadable playbook PDFs, one block each. |
+| `_pages/scripts.md` | `/reference/scripts/` | Script toolkit. Currently a stub. |
+
+Downloadable documents live in `assets/docs/`.
+
+### Updating the IT Field Manual
+
+The manual is one 37,000-word Markdown file. You keep writing it wherever you
+normally write it; the site takes a copy.
+
+**Do not edit `_pages/field-manual.md` by hand.** It is generated, and your edits
+would be wiped the next time you regenerate it. Edit your own master copy, then
+run:
+
+```powershell
+cd "C:\Users\evan\Documents\GitHub\portfolio"
+python tools\build-field-manual.py "C:\path\to\IT_Field_Manual_v1.1.md"
+```
+
+That rewrites two files, then you commit and push as normal:
+
+- `_pages/field-manual.md` — the page people read
+- `assets/docs/it-field-manual.md` — the raw download, an exact copy of yours
+
+If `python` is not recognised, try `py` instead. If neither works, Python is not
+on your PATH — the RubyInstaller steps in section 2 do not install Python.
+
+**Why a script is needed at all.** Your contents table links to headings using
+GitHub's anchor rules, so `## 05 — ACTIVE DIRECTORY OPERATIONS` becomes
+`#05--active-directory-operations-ad`. Jekyll's Markdown engine uses different
+rules and would strip the leading `05`, producing a different anchor — and all
+24 of your internal links would break. The script writes an explicit
+`<a id="..."></a>` into each of the 248 headings using GitHub's rules, so the
+same file behaves identically in both places. The script is commented in full
+if you want to read what it does.
+
+> **Note** — After bumping the version, update the "Current version" row in `_pages/reference.md` and the `Version` row inside the manual itself. Nothing breaks if you forget; the page will just claim to be older than it is.
+
+### Adding a playbook
+
+1. Export the PDF. Give it a lowercase, hyphenated name and drop it in
+   `assets/docs/` — for example `assets/docs/ubuntu-file-print-playbook-v1.pdf`.
+2. Open `_pages/playbooks.md`, copy an existing block, and edit it. The download
+   line carries page count, version, date, and file size:
+
+   ```markdown
+   **[Download the PDF →](/assets/docs/your-file.pdf)** · 24 pages · v1.0, October 2026 · 2.1 MB
+   ```
+
+3. Keep those four numbers honest. People decide whether to open a link based on
+   how big it is, and being wrong about it is a small, avoidable credibility hit.
+
+> **Warning** — Before publishing any document, re-read it for real hostnames, real IPs, real usernames, real domains, and real tenant names. Rule 1 of your own maintenance protocol — *strip the client* — applies to anything that goes on a public website. Once it is pushed to a public repo it is in the git history forever, even if you delete the file in a later commit.
+
+Two more things worth checking on a PDF before it goes up:
+
+- **Keep it under about 10 MB.** An oversized PDF is almost always uncompressed
+  screenshots; re-export at a lower image quality.
+- **Make sure the text is real text.** Open it and try Ctrl+F for a word you can
+  see. If nothing is found, the text was exported as vector outlines or images —
+  which means nobody can search it, copy from it, or read it with a screen
+  reader. Re-export it properly. This is why the Decommissioning Runbook PDF is
+  not on the site; that material lives in Field Manual §17 instead, where it
+  actually is searchable.
+
+### Adding a script
+
+`_pages/scripts.md` has a commented block at the bottom with the exact steps.
+Short version: put the `.ps1` in `assets/scripts/`, add a section with a
+description, a download link, and the first 15–20 lines pasted in a
+```` ```powershell ```` block so people can see its shape without downloading it.
+
+Delete the "This section is being built" note at the top of that page once there
+is at least one real script on it.
+
+---
+
+## 10. Front matter reference
 
 "Front matter" is the block between the two `---` lines at the top of a file.
 It is YAML, and it is settings, not content.
@@ -393,7 +487,7 @@ It is YAML, and it is settings, not content.
 
 ---
 
-## 10. Images
+## 11. Images
 
 **Where they go:** `assets/`. Project screenshots in
 `assets/projects/<project-slug>/`.
@@ -444,7 +538,7 @@ Aim under 500 KB. Windows Photos → Resize, or Paint → Resize, is enough.
 
 ---
 
-## 11. Change your details, menu, or colours
+## 12. Change your details, menu, or colours
 
 Almost everything is in **`_data/settings.yml`**, and that file is commented
 line by line. The highlights:
@@ -478,7 +572,7 @@ line by line. The highlights:
 
 ---
 
-## 12. Preview the site on your PC before pushing
+## 13. Preview the site on your PC before pushing
 
 Once section 2 is done:
 
@@ -503,7 +597,7 @@ If preview matches what you want, commit and push with confidence.
 
 ---
 
-## 13. When a build fails
+## 14. When a build fails
 
 **Symptom:** red X in the **Actions** tab. Live site unchanged.
 
@@ -531,7 +625,7 @@ deploy site" → **Run workflow**. Fixes the occasional transient failure.
 
 ---
 
-## 14. Rolling back
+## 15. Rolling back
 
 **One bad commit, undo it:**
 GitHub Desktop → **History** → right-click the commit → **Revert changes** →
@@ -552,7 +646,7 @@ right-click the file → **Revert changes in commit**.
 
 ---
 
-## 15. Things to be careful about
+## 16. Things to be careful about
 
 **Do not delete `CNAME`.** One line, `evanireland.tech`. Delete it and the
 custom domain detaches and the site reverts to `eireland94-tech.github.io`.

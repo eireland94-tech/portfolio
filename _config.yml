@@ -135,3 +135,6 @@ exclude:
   - vendor
   - _to_delete
   - .github
+  # tools/ holds build machinery (build-field-manual.py), not site content.
+  # It stays in the repo and on GitHub; it just isn't copied to the live site.
+  - tools
