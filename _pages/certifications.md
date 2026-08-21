@@ -14,11 +14,12 @@ Microsoft Learn transcript, etc.
 | Certification | Issuer | Verify |
 |---|---|---|
 | **Microsoft Certified: Azure Fundamentals (AZ-900)** | Microsoft | [Microsoft Learn transcript](https://learn.microsoft.com/en-us/users/evanireland-0590/credentials/19d9d49483bbbe4e) |
-| **Google IT Support Professional Certificate** | Google / Coursera | [Credly badge](https://www.credly.com/badges/257eceef-5740-4c12-b3bf-a72147a9bee0/linked_in_profile) |
+| **Google IT Support Professional Certificate** | Google | [Credly badge](https://www.credly.com/badges/257eceef-5740-4c12-b3bf-a72147a9bee0/linked_in_profile) |
 
 ## In progress
 
-- **[Microsoft 365 Certified: Copilot and Agent Administration Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/)** — Microsoft
+- **[Microsoft 365 Certified: Copilot and Agent Administration Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/)** | Microsoft
+- **[CompTIA A+ Certification](/https://www.comptia.org/en/certifications/a/core-1-and-2-v15/)** | CompTIA
 
 <!-- ===========================================================================
      HOW TO ADD A CERTIFICATION

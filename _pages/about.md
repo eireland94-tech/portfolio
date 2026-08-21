@@ -20,8 +20,8 @@ I created this site to serve as my living, breathing portfolio and personal
 repository. I post documentation about my home lab projects, store runbooks and
 field manuals, and keep the scripts I find useful along the way.
 
-> The deliverable that matters is not the network. It is the playbook, and the
-> measurable difference between the first build and the second.
+> You can’t go and download a Windows update for stupidity...." 
+> -Kevin Mitnick
 
 ## Where I work
 
@@ -29,7 +29,7 @@ field manuals, and keep the scripts I find useful along the way.
   <div class="gallery gallery-columns-1">
     {% include img.html src="/assets/battlestation.jpg" alt="Home workstation: two monitors, a terminal running on the left screen, and a desktop PC under red lighting" caption="The desk everything gets built and broken on" %}
   </div>
-  <em>Everything on this site was built, broken, and documented from here</em>
+  <em>Where the magic happens</em>
 </div>
 
 ## Certifications
@@ -39,8 +39,8 @@ and the [Google IT Support Professional Certificate](/certifications/), and I am
 currently working toward [Microsoft 365 Certified: Copilot and Agent
 Administration Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/).
 
-Every certification on the [certifications page](/certifications/) links to a
-public verification record. A claim you cannot verify is not worth much.
+Every certification on the [certifications page](/certifications/) links to the
+public verification record.
 
 ## What you will find here
 

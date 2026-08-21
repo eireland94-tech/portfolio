@@ -17,7 +17,7 @@
 # -----------------------------------------------------------------------------
 # `title` shows in the top-left of the header and in the footer.
 title: "Evan Ireland"
-description: "IT support technician — home lab builds, runbooks, scripting, and certifications."
+description: "IT support technician — home lab builds, runbooks, and scripting."
 
 # Leave `logo` blank to show the title as text (current behaviour). To use an
 # image instead, drop a PNG in /assets/ and put the path here, e.g. '/assets/logo.png'
@@ -175,7 +175,7 @@ hero:
   # Responsive text size: minimum, how it scales, maximum.
   title_size: "32px, 8vw, 110px"
 
-  description: I am an IT technician building hands-on skills through home lab work, documentation, and scripting. This site is my working portfolio — project case studies, runbooks, and the certifications behind them.
+  description: I am an IT enthusiast building hands-on skills through home lab work, documentation, and scripting. This site is my working portfolio — project case studies, runbooks, and scripting.
 
   # A full-width photo behind the hero. Left blank on purpose: the interactive
   # terminal sits on top of this area and a busy photo makes the text hard to
@@ -246,17 +246,22 @@ about:
 about_images:
   - image: "/assets/pfp2.jpg"
     alt: "Portrait of Evan Ireland"
-    caption: "Evan Ireland — IT Support Technician"
+    caption: "Evan Ireland — Computer Nerd"
 
   - image: "/assets/battlestation.jpg"
     alt: "Evan's home workstation: two monitors and a desktop PC under red lighting"
-    caption: "The desk everything gets built and broken on"
+    caption: "Where the magic happens"
+
+  - image: "/assets/logo.jpg"
+    alt: "Evan Ireland Tech, Established 2026"
+    caption: "Evan Ireland Tech, Established 2026"
+
 
 
 # -----------------------------------------------------------------------------
 #  Footer
 # -----------------------------------------------------------------------------
-footer_description: "Home lab builds documented the way I would document them for an employer — including what went wrong."
+footer_description: "Home lab builds tracked and documented."
 
 # Icons along the bottom of every page.
 social_footer:
