@@ -547,7 +547,7 @@ line by line. The highlights:
 |---|---|
 | Name in the header / footer | `title` |
 | Top menu items | `navigation` |
-| Default colour scheme | `theme.default` — `dracula`, `matrix`, `nord`, `gruvbox`, `mono` |
+| Default colour scheme | `theme.default` — `azure`, `dracula`, `matrix`, `nord`, `gruvbox`, `mono` |
 | Hide the colour-dot switcher | `theme.theme_switcher: false` |
 | Terminal prompt (`evan@evanireland`) | `author.username`, `author.hostname` |
 | Job title, email, bio | `author.role`, `author.email`, `author.bio` |

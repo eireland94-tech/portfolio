@@ -29,7 +29,7 @@
   {% assign cfg_switcher_header = site.data.settings.theme.theme_switcher %}
   <script>
     (function () {
-      var VALID = ['matrix', 'dracula', 'nord', 'gruvbox', 'mono'];
+      var VALID = ['azure', 'matrix', 'dracula', 'nord', 'gruvbox', 'mono'];
       var DEFAULT = '{{ cfg_theme_default }}';
       var SWITCHER_OFF = {% if cfg_switcher_header == false %}true{% else %}false{% endif %};
       var theme = DEFAULT;

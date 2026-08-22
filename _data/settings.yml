@@ -59,16 +59,20 @@ navigation:
 #  (their choice is remembered in their browser). Set it to false to lock
 #  everyone to your default.
 #
-#  Valid values for `default`: matrix | dracula | nord | gruvbox | mono
+#  Valid values for `default`: azure | matrix | dracula | nord | gruvbox | mono
 # -----------------------------------------------------------------------------
 theme:
-  default: "dracula"
+  default: "azure"
   theme_switcher: true
 
 # The dots in the header, in this order. `accent` is the colour of the dot.
 # Deleting an entry here removes that dot AND that option — don't delete the
 # one named in `theme.default` above or the site loses its colours.
 themes:
+  - name: "azure"
+    label: "AZURE"
+    accent: "#0078d4"
+
   - name: "dracula"
     label: "DRACULA"
     accent: "#bd93f9"

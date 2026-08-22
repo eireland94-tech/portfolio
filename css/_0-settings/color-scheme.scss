@@ -1,7 +1,41 @@
 /* Color Scheme */
 
-// --- MATRIX (Default Theme) ---
+// --- AZURE (Default Theme) ---
+// Microsoft-inspired. Accent is Azure blue lifted from #0078d4 to #3ba0f2 so it
+// clears WCAG AA (4.5:1) as link/heading text on the navy background; #0078d4
+// itself only reaches 4.14:1 and is used for the header dot swatch instead.
 :root,
+[data-theme="azure"] {
+  --color-bg: #0a1220;
+  --color-bg-alt: #14263d;
+  --color-bg-panel: #060d18;
+  --color-bg-panel-alt: #101c2e;
+  --color-border: #1f4a7d;
+  --color-border-dim: #16304d;
+
+  --color-accent: #3ba0f2;
+  --color-accent-alt: #50e6ff;
+
+  --color-text: #e8f1fb;
+  --color-text-mid: #93b4d6;
+  --color-text-dim: #5b7fa6;
+
+  --color-error: #f1707b;
+  --color-warning: #ffb757;
+  --color-success: #6fd48a;
+
+  --callout-note: #50e6ff;
+  --callout-tip: #6fd48a;
+  --callout-important: #a98fe0;
+  --callout-warning: #ffb757;
+  --callout-caution: #f1707b;
+
+  // Global, theme-agnostic: these resolve against whichever --color-bg is active.
+  --overlay-panel-80: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  --image-gradient: linear-gradient(180deg, var(--overlay-panel-80), var(--color-bg));
+}
+
+// --- MATRIX ---
 [data-theme="matrix"] {
   --color-bg: #0a0a0a;
   --color-bg-alt: #0d100d;
@@ -26,9 +60,6 @@
   --callout-important: #b388ff;
   --callout-warning: #febc2e;
   --callout-caution: #ff5f57;
-
-  --overlay-panel-80: color-mix(in srgb, var(--color-bg) 80%, transparent);
-  --image-gradient: linear-gradient(180deg, var(--overlay-panel-80), var(--color-bg));
 }
 
 // --- DRACULA ---

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     btnScrollToTop = document.querySelector(".top"),
     imagesOverlay = document.querySelector(".images-overlay");
 
-  const VALID_THEMES = (cfg.themes && cfg.themes.length) ? cfg.themes : ["matrix", "dracula", "nord", "gruvbox", "mono"];
+  const VALID_THEMES = (cfg.themes && cfg.themes.length) ? cfg.themes : ["azure", "matrix", "dracula", "nord", "gruvbox", "mono"];
 
   const commandHistory = [];
   let historyPosition = -1;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ["cat avatar.txt", "ASCII self-portrait"],
         ["skills", "skills with progress bars"],
         ["status", "availability for work"],
-        ["theme <name>", "matrix | dracula | nord | gruvbox | mono"],
+        ["theme <name>", "azure | matrix | dracula | nord | gruvbox | mono"],
         ["sudo <anything>", "try it ;)"],
         ["history", "show command history"],
         ["clear", "clear terminal output"],
