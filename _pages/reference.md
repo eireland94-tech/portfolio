@@ -6,12 +6,10 @@ permalink: /reference/
 image:
 ---
 
-Everything here is written for one reader in particular: me, six months from now,
-under time pressure, trying to remember exactly how something worked. If it is
-useful to anyone else, that is a bonus rather than the design goal — which is
-why none of it is padded.
+Everything here is written to provide, quick usable reference material, 
+under time pressure, trying to remember exactly how something worked.
 
-Nothing is theoretical. Every procedure here was executed, broken, diagnosed and
+Nothing is theoretical. Every procedure here was executed, diagnosed, and
 re-executed on real hardware before it was written down.
 
 ---

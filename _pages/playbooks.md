@@ -8,7 +8,7 @@ image:
 
 [← Back to the Reference Library](/reference/)
 
-A playbook is not a tutorial. A tutorial teaches you a concept; a playbook gets
+A playbook is not a tutorial: A tutorial teaches you a concept; a playbook gets
 you through a job in the right order, with the reasoning attached and the traps
 marked before you walk into them.
 

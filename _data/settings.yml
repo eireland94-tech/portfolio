@@ -101,10 +101,10 @@ author:
   name: "Evan Ireland"
 
   # These two build the fake shell prompt in the hero: evan@evanireland ~ $
-  username: "evan"
+  username: "sysadmin"
   hostname: "evanireland"
 
-  role: "IT Support Technician"
+  role: "IT Enthusiast"
   email: "evan@evanireland.tech"
 
   # Shown by the terminal's `about` command as "career: NNNd (since ...)".
@@ -160,8 +160,8 @@ author:
     |  (    )  |
     +----++----+
         ||
-    [evan@evanireland]
-    >_ build · break · document
+    [sysadmin@evanireland]
+    >_ build · break · repeat
 
 
 # -----------------------------------------------------------------------------
@@ -179,7 +179,7 @@ hero:
   # Responsive text size: minimum, how it scales, maximum.
   title_size: "32px, 8vw, 110px"
 
-  description: I am an IT enthusiast building hands-on skills through home lab work, documentation, and scripting. This site is my working portfolio — project case studies, runbooks, and scripting.
+  description: I am an IT enthusiast building hands-on skills through home lab work, documentation, and scripting. This site serves as my working portfolio.
 
   # A full-width photo behind the hero. Left blank on purpose: the interactive
   # terminal sits on top of this area and a busy photo makes the text hard to
@@ -238,8 +238,8 @@ about:
     **Ubuntu Server**, and picking up scripting as I go.
 
     This site is the living version of that. Project write-ups
-    with the failures left in, runbooks I actually use, and the
-    certifications behind them.
+    with lessons learned, documentation so it works better next time,
+    and building my own personal respository of information.
 
     Currently looking for IT support work in the
     Rapid City / Black Hills area.
@@ -250,7 +250,7 @@ about:
 about_images:
   - image: "/assets/pfp2.jpg"
     alt: "Portrait of Evan Ireland"
-    caption: "Evan Ireland — Computer Nerd"
+    caption: "Evan Ireland — IT Enthusiast"
 
   - image: "/assets/battlestation.jpg"
     alt: "Evan's home workstation: two monitors and a desktop PC under red lighting"
@@ -265,7 +265,7 @@ about_images:
 # -----------------------------------------------------------------------------
 #  Footer
 # -----------------------------------------------------------------------------
-footer_description: "Home lab builds tracked and documented."
+footer_description: "Home Lab | Documentation | Scripting | IT"
 
 # Icons along the bottom of every page.
 social_footer:

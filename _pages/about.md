@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-description: Former Army logistics officer, now building a career in IT. Here is the honest version of where I am and where I am going.
+description: Former Army officer with a logistics background, changing careers into IT
 permalink: /about/
 # No `image:` here on purpose. The photo appears once, further down, in the
 # "Where I work" gallery — where it gets a caption and a click-to-enlarge.
@@ -9,10 +9,8 @@ permalink: /about/
 image:
 ---
 
-Former Army officer with a logistics background, changing careers into IT.
-
 I enjoy anything and everything that broadens my skill set and knowledge base in
-the world of IT. Home lab projects, deepening my proficiency in the Microsoft
+the world of IT. Home lab projects, developing my proficiency in the Microsoft
 ecosystem, exploring Linux distributions (Ubuntu and Ubuntu Server), scripting
 basics — I simply can't get enough of it.
 
@@ -44,11 +42,11 @@ public verification record.
 
 ## What you will find here
 
-- **[Reference Library](/reference/)** — the documentation I actually work
-  from: the [IT Field Manual](/reference/field-manual/), build playbooks, and a
+- **[Reference Library](/reference/)** — the documentation I'm building as I go along: 
+  the [IT Field Manual](/reference/field-manual/), build playbooks, and a
   script toolkit in progress
 - **[Projects](/projects/)** — full write-ups of what I have built, including
-  what went wrong and how I diagnosed it
+  what went wrong and how I fixed it.
 - **[Certifications](/certifications/)** — with verification links
 - **[Posts](/posts/)** — shorter notes and runbooks as I go
 

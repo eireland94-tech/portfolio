@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Certifications
-description: What I hold, what I am studying for, and a public verification link for every one of them.
+description: What I hold, what I am studying for, and public verification links.
 permalink: /certifications/
 image:
 ---
 
-Every certification below links to a public verification record — a Credly badge, 
+Every certification below links to its respectivve public verification record — a Credly badge, 
 Microsoft Learn transcript, etc.
 
 ## Held
