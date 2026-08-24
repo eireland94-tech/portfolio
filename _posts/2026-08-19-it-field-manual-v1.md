@@ -7,6 +7,12 @@ tags: [Documentation, PowerShell, Active Directory]
 toc: true
 ---
 
+> **Update, 24 August 2026.** The manual is now at **version 1.3** — roughly
+> 93,000 words across 31 sections, with a fundamentals layer and five new cloud
+> administration sections. Everything below still holds, with one exception:
+> "Personal additions" moved from §22 to **§25** when the fundamentals sections
+> were added. See **[what changed in v1.3](/posts/it-field-manual-v1-3/)**.
+
 I have published the **[IT Field Manual](/reference/field-manual/)** — the
 single document I work out of. It sits at the top of a new
 **[Reference Library](/reference/)** along with the build playbooks and, in time,

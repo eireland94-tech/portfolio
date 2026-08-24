@@ -1,8 +1,8 @@
 {% comment %}
   toc_depth lets a page cap how deep the sidebar contents go.
-  Default 6 = every heading level, which is the theme's original behaviour.
+  Default 6 = every heading level, which is the theme's original behavior.
   The Field Manual sets `toc_depth: 2` in its front matter so the sidebar lists
-  its 23 sections instead of all 248 headings.
+  its 31 sections instead of all 440-odd headings.
 {% endcomment %}
 {% assign toc_h_max = page.toc_depth | default: 6 %}
 {% capture toc_list %}{% include toc.html html=include.content ordered=true class="widget-toc__list" h_min=2 h_max=toc_h_max %}{% endcapture %}

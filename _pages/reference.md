@@ -18,23 +18,31 @@ re-executed on real hardware before it was written down.
 
 **[Read the manual →](/reference/field-manual/)**
 
-The single reference. Windows, Active Directory, Group Policy, file services,
-hybrid identity, Intune, Microsoft 365, Azure, PowerShell, and the standard
-operating procedures that tie them together — about 37,000 words across 23
-sections.
+The single reference. Networking and security fundamentals, Windows, Active
+Directory, Group Policy, file services, hybrid identity, Intune, Microsoft 365,
+Exchange Online, public DNS and mail flow, SharePoint sharing, Purview, Copilot
+administration, Azure, PowerShell, and the standard operating procedures that
+tie them together — about 93,000 words across 31 sections.
 
 Every block carries a search tag in brackets, like `[GPO-TRIAGE]` or
 `[AD-LOCKOUT]`, so you search the tag rather than the prose and the reference
-survives being reorganised. Section 18 is an error → cause → fix index: paste in
+survives being reorganized. Section 18 is an error → cause → fix index: paste in
 the error message you are actually looking at and start there.
+
+The tag prefixes are split on purpose. `[NET]` is the commands you run;
+`[NETF]` is the protocol reasoning underneath them. Same for `[SEC]` and
+`[SECF]`. When something is broken you want the first one; when a client asks
+you why, you want the second.
 
 It is a living document. New sections get added as I hit new problems.
 
 | | |
 |---|---|
-| **Current version** | 1.0 — August 2026 |
+| **Current version** | 1.3 — August 2026 |
+| **Sections** | 31 (§00 – §30), ~93,000 words, 54 logged corrections in `[APX-C]` |
 | **Read online** | [/reference/field-manual/](/reference/field-manual/) |
 | **Download** | [Raw Markdown](/assets/docs/it-field-manual.md) — opens in VS Code, Obsidian, or any text editor |
+| **Changelog** | [End of the manual](/reference/field-manual/#changelog) — every version, what changed, and where it came from |
 
 ---
 

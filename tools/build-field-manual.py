@@ -21,7 +21,7 @@ site, on GitHub, and in any editor preview.
 
 (Kramdown has its own shorthand for this -- "## Heading {#id}" -- but if that
 shorthand is ever not honoured it renders as literal "{#id}" text next to all
-248 headings. Inline HTML has no such failure mode.)
+440-odd headings. Inline HTML has no such failure mode.)
 
 It also copies the original, untouched file to assets/docs/ so visitors can
 download the real thing rather than a modified copy.
@@ -30,7 +30,7 @@ HOW TO USE IT
 -------------
 When you update the manual, save the new export somewhere, then run:
 
-    python tools/build-field-manual.py path\\to\\IT_Field_Manual_v1.1.md
+    python tools/build-field-manual.py path\\to\\IT_Field_Manual_v1.3.md
 
 from the repo root. It rewrites two files:
 
@@ -56,7 +56,7 @@ from pathlib import Path
 FRONT_MATTER = """---
 layout: page
 title: IT Field Manual
-description: "A living operational reference for Windows, Active Directory, Microsoft 365, Entra ID, Intune and Azure. Every block is tagged — search the tag, not the prose."
+description: "A living operational reference: networking and security fundamentals, Windows, Active Directory, hybrid identity, Intune, Microsoft 365, Exchange Online, public DNS and mail flow, Purview, Copilot administration, and Azure. Every block is tagged — search the tag, not the prose."
 permalink: /reference/field-manual/
 image:
 toc: true

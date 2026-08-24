@@ -395,8 +395,8 @@ Downloadable documents live in `assets/docs/`.
 
 ### Updating the IT Field Manual
 
-The manual is one 37,000-word Markdown file. You keep writing it wherever you
-normally write it; the site takes a copy.
+The manual is one Markdown file — about 93,000 words across 31 sections as of
+v1.3. You keep writing it wherever you normally write it; the site takes a copy.
 
 **Do not edit `_pages/field-manual.md` by hand.** It is generated, and your edits
 would be wiped the next time you regenerate it. Edit your own master copy, then
@@ -404,7 +404,7 @@ run:
 
 ```powershell
 cd "C:\Users\evan\Documents\GitHub\portfolio"
-python tools\build-field-manual.py "C:\path\to\IT_Field_Manual_v1.1.md"
+python tools\build-field-manual.py "C:\path\to\IT_Field_Manual_v1.3.md"
 ```
 
 That rewrites two files, then you commit and push as normal:
@@ -419,12 +419,14 @@ on your PATH — the RubyInstaller steps in section 2 do not install Python.
 GitHub's anchor rules, so `## 05 — ACTIVE DIRECTORY OPERATIONS` becomes
 `#05--active-directory-operations-ad`. Jekyll's Markdown engine uses different
 rules and would strip the leading `05`, producing a different anchor — and all
-24 of your internal links would break. The script writes an explicit
-`<a id="..."></a>` into each of the 248 headings using GitHub's rules, so the
-same file behaves identically in both places. The script is commented in full
-if you want to read what it does.
+32 of your internal links would break. The script writes an explicit
+`<a id="..."></a>` into each of the 440-odd headings using GitHub's rules, so
+the same file behaves identically in both places. The script is commented in
+full if you want to read what it does.
 
-> **Note** — After bumping the version, update the "Current version" row in `_pages/reference.md` and the `Version` row inside the manual itself. Nothing breaks if you forget; the page will just claim to be older than it is.
+> **Note** — After bumping the version, update the "Current version" and "Sections" rows in `_pages/reference.md` and the `Version` row inside the manual itself. Nothing breaks if you forget; the page will just claim to be older and smaller than it is.
+>
+> The section and word counts the script prints when it finishes are the numbers to copy into `_pages/reference.md`. There is also a stale-comment trap: `_includes/sidebar-widgets/widget-toc.html` states the section count in a Liquid comment. It is only a comment, so nothing breaks, but it is worth keeping honest.
 
 ### Adding a playbook
 
@@ -568,7 +570,7 @@ line by line. The highlights:
 4. **`|` means "keep my line breaks".** Everything under it must stay indented
    consistently — `about.description` uses this.
 
-> **Warning** — The site has a no-JavaScript quirk worth knowing: the default colour scheme is applied by a small script in `_includes/head.html`. A visitor with JavaScript disabled sees Matrix green rather than Dracula purple, because the stylesheet's `:root` block is Matrix. Everything is readable either way. Fixing it properly means editing `css/_0-settings/color-scheme.scss` so `:root` carries the Dracula values.
+> **Note** — The colour scheme is applied two ways: `:root` in `css/_0-settings/color-scheme.scss` carries the default for visitors with JavaScript disabled, and a small script in `_includes/head.html` applies a returning visitor's saved choice. Those two have to agree. `:root` currently carries **Azure**, which matches `theme.default`. If you ever change `theme.default` to a different scheme, change the `:root` pairing in `color-scheme.scss` to match, or no-JS visitors will see the old default.
 
 ---
 
