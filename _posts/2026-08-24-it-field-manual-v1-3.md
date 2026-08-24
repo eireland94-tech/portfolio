@@ -1,7 +1,7 @@
 ---
 title: "The IT Field Manual, version 1.3"
 description: "Five days, three versions, and roughly 57,000 more words. What got added, what got corrected, and the one instruction in my own source material that I did not follow."
-date: 2026-08-24 12:00:00 -0600
+date: 2026-08-24 09:00:00 -0600
 image: '/assets/projects/m365-administration/06-dnssec-not-supported-banner.png'
 tags: [Documentation, Microsoft 365, DNS, Purview, Troubleshooting]
 toc: true
