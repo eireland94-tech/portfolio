@@ -17,7 +17,7 @@
 # -----------------------------------------------------------------------------
 # `title` shows in the top-left of the header and in the footer.
 title: "Evan Ireland"
-description: "IT support technician — home lab builds, runbooks, and scripting."
+description: "Digital Mechanic — Tech | Homelab | Scripting | Documentation"
 
 # Leave `logo` blank to show the title as text (current behaviour). To use an
 # image instead, drop a PNG in /assets/ and put the path here, e.g. '/assets/logo.png'
@@ -104,7 +104,7 @@ author:
   username: "sysadmin"
   hostname: "evanireland"
 
-  role: "IT Enthusiast"
+  role: "Digital Mechanic"
   email: "evan@evanireland.tech"
 
   # Shown by the terminal's `about` command as "career: NNNd (since ...)".
@@ -122,7 +122,7 @@ author:
   # Photo in the "Author" box in the sidebar of post and project pages.
   avatar_image: "/assets/pfp2.jpg"
 
-  bio: "Former Army logistics officer moving into IT. Build | Break | Fix | Document"
+  bio: "Former Army logistics officer moving into IT. Tech | Homelab | Scripting | Documentation"
 
   # Links in that same Author box. Icon names come from Font Awesome — search
   # https://fontawesome.com/icons and use the class string it shows you.
@@ -267,7 +267,7 @@ about_images:
 # -----------------------------------------------------------------------------
 #  Footer
 # -----------------------------------------------------------------------------
-footer_description: "Home Lab | Documentation | Scripting | IT"
+footer_description: "Tech | Homelab | Scripting | Documentation"
 
 # Icons along the bottom of every page.
 social_footer:
