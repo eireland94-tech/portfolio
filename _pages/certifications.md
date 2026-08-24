@@ -6,7 +6,7 @@ permalink: /certifications/
 image:
 ---
 
-Every certification below links to its respectivve public verification record — a Credly badge, 
+Every certification below links to its respective public verification record — a Credly badge, 
 Microsoft Learn transcript, etc.
 
 ## Held
@@ -19,7 +19,7 @@ Microsoft Learn transcript, etc.
 ## In progress
 
 - **[Microsoft 365 Certified: Copilot and Agent Administration Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/)** | Microsoft
-- **[CompTIA A+ Certification](/https://www.comptia.org/en/certifications/a/core-1-and-2-v15/)** | CompTIA
+- **[CompTIA A+ Certification](https://www.comptia.org/en/certifications/a/core-1-and-2-v15/)** | CompTIA
 
 <!-- ===========================================================================
      HOW TO ADD A CERTIFICATION

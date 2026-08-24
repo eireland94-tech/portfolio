@@ -43,8 +43,13 @@ It is a living document. New sections get added as I hit new problems.
 **[Browse playbooks →](/reference/playbooks/)**
 
 Long-form procedures for work that takes hours rather than minutes: building a
-hybrid environment from bare metal, assessing a network you have just inherited,
-and tearing an environment down without stranding anything.
+hybrid environment from bare metal, administering one day to day, assessing a
+network you have just inherited, and tearing an environment down without
+stranding anything.
+
+Two are published — the **Hybrid Microsoft Network Build & Troubleshooting
+Playbook** (48 pp.) and the **Microsoft 365 Administration Playbook** (70 pp.).
+The first covers standing an environment up; the second covers running it.
 
 These are checklists you follow top to bottom, with the reasoning attached — the
 kind of document you would want in your hands the first time you do the job

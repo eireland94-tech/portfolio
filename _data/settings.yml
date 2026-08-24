@@ -113,7 +113,7 @@ author:
   career_start: "2025-01-01"
 
   # Counts up as you publish. Keep it matching the number of files in _projects/.
-  projects_completed: 1
+  projects_completed: 2
 
   # Shown by the terminal's `status` command.
   # available | busy | open_to_offers
@@ -142,12 +142,14 @@ author:
   #  Only the first three appear in the hero terminal's `whoami` output.
   # ---------------------------------------------------------------------------
   skills:
+    - name: Microsoft 365 / Entra ID
+      percent: 75
     - name: Windows Server / AD
       percent: 70
-    - name: Microsoft 365 / Entra ID
-      percent: 65
     - name: PowerShell
-      percent: 55
+      percent: 60
+    - name: DNS & Email Infrastructure
+      percent: 60
     - name: Linux (Ubuntu)
       percent: 40
 
@@ -256,7 +258,7 @@ about_images:
     alt: "Evan's home workstation: two monitors and a desktop PC under red lighting"
     caption: "Where the magic happens"
 
-  - image: "/assets/logo.jpg"
+  - image: "/assets/logo.JPG"
     alt: "Evan Ireland Tech, Established 2026"
     caption: "Evan Ireland Tech, Established 2026"
 

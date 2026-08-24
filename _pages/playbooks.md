@@ -55,6 +55,47 @@ rather than describing one specific lab.
 
 ---
 
+## Microsoft 365 Administration Playbook
+
+**[Download the PDF →](/assets/docs/m365-administration-playbook-v1.pdf)** · 70 pages · v1.0, August 2026 · 3.1 MB
+
+The other half of the job. Where the hybrid build playbook covers standing an
+environment up, this one covers running it: mail flow, spam and quarantine,
+shared mailboxes and delegation, groups, addressing, SharePoint sharing, and
+data loss prevention.
+
+It was written from a live tenant across eight tasks, and the findings are the
+document — nine of them traced to root cause, including three separate cases
+where a Microsoft system reported success while doing nothing useful.
+
+**What is in it**
+
+| Part | Contents |
+|---|---|
+| **Task 0** | Domain configuration for Exchange Online — MX, autodiscover, SPF, DKIM, DMARC, and a DNSSEC incident |
+| **Tasks 1–2** | Message trace interpretation · spam filtering, quarantine, and quarantine policies |
+| **Tasks 3–5** | Shared mailboxes and delegation · distribution vs mail-enabled security groups · aliases and primary SMTP |
+| **Tasks 6–7** | SharePoint permission inheritance and external sharing · sensitivity labels and DLP in Purview |
+| **Cross-cutting** | The three findings that were not product-specific, written as doctrine |
+| **Appendices** | Corrections to prior understanding, deferred and unverified items, closing state |
+
+**The finding worth the download.** A DLP policy left in simulation mode
+produces the *complete appearance* of enforcement — the policy tip fires in
+Outlook, message trace logs three DLP rule evaluations, the sender gets a
+notification saying they shared a credit card number outside the organisation —
+and the card number still arrives at the external recipient in plain text. The
+message trace is effectively identical to the enforcing run. Nothing on the
+admin side contradicts you. **The only reliable verification is confirming what
+the recipient actually received.**
+
+**Conventions.** Body text is written against placeholders — `contoso.beer`,
+`contoso.onmicrosoft.com`, `example.com` — so the procedures transfer. The
+screenshots are from the lab as it actually ran.
+
+**Companion case study:** [Microsoft 365 Administration →](/projects/m365-administration/)
+
+---
+
 ## Decommissioning a hybrid environment
 
 **Covered in the Field Manual — [§17 `[DECOM]`](/reference/field-manual/#17--decommissioning-a-hybrid-environment-decom)**
