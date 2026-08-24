@@ -12,7 +12,7 @@ toc: true
 | | |
 |---|---|
 | **Objective** | Design, build, document, and decommission a production-shaped hybrid network for a simulated 5–50 seat business |
-| **Approach** | Two full iterations — exploratory build, then a documented rebuild from a self-authored playbook |
+| **Approach** | Two full iterations – an exploratory build, then a documented rebuild from a self-authored playbook |
 | **Round 2 build time** | 5 hours 58 minutes, bare metal, single operator |
 | **Hardware** | 1 × mini PC (domain controller / file server), 2 × laptops (clients), 1 × Hyper-V VM (second DC) |
 | **Cloud** | Microsoft 365 Business Premium tenant with a registered custom domain |
@@ -22,11 +22,11 @@ toc: true
 
 ## Why this project exists
 
-I am changing careers into IT and had no production environment to learn in. Reading about Active Directory does not teach you what happens when Group Policy silently fails to apply, or why a laptop refuses to join a domain that responds perfectly to `ping`.
+I am changing careers into IT, and I had no production environment to learn in. Reading about Active Directory does not teach you what happens when Group Policy silently fails to apply, or why a laptop refuses to join a domain that answers `ping` without complaint.
 
-So I built the environment, broke it, diagnosed the breakage, wrote down what I learned, tore it down, and built it again — the second time from my own documentation rather than from tutorials.
+So I built the environment, broke it, diagnosed the breakage, wrote down what I learned, tore the whole thing down, and built it again – the second time from my own documentation rather than from tutorials.
 
-The deliverable that matters is not the network. It is the **playbook**, and the measurable difference between the two builds.
+The deliverable that matters here is not the network. It is the **playbook**, and the measurable difference between the two builds.
 
 ---
 
@@ -41,7 +41,7 @@ A fictional small business, "HomeBiz," needs:
 - Cloud-based device management and application deployment
 - Directory redundancy and a tested backup
 
-This is the shape of a large share of real small-business engagements: an on-premises domain that has grown into Microsoft 365, needing both halves to work as one system.
+That list is the shape of a large share of real small-business work: an on-premises domain that grew into Microsoft 365, with both halves expected to behave as one system.
 
 ---
 
@@ -78,41 +78,41 @@ This is the shape of a large share of real small-business engagements: an on-pre
         └──────────────────────────────────────┘
 ```
 
-**Namespace design.** The public domain `homebiz.beer` was registered and verified in Entra ID; the internal AD domain is the subdomain `ad.homebiz.beer`. This avoids split-brain DNS entirely — the domain controller is authoritative only for the child zone and forwards everything else upstream — and it means user sign-in names and email addresses are the same string in both directories.
+**Namespace design.** The public domain `homebiz.beer` was registered and verified in Entra ID; the internal AD domain is the subdomain `ad.homebiz.beer`. That avoids split-brain DNS entirely, since the domain controller is authoritative only for the child zone and forwards everything else upstream, and it means a user's sign-in name and email address are the same string in both directories.
 
 ![Design planning](/assets/projects/hybrid-ad-smb/01-design-planning.png)
-*Phase 0 — naming, addressing, and OU design fixed on paper before any hardware was touched.*
+*Phase 0 – naming, addressing, and OU design fixed on paper before any hardware was touched.*
 
 ---
 
 ## Methodology
 
-I ran this as two deliberate iterations against a crawl–walk–run model.
+I ran this as two deliberate iterations against a crawl-walk-run model.
 
-| | **Round 1 — Crawl** | **Round 2 — Walk** |
+| | **Round 1 – Crawl** | **Round 2 – Walk** |
 |---|---|---|
 | Method | Tutorial-led, exploratory, out of order | Executed from my own playbook as a checklist |
 | Goal | See the concepts work at least once | Test whether the documentation was actually usable |
 | Output | A list of failures with root causes | A working build, plus revisions to the playbook |
 | Duration | Several days | Under 6 hours |
 
-Round 1's real product was a set of expensive mistakes. Each was traced to a root cause rather than a workaround, and each became a section of the playbook. Round 2 tested whether that playbook worked in the hands of the person who wrote it.
+Round 1's actual product was a set of expensive mistakes. Every one of them was traced to a root cause rather than papered over with a workaround, and every one became a section of the playbook. Round 2 then tested whether that playbook worked in the hands of the person who wrote it, which is the friendliest possible audience and still a test the documentation could have failed.
 
 ---
 
 ## Build sequence
 
-The playbook's core principle: **everything that shapes a user's experience is built before the users exist and before any client is joined.** OU structure, security groups, share permissions, Group Policy, the UPN suffix, and MDM enrollment policy are all foundation. Built first, the first user to log in receives a finished environment.
+The playbook's core principle: **everything that shapes a user's experience is built before the users exist and before any client is joined.** OU structure, security groups, share permissions, Group Policy, the UPN suffix, and MDM enrollment policy are all foundation. Build them first and the first user to log in receives a finished environment instead of a work in progress.
 
 | Phase | Work | Cumulative |
 |---|---|---|
-| 0 | Design: naming, addressing, OUs, groups, tenant, domain registration | — (untimed) |
+| 0 | Design: naming, addressing, OUs, groups, tenant, domain registration | N/A – untimed |
 | 1 | Server base build, static addressing, storage | 0:32 |
 | 2 | Promote first DC · DNS forwarders, reverse zone, scavenging · external NTP | 1:47 |
 | 3 | System State backup scheduled · AD Recycle Bin enabled | 1:53 |
 | 4 | DHCP options 6 and 15 delivering DC as DNS | 1:55 |
 | 5 | OU structure · `redircmp` / `redirusr` container redirection | 2:00 |
-| 6 | Security groups — AGDLP model, both tiers | 2:05 |
+| 6 | Security groups – AGDLP model, both tiers | 2:05 |
 | 7 | File shares · Access-Based Enumeration · NTFS by group | 2:22 |
 | 8 | Five purpose-scoped GPOs, validated against a test user | 2:50 |
 | 9 | Entra Connect · UPN suffix · SCP · hybrid join configuration | 3:24 |
@@ -121,7 +121,7 @@ The playbook's core principle: **everything that shapes a user's experience is b
 | 12 | Intune policy and Microsoft 365 Apps deployment | 5:17 |
 | 13 | Second domain controller promoted and replicating | 5:58 |
 
-Phases 4, 5, and 6 took **twelve minutes combined** — the direct payoff of the untimed design phase.
+Phases 4, 5, and 6 took **twelve minutes combined**, which is the direct payoff of the untimed design phase sitting above them.
 
 ---
 
@@ -136,28 +136,28 @@ sjohnson → GG-Accounting → GG-AllEmployees → DL-Company-Modify → NTFS on
                          ↘ DL-Accounting-Modify → NTFS on \Departments\Accounting
 ```
 
-The practical result: adding a user to one department group grants company-wide and department-specific access, and later revocation is a single group-membership change rather than an ACL edit.
+The practical result is that adding a user to one department group grants both company-wide and department-specific access, and revoking it later is a single group-membership change rather than an ACL edit on a folder tree.
 
 ![Security group nesting](/assets/projects/hybrid-ad-smb/12-security-groups-nesting.png)
 *Global role groups nested into domain local resource groups.*
 
-### File services — two layers of concealment
+### File services – two layers of concealment
 
 Share permissions were deliberately opened to `Authenticated Users` so that the share layer can never be the cause of an access problem, with all real control enforced through NTFS. Two independent mechanisms restrict visibility:
 
 - **Item-level targeting** on Group Policy drive maps controls which *drive letters* appear per user
 - **Access-Based Enumeration** on the share controls which *folders* are visible at all
 
-Both are required. Item-level targeting alone still exposes every department folder to anyone browsing the UNC path directly.
+Both are required. Item-level targeting on its own still exposes every department folder to anybody browsing the UNC path directly, which isn't a theoretical concern in an office where somebody eventually types a path by hand.
 
 ![NTFS permissions](/assets/projects/hybrid-ad-smb/14-ntfs-permissions.png)
-*Department folder ACL — administrative access, resource group at Modify, CREATOR OWNER scoped to child objects only.*
+*Department folder ACL – administrative access, resource group at Modify, CREATOR OWNER scoped to child objects only.*
 
-Verification included the negative case: an Accounting user could reach Company and Accounting data and could not see the Sales folder exists.
+Verification included the negative case: an Accounting user could reach Company and Accounting data, and could not see that the Sales folder exists.
 
 ### Group Policy
 
-Five purpose-named GPOs, each linked to the OU containing the objects it targets — User Configuration policies on the user OU, Computer Configuration policies on the workstation OU.
+Five purpose-named GPOs, each linked to the OU containing the objects it targets – User Configuration policies on the user OU, Computer Configuration policies on the workstation OU.
 
 ![Group Policy Objects](/assets/projects/hybrid-ad-smb/16-group-policy-objects.png)
 
@@ -179,7 +179,7 @@ Entra Connect Sync with Password Hash Synchronization, Seamless SSO, and OU-scop
 
 ### Automation
 
-User provisioning was scripted with per-user generated passwords, forced change at first logon, home directory creation, and automatic group placement — with existence checks and per-user error handling so a partial run can be safely repeated.
+User provisioning was scripted with per-user generated passwords, forced change at first logon, home directory creation, and automatic group placement. Existence checks and per-user error handling were included so that a partial run can be repeated safely rather than cleaned up by hand.
 
 ![Bulk user creation script](/assets/projects/hybrid-ad-smb/19-bulk-user-script.png)
 
@@ -189,10 +189,10 @@ User provisioning was scripted with per-user generated passwords, forced change 
 
 | Dimension | Round 1 | Round 2 |
 |---|---|---|
-| Domain naming | `.local` — required rewriting every UPN later | Routable subdomain, correct from the start |
+| Domain naming | `.local` – required rewriting every UPN later | Routable subdomain, correct from the start |
 | Order of work | Discovery order, constant rework | Build order, no rework |
 | OU structure | Collided with built-in containers | Single organizational OU with container redirection |
-| Group Policy scoping | Linked to a groups OU — never applied | Linked where objects live — applied first attempt |
+| Group Policy scoping | Linked to a groups OU – never applied | Linked where objects live – applied first attempt |
 | Permissions | Two administrative lockouts | None; access verified positively and negatively |
 | Drive mappings | `Replace` action froze both clients during policy refresh | `Update` action, no incidents |
 | Device management | One device permanently limited by an ad-hoc enrollment shortcut | Corporate ownership via Group Policy enrollment |
@@ -204,23 +204,23 @@ User provisioning was scripted with per-user generated passwords, forced change 
 
 ## Problems encountered and resolved
 
-Three that were worth the time.
+Three of them were worth the time it took to run them down.
 
 ### Domain join failing against a reachable domain controller
 
 **Symptom.** `An Active Directory Domain Controller for the domain could not be contacted.` DNS was correctly configured and the DC responded to `ping`.
 
-**Diagnosis.** The client had been imaged in a different time zone and its clock was an hour off. Kerberos rejects authentication with more than five minutes of skew; the client, unable to complete authentication, reported it as an inability to locate a domain controller.
+**Diagnosis.** The client had been imaged in a different time zone and its clock was an hour off. Kerberos rejects authentication with more than five minutes of skew; the client, unable to complete authentication, reported the problem as an inability to locate a domain controller.
 
-**Resolution.** Correct the time zone. Added a four-item pre-join verification block to the playbook — DNS server, SRV record resolution, clock skew, and port reachability — because `ping` tests none of the mechanisms a domain join actually uses.
+**Resolution.** Correct the time zone. A four-item pre-join verification block was added to the playbook – DNS server, SRV record resolution, clock skew, and port reachability – because `ping` tests none of the mechanisms a domain join actually uses.
 
 ### Hybrid Entra join failing after successful directory synchronization
 
 **Symptom.** Users synchronized to Entra ID correctly. Clients reported `AzureAdJoined : NO` with `error_missing_device`.
 
-**Diagnosis.** Reading the full diagnostic output revealed `Server operation: DeviceRenew` — the client was attempting to *renew* a registration using a locally cached device ID rather than create a new one. Two separate faults: the Service Connection Point had never been written to Active Directory, and the client held stale registration state from an earlier attempt.
+**Diagnosis.** Reading the full diagnostic output revealed `Server operation: DeviceRenew`. The client was attempting to *renew* a registration using a locally cached device ID rather than create a new one. That pointed at two separate faults: the Service Connection Point had never been written to Active Directory, and the client was holding stale registration state from an earlier attempt.
 
-The Service Connection Point step is genuinely easy to miss. "Configure device options" is not part of the linear Entra Connect installation wizard — it is a separate task selected on a subsequent launch. The installer completes, reports success, and synchronizes users flawlessly with hybrid join never configured.
+The SCP step is an easy one to miss, and I would not put the whole failure down to carelessness. "Configure device options" is not part of the linear Entra Connect installation wizard; it is a separate task chosen on a later launch. The installer finishes, reports success, and synchronizes every user flawlessly with hybrid join never configured at all.
 
 **Resolution.** Configured the SCP, verified it by querying the object's `keywords` attribute directly, forced a **full** synchronization (a delta cycle will not move an object that has not changed), cleared client state with `dsregcmd /leave`, and re-registered.
 
@@ -233,9 +233,9 @@ The Service Connection Point step is genuinely easy to miss. "Configure device o
 
 **Symptom.** Devices hybrid joined successfully but never appeared in Intune. No error surfaced in any console.
 
-**Diagnosis.** Group-based licensing had been configured — the licensing group existed and the subscription SKU was assigned to it — but no members had been added. The group licensed nobody. Because the MDM auto-enrollment policy runs in the user's security context, an unlicensed user cannot enroll a device, and Intune reports nothing at all rather than a licensing error.
+**Diagnosis.** Group-based licensing had been configured. The licensing group existed, the subscription SKU was assigned to it, and no members had ever been added, so the group licensed NOBODY. Because the MDM auto-enrollment policy runs in the user's security context, an unlicensed user cannot enroll a device, and Intune reports nothing at all rather than a licensing error.
 
-**Resolution.** Nested the synchronized `GG-AllEmployees` group into the cloud licensing group, so every future user inherits a license through the same chain that grants file access.
+**Resolution.** Nested the synchronized `GG-AllEmployees` group into the cloud licensing group, so that every future user inherits a license through the same chain that grants file access.
 
 ![License assignment](/assets/projects/hybrid-ad-smb/24-license-assignment.png)
 
@@ -249,27 +249,27 @@ The Service Connection Point step is genuinely easy to miss. "Configure device o
 | **Decommission Runbook** (12 phases) | Full teardown in dependency order, covering the failure modes that make cloud objects unrecoverable if sequenced incorrectly |
 | **Build log** | Phase-by-phase notes with timings, decisions, and errors, captured live |
 
-The playbook is written to serve two purposes: build a greenfield environment, and assess an inherited one. The second half — discovery scripting, a prioritized findings table, and triage decision trees for the most common tickets — reflects that inheriting an undocumented environment is the more common professional situation.
+The playbook was written to do two jobs: build a greenfield environment, and assess an inherited one. That second half – discovery scripting, a prioritized findings table, and triage decision trees for the most common tickets – is there because inheriting an undocumented environment is the more common professional situation, and/or the one nobody's written a tutorial for.
 
 ---
 
 ## Skills demonstrated
 
-**Windows Server** — AD DS, DNS (forwarders, reverse zones, scavenging), DHCP, file services, NTFS and share permissions, Access-Based Enumeration, Windows Server Backup, DC promotion and replication, FSMO roles, Windows Time Service
+**Windows Server** – AD DS, DNS (forwarders, reverse zones, scavenging), DHCP, file services, NTFS and share permissions, Access-Based Enumeration, Windows Server Backup, DC promotion and replication, FSMO roles, Windows Time Service
 
-**Group Policy** — OU-based scoping, security filtering, Group Policy Preferences, item-level targeting, drive mapping, Folder Redirection, LAPS, MDM auto-enrollment, `gpresult` analysis
+**Group Policy** – OU-based scoping, security filtering, Group Policy Preferences, item-level targeting, drive mapping, Folder Redirection, LAPS, MDM auto-enrollment, `gpresult` analysis
 
-**Microsoft 365 / Entra ID** — tenant configuration, custom domain verification, Entra Connect Sync, password hash synchronization, Seamless SSO, hybrid Entra join, Service Connection Point, group-based licensing, dynamic device groups, break-glass account design
+**Microsoft 365 / Entra ID** – tenant configuration, custom domain verification, Entra Connect Sync, password hash synchronization, Seamless SSO, hybrid Entra join, Service Connection Point, group-based licensing, dynamic device groups, break-glass account design
 
-**Intune** — automatic enrollment, device ownership, application deployment, compliance and configuration policy
+**Intune** – automatic enrollment, device ownership, application deployment, compliance and configuration policy
 
-**Azure** — subscription and RBAC model, Azure Arc onboarding, separation of Entra directory roles from Azure resource roles
+**Azure** – subscription and RBAC model, Azure Arc onboarding, separation of Entra directory roles from Azure resource roles
 
-**PowerShell** — Active Directory module, SMB and DHCP cmdlets, scripted bulk provisioning with error handling, Microsoft Graph module
+**PowerShell** – Active Directory module, SMB and DHCP cmdlets, scripted bulk provisioning with error handling, Microsoft Graph module
 
-**Networking** — VLAN segmentation, static addressing, DHCP option delivery, DNS architecture and split-brain avoidance, IPv6 considerations for domain controllers
+**Networking** – VLAN segmentation, static addressing, DHCP option delivery, DNS architecture and split-brain avoidance, IPv6 considerations for domain controllers
 
-**Practice** — deliberate design ahead of execution, documented build sequences, verification gates, root-cause analysis, after-action review, and planned decommissioning
+**Practice** – deliberate design ahead of execution, documented build sequences, verification gates, root-cause analysis, after-action review, and planned decommissioning
 
 ---
 
@@ -277,22 +277,22 @@ The playbook is written to serve two purposes: build a greenfield environment, a
 
 Carried forward, in priority order:
 
-1. Complete the redundancy wiring — cross-pointed DNS between domain controllers, DHCP failover, and a failover test using an account with no cached credentials on the test machine
-2. Correct the DHCP scope so the pool does not overlap statically assigned infrastructure addresses
-3. Test the System State restore; a backup is a hypothesis until it has been restored from
+1. Complete the redundancy wiring – cross-pointed DNS between domain controllers, DHCP failover, and a failover test run from an account with no cached credentials on the test machine
+2. Correct the DHCP scope so that the pool does not overlap statically assigned infrastructure addresses
+3. Test the System State restore, since a backup is a hypothesis until something has been restored from it
 4. Intune compliance policy and Conditional Access, with the break-glass account excluded
-5. Convert the playbook's inline scripts into a parameterized toolkit — configuration data separated from logic, CSV input, dry-run support
-6. Rebuild from the playbook alone, unassisted and timed, as a test of retention rather than reference
+5. Convert the playbook's inline scripts into a parameterized toolkit – configuration data separated from logic, CSV input, and dry-run support
+6. Rebuild from the playbook alone, unassisted and timed, as a test of retention rather than of reference
 
 ---
 
 ## Screenshots
 
-The full capture set, ordered by build phase. Click any image to open it full size.
+The full capture set, ordered by build phase. Any image opens full size when clicked.
 
 <div class="gallery-box">
   <div class="gallery gallery-columns-3">
-    {% include img.html src="/assets/projects/hybrid-ad-smb/01-design-planning.png" alt="Phase 0 — naming, addressing, and OU design" caption="Phase 0 — naming, addressing, and OU design" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/01-design-planning.png" alt="Phase 0 – naming, addressing, and OU design" caption="Phase 0 – naming, addressing, and OU design" %}
     {% include img.html src="/assets/projects/hybrid-ad-smb/02-dc-promotion-complete.png" alt="First domain controller promoted" caption="First domain controller promoted" %}
     {% include img.html src="/assets/projects/hybrid-ad-smb/03-dns-resolution.png" alt="DNS resolution verified" caption="DNS resolution verified" %}
     {% include img.html src="/assets/projects/hybrid-ad-smb/04-ntp-configuration.png" alt="External NTP time source configured" caption="External NTP time source configured" %}
@@ -319,7 +319,7 @@ The full capture set, ordered by build phase. Click any image to open it full si
     {% include img.html src="/assets/projects/hybrid-ad-smb/25-intune-enrollment.png" alt="Intune device enrollment" caption="Intune device enrollment" %}
     {% include img.html src="/assets/projects/hybrid-ad-smb/26-second-domain-controller.png" alt="Second domain controller replicating" caption="Second domain controller replicating" %}
   </div>
-  <em>Full capture set, ordered by build phase — click any image to open it full size</em>
+  <em>Full capture set, ordered by build phase – any image opens full size when clicked</em>
 </div>
 
 
