@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Playbooks and Runbooks
-description: Long-form procedures for work measured in hours — greenfield builds, inherited-network assessments, and controlled teardowns. Follow top to bottom.
+description: Long-form procedures for work measured in hours – greenfield builds, inherited-network assessments, and controlled teardowns. Follow top to bottom.
 permalink: /reference/playbooks/
 image:
 ---
@@ -12,12 +12,12 @@ A playbook is not a tutorial: A tutorial teaches you a concept; a playbook gets
 you through a job in the right order, with the reasoning attached and the traps
 marked before you walk into them.
 
-Each of these was written *after* doing the work, not before — which is why the
+Each of these was written *after* doing the work, not before – which is why the
 warnings are specific.
 
 ---
 
-## Hybrid Microsoft Network — Build & Troubleshooting Playbook
+## Hybrid Microsoft Network – Build & Troubleshooting Playbook
 
 **[Download the PDF →](/assets/docs/hybrid-network-playbook-v3.pdf)** · 48 pages · v3.0, August 2026 · 4.7 MB
 
@@ -34,13 +34,13 @@ finished in 5 hours 58 minutes with no rework.
 
 | Part | Contents |
 |---|---|
-| **0** | How to use it — the organising principle, and how each phase is written |
-| **1** | Project record — Round 2 architecture, what was delivered, Round 1 vs Round 2 |
-| **2** | **23 root-cause findings and corrections** — every failure from Round 1, traced to cause |
-| **3** | The build playbook — 15 phases, design through operations and handover |
-| **4** | Standard operating procedures — onboarding, offboarding, shares, DC failure, lockouts |
-| **5** | Assessing and troubleshooting an existing network — discovery, triage decision trees |
-| **6** | Appendices — command reference, error index, port reference, checklists, rebuild drill |
+| **0** | How to use it – the organizing principle, and how each phase is written |
+| **1** | Project record – Round 2 architecture, what was delivered, Round 1 vs Round 2 |
+| **2** | **23 root-cause findings and corrections** – every failure from Round 1, traced to cause |
+| **3** | The build playbook – 15 phases, design through operations and handover |
+| **4** | Standard operating procedures – onboarding, offboarding, shares, DC failure, lockouts |
+| **5** | Assessing and troubleshooting an existing network – discovery, triage decision trees |
+| **6** | Appendices – command reference, error index, port reference, checklists, rebuild drill |
 
 **Why Part 2 is the part worth reading.** It is 23 things that went wrong, each
 one traced to a root cause rather than worked around: a `.local` domain name
@@ -49,8 +49,8 @@ holding no computer objects, a licensing group with a SKU assigned but no
 members, Kerberos clock skew presenting as a DNS problem. Build guides tell you
 the happy path. This one tells you where the floor gives way.
 
-**Conventions.** Everything is written against placeholders — `ad.contoso.com`,
-`SITE-DC01`, `10.10.10.0/24` — so the procedures transfer to a real environment
+**Conventions.** Everything is written against placeholders – `ad.contoso.com`,
+`SITE-DC01`, `10.10.10.0/24` – so the procedures transfer to a real environment
 rather than describing one specific lab.
 
 ---
@@ -65,14 +65,14 @@ shared mailboxes and delegation, groups, addressing, SharePoint sharing, and
 data loss prevention.
 
 It was written from a live tenant across eight tasks, and the findings are the
-document — nine of them traced to root cause, including three separate cases
+document – nine of them traced to root cause, including three separate cases
 where a Microsoft system reported success while doing nothing useful.
 
 **What is in it**
 
 | Part | Contents |
 |---|---|
-| **Task 0** | Domain configuration for Exchange Online — MX, autodiscover, SPF, DKIM, DMARC, and a DNSSEC incident |
+| **Task 0** | Domain configuration for Exchange Online – MX, autodiscover, SPF, DKIM, DMARC, and a DNSSEC incident |
 | **Tasks 1–2** | Message trace interpretation · spam filtering, quarantine, and quarantine policies |
 | **Tasks 3–5** | Shared mailboxes and delegation · distribution vs mail-enabled security groups · aliases and primary SMTP |
 | **Tasks 6–7** | SharePoint permission inheritance and external sharing · sensitivity labels and DLP in Purview |
@@ -80,16 +80,16 @@ where a Microsoft system reported success while doing nothing useful.
 | **Appendices** | Corrections to prior understanding, deferred and unverified items, closing state |
 
 **The finding worth the download.** A DLP policy left in simulation mode
-produces the *complete appearance* of enforcement — the policy tip fires in
+produces the *complete appearance* of enforcement – the policy tip fires in
 Outlook, message trace logs three DLP rule evaluations, the sender gets a
-notification saying they shared a credit card number outside the organisation —
+notification saying they shared a credit card number outside the organization –
 and the card number still arrives at the external recipient in plain text. The
 message trace is effectively identical to the enforcing run. Nothing on the
 admin side contradicts you. **The only reliable verification is confirming what
 the recipient actually received.**
 
-**Conventions.** Body text is written against placeholders — `contoso.beer`,
-`contoso.onmicrosoft.com`, `example.com` — so the procedures transfer. The
+**Conventions.** Body text is written against placeholders – `contoso.beer`,
+`contoso.onmicrosoft.com`, `example.com` – so the procedures transfer. The
 screenshots are from the lab as it actually ran.
 
 **Companion case study:** [Microsoft 365 Administration →](/projects/m365-administration/)
@@ -98,21 +98,21 @@ screenshots are from the lab as it actually ran.
 
 ## Decommissioning a hybrid environment
 
-**Covered in the Field Manual — [§17 `[DECOM]`](/reference/field-manual/#17--decommissioning-a-hybrid-environment-decom)**
+**Covered in the Field Manual – [§17 `[DECOM]`](/reference/field-manual/#17--decommissioning-a-hybrid-environment-decom)**
 
 The full teardown sequence: Intune policy and apps, device identity, user
 identity through the sync bridge, Entra Connect removal, tenant sync disable,
 Entra purge, Azure decommission, on-premises demotion, and cancelling the
 subscription last.
 
-The governing rule is the whole trick — tear down from the top of the stack to
+The governing rule is the whole trick – tear down from the top of the stack to
 the bottom. Remove a lower layer first and the layer above it becomes orphaned
 and unmanageable. The classic version is wiping a domain controller while Entra
 Connect is still syncing: the cloud objects stay marked as on-premises-mastered,
 turn read-only, and can no longer be deleted normally.
 
 Client offboarding and tenant decommissioning are billable MSP work, and they
-are work you cannot practise safely anywhere except a lab you own.
+are work you cannot practice safely anywhere except a lab you own.
 
 ---
 
@@ -120,9 +120,9 @@ are work you cannot practise safely anywhere except a lab you own.
 
 Playbooks being written up as the work gets done:
 
-- **Ubuntu Server file and print services** — Samba shares against AD
+- **Ubuntu Server file and print services** – Samba shares against AD
   authentication, CUPS, and the backup story
-- **Inherited network assessment** — currently a section of the Field Manual
+- **Inherited network assessment** – currently a section of the Field Manual
   (`[ASSESS-01]` through `[ASSESS-03]`); will become a standalone playbook once
   it has been run against a second environment
 

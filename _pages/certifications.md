@@ -6,7 +6,7 @@ permalink: /certifications/
 image:
 ---
 
-Every certification below links to its respective public verification record — a Credly badge, 
+Every certification below links to its respective public verification record – a Credly badge, 
 Microsoft Learn transcript, etc.
 
 ## Held

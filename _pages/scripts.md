@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Script Template Repository
-description: A parameterised PowerShell toolkit — configuration separated from logic, CSV input, dry-run support. Being built to the pattern documented in the Field Manual.
+description: A parameterized PowerShell toolkit – configuration separated from logic, CSV input, dry-run support. Being built to the pattern documented in the Field Manual.
 permalink: /reference/scripts/
 image:
 ---
@@ -13,7 +13,7 @@ This section is being built. The pattern below is settled and documented; the sc
 
 Most of the PowerShell I have written so far lives inline inside the [Field
 Manual](/reference/field-manual/) and the [build
-playbook](/reference/playbooks/) — pasted into a console, edited in place, run
+playbook](/reference/playbooks/) – pasted into a console, edited in place, run
 once. That is fine for a lab and useless for a job. A script that needs its
 guts edited before every run is not a tool, it is a snippet.
 
@@ -40,7 +40,7 @@ script you can hand someone from one you cannot:
 
 | Property | What it means in practice |
 |---|---|
-| **Parameterised** | No values hard-coded in the body. Environment differences live in the config file. |
+| **Parameterized** | No values hard-coded in the body. Environment differences live in the config file. |
 | **Idempotent** | Safe to re-run after a partial failure. Create-or-update, never create-or-fail. |
 | **Dry-runnable** | `-WhatIf` shows exactly what would change and changes nothing. |
 | **Fail-soft** | Per-item `try/catch`, so one bad CSV row does not abort the other 39. |
@@ -53,13 +53,13 @@ Manual under `[TOOLKIT-01]` through `[TOOLKIT-07]`, with the safety pattern at
 
 In the order they are actually needed:
 
-1. **`Test-DomainHealth.ps1`** — wraps the `dcdiag` / `repadmin` / `w32tm`
+1. **`Test-DomainHealth.ps1`** – wraps the `dcdiag` / `repadmin` / `w32tm`
    block from `[AD-HEALTH]` into one command with readable output
-2. **`New-LabUsers.ps1`** — bulk user creation from CSV with unique generated
+2. **`New-LabUsers.ps1`** – bulk user creation from CSV with unique generated
    passwords, `-WhatIf` support, and per-row error handling
-3. **`Get-NetworkInventory.ps1`** — the discovery block from `[ASSESS-01]`,
+3. **`Get-NetworkInventory.ps1`** – the discovery block from `[ASSESS-01]`,
    exporting to CSV instead of scrolling past in a console
-4. **`Invoke-PreJoinCheck.ps1`** — the four pre-domain-join verifications from
+4. **`Invoke-PreJoinCheck.ps1`** – the four pre-domain-join verifications from
    `[WIN-PREJOIN]`, run in order, with a clear pass or fail
 
 In the meantime, the working versions of all four are readable in the [Field

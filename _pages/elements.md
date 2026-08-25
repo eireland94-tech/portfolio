@@ -7,7 +7,7 @@ image:
 ---
 
 This page is a working reference for me. It is not linked in the menu, but it is
-public — anyone with the URL can read it. Every block below shows the rendered
+public – anyone with the URL can read it. Every block below shows the rendered
 result *and* the Markdown that produced it.
 
 ***
@@ -15,18 +15,18 @@ result *and* the Markdown that produced it.
 ## Headings
 
 Use `##` for the main sections of a post. `#` is reserved for the page title,
-which the layout already prints for you — using `#` in your own text gives you
+which the layout already prints for you – using `#` in your own text gives you
 two page titles and confuses screen readers and search engines.
 
-## H2 — a main section
-### H3 — a subsection
-#### H4 — rarely needed
+## H2 – a main section
+### H3 – a subsection
+#### H4 – rarely needed
 ##### H5
 ###### H6
 
 ```markdown
-## H2 — a main section
-### H3 — a subsection
+## H2 – a main section
+### H3 – a subsection
 ```
 
 ***
@@ -65,7 +65,7 @@ Tables need a blank line before them and a `|---|` separator row.
 |---|---|---|
 | Domain join fails | DNS | Kerberos clock skew |
 | Hybrid join fails | Sync error | Missing Service Connection Point |
-| Intune enrolment silently fails | Network | Licensing group had no members |
+| Intune enrollment silently fails | Network | Licensing group had no members |
 
 ```markdown
 | Symptom | Wrong diagnosis | Actual cause |
@@ -97,7 +97,7 @@ spilling off the edge:
 
 ## Callouts
 
-These are the coloured attention boxes. The syntax is unusual — `{: .note }` on
+These are the colored attention boxes. The syntax is unusual – `{: .note }` on
 its own line, then the text on the line directly below it, with **no blank line
 between them**. A blank line breaks it.
 
@@ -125,10 +125,10 @@ Do not run this against a production domain controller.
 
 ## Code
 
-Inline code — like `Get-ADUser` or `C:\Windows\System32` — uses single
+Inline code – like `Get-ADUser` or `C:\Windows\System32` – uses single
 backticks. Use it for anything the reader might type or any literal path.
 
-For blocks, use three backticks and name the language so it gets coloured
+For blocks, use three backticks and name the language so it gets colored
 correctly. Supported names you are likely to want: `powershell`, `bash`,
 `cmd`, `yaml`, `json`, `html`, `css`, `js`, `python`, `sql`, `text`.
 
@@ -169,21 +169,21 @@ becomes the caption:
 ```
 
 {: .important }
-Image paths must start with a forward slash — `/assets/...` not `assets/...`. A relative path works in local preview and breaks on the live site, which is the single easiest way to ship a broken page.
+Image paths must start with a forward slash – `/assets/...` not `assets/...`. A relative path works in local preview and breaks on the live site, which is the single easiest way to ship a broken page.
 
 ### Galleries
 
-A grid of images. Click any one to open it full-screen. Change
+A grid of images, any of which opens full-screen when clicked. Change
 `gallery-columns-2` to `-1`, `-3` or `-4` for a different number across.
 
 <div class="gallery-box">
   <div class="gallery gallery-columns-2">
-    {% include img.html src="/assets/projects/hybrid-ad-smb/10-ou-structure.png" alt="Organisational unit structure in Active Directory Users and Computers" caption="OU structure" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/10-ou-structure.png" alt="Organizational unit structure in Active Directory Users and Computers" caption="OU structure" %}
     {% include img.html src="/assets/projects/hybrid-ad-smb/16-group-policy-objects.png" alt="Group Policy Management console showing linked GPOs" caption="Group Policy objects" %}
-    {% include img.html src="/assets/projects/hybrid-ad-smb/21-users-synced-entra.png" alt="Users synchronised into Entra ID" caption="Users synced to Entra ID" %}
-    {% include img.html src="/assets/projects/hybrid-ad-smb/25-intune-enrollment.png" alt="Device enrolled in Microsoft Intune" caption="Intune enrolment" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/21-users-synced-entra.png" alt="Users synchronized into Entra ID" caption="Users synced to Entra ID" %}
+    {% include img.html src="/assets/projects/hybrid-ad-smb/25-intune-enrollment.png" alt="Device enrolled in Microsoft Intune" caption="Intune enrollment" %}
   </div>
-  <em>Hybrid AD build — selected screenshots</em>
+  <em>Hybrid AD build – selected screenshots</em>
 </div>
 
 {% raw %}
@@ -202,7 +202,7 @@ A grid of images. Click any one to open it full-screen. Change
 
 ## Video embeds
 
-Paste the `src` from the platform's own "Embed" option — not the address bar URL.
+Paste the `src` from the platform's own "Embed" option – not the address bar URL.
 
 ```html
 <p><iframe src="https://www.youtube.com/embed/VIDEO_ID" loading="lazy" frameborder="0" allowfullscreen></iframe></p>
@@ -213,7 +213,7 @@ Paste the `src` from the platform's own "Embed" option — not the address bar U
 ## Horizontal rule
 
 Three asterisks on their own line, with a blank line above and below, draws a
-divider — like every one on this page.
+divider – like every one on this page.
 
 ```markdown
 ***

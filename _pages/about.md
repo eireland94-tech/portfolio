@@ -12,14 +12,14 @@ image:
 I enjoy anything and everything that broadens my skill set and knowledge base in
 the world of IT. Home lab projects, developing my proficiency in the Microsoft
 ecosystem, exploring Linux distributions (Ubuntu and Ubuntu Server), scripting
-basics — I simply can't get enough of it.
+basics – I simply can't get enough of it.
 
 I created this site to serve as my living, breathing portfolio and personal
 repository. I post documentation about my home lab projects, store runbooks and
 field manuals, and keep the scripts I find useful along the way.
 
-> You can’t go and download a Windows update for stupidity...." 
-> -Kevin Mitnick
+> You can't go and download a Windows update for stupidity...
+> – Kevin Mitnick
 
 ## Where I work
 
@@ -42,13 +42,13 @@ public verification record.
 
 ## What you will find here
 
-- **[Reference Library](/reference/)** — the documentation I'm building as I go along: 
+- **[Reference Library](/reference/)** – the documentation I'm building as I go along: 
   the [IT Field Manual](/reference/field-manual/), build playbooks, and a
   script toolkit in progress
-- **[Projects](/projects/)** — full write-ups of what I have built, including
+- **[Projects](/projects/)** – full write-ups of what I have built, including
   what went wrong and how I fixed it.
-- **[Certifications](/certifications/)** — with verification links
-- **[Posts](/posts/)** — shorter notes and runbooks as I go
+- **[Certifications](/certifications/)** – with verification links
+- **[Posts](/posts/)** – shorter notes and runbooks as I go
 
 ## Getting in touch
 

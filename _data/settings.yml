@@ -17,7 +17,7 @@
 # -----------------------------------------------------------------------------
 # `title` shows in the top-left of the header and in the footer.
 title: "Evan Ireland"
-description: "Digital Mechanic — Tech | Homelab | Scripting | Documentation"
+description: "Digital Mechanic – Tech | Homelab | Scripting | Documentation"
 
 # Leave `logo` blank to show the title as text (current behaviour). To use an
 # image instead, drop a PNG in /assets/ and put the path here, e.g. '/assets/logo.png'
@@ -235,7 +235,7 @@ about:
     Former Army officer with a logistics background, now moving
     into IT full time.
 
-    I like anything that widens the skill set — home lab builds,
+    I like anything that widens the skill set – home lab builds,
     going deeper into the **Microsoft ecosystem**, poking at
     **Ubuntu Server**, and picking up scripting as I go.
 
@@ -252,7 +252,7 @@ about:
 about_images:
   - image: "/assets/pfp2.jpg"
     alt: "Portrait of Evan Ireland"
-    caption: "Evan Ireland — IT Enthusiast"
+    caption: "Evan Ireland – IT Enthusiast"
 
   - image: "/assets/battlestation.jpg"
     alt: "Evan's home workstation: two monitors and a desktop PC under red lighting"
