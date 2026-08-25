@@ -76,7 +76,7 @@ file services and permissions, hybrid identity, Intune, Microsoft 365, Azure,
 Windows client builds, storage, decommissioning, a script toolkit pattern, and
 documentation templates.
 
-## The rules that keep it honest
+## The rules
 
 Three, written into the manual's own maintenance protocol:
 

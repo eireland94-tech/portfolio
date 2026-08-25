@@ -142,7 +142,7 @@ Prevention:     What would have stopped this from happening.
 Date / source:  When, and who or what told you.
 ```
 
-**Three rules that keep the manual honest:**
+**Three rules for the manual:**
 
 1. **Strip the client.** Never file a real hostname, IP, username, or domain. Replace with the placeholder set in §00.2 at the moment of writing, not later. A manual full of `MOCKBIZ01` is a manual you cannot hand anyone.
 2. **Record the fix, not the workaround — and if you used a workaround, label it.** A workaround is a modification to the environment, and the environment remembers it long after you forget. Unlabeled workarounds are the single most expensive category of self-inflicted troubleshooting.
@@ -2891,7 +2891,7 @@ PIM converts **standing** privileged access into **eligible** access that must b
 | **Access reviews** | Periodic recertification of who should remain eligible |
 | **Audit and alerting** | Every request, approval, and activation logged; alert on high-privilege activation |
 
-**License: Entra ID P2** (included in Microsoft 365 E5). If a client on E3 wants just-in-time elevation, the honest answer is that it requires a license upgrade — there is no P1 workaround.
+**License: Entra ID P2** (included in Microsoft 365 E5). If a client on E3 wants just-in-time elevation, the legitimate answer is that it requires a license upgrade — there is no P1 workaround.
 
 **WHY it matters more than it looks:** PIM reduces the **time window** during which an account holds privilege. A compromised admin credential is only useful while the role is active. The trigger phrases are "reduce standing access," "just-in-time," "temporary elevation," "the contractor needs Exchange admin for a two-hour maintenance window."
 
@@ -5882,7 +5882,7 @@ Extends a private network to hosts that are not physically on it, by encrypting 
 | **WPA3 (SAE)** | **Current.** Resists offline dictionary attack; forward secrecy | **Target state** |
 | **WPA2/WPA3 Enterprise (802.1X)** | Per-user credentials or certificates rather than a shared key | **Correct for business.** See `[SECF-11]` |
 
-**🛑 MAC filtering is not a security control.** MAC addresses are transmitted **unencrypted in every frame**, including on WPA networks. An attacker sniffs an allowed MAC in seconds and spoofs it in one command. It is an inconvenience to honest users and no obstacle to anyone else. Its only legitimate use is inventory hygiene, never access control.
+**🛑 MAC filtering is not a security control.** MAC addresses are transmitted **unencrypted in every frame**, including on WPA networks. An attacker sniffs an allowed MAC in seconds and spoofs it in one command. It is an inconvenience to legitimate users and no obstacle to anyone else. Its only legitimate use is inventory hygiene, never access control.
 
 **Rogue AP** — an unauthorised access point attached to your network, usually by a well-meaning employee. Distinguish it from an **evil twin**, which impersonates your SSID *without* touching your network in order to harvest credentials. Different threats, different responses: the rogue AP is a network breach to be found and unplugged; the evil twin is an attack on your users that MAC filtering and WPA cannot address.
 
@@ -6436,7 +6436,7 @@ Study sources routinely describe OAuth as a way to log in. **OAuth 2.0 is author
 
 **Least privilege** — grant the minimum access needed for the task, for the shortest time. Operational rules at `[SEC-LP]`.
 
-**Separation of duties** — no single person controls a whole sensitive process end to end. In small teams this is often unachievable; **compensating with logging and alerting is the honest fallback**, and saying so plainly to a client is better than pretending the control exists.
+**Separation of duties** — no single person controls a whole sensitive process end to end. In small teams this is often unachievable; **compensating with logging and alerting is the proper fallback**, and saying so plainly to a client is better than pretending the control exists.
 
 ---
 
@@ -6485,7 +6485,7 @@ Study sources routinely describe OAuth as a way to log in. **OAuth 2.0 is author
 | Data | Encryption, ACLs, **tested backups** | Exfiltration and ransomware |
 | Detection | Logging, correlation, IDS/IPS, alerting | **Reduces dwell time when the above fail** |
 
-**The honest framing for a client:** every layer will eventually fail. The purpose of depth is that **no single failure is sufficient**, and that detection catches the failure before it becomes an incident. A stolen password with MFA and segmentation in place is a support ticket; the same password without them is a breach.
+**The proper framing for a client:** every layer will eventually fail. The purpose of depth is that **no single failure is sufficient**, and that detection catches the failure before it becomes an incident. A stolen password with MFA and segmentation in place is a support ticket; the same password without them is a breach.
 
 ---
 
@@ -7203,7 +7203,7 @@ Copilot introduces **no new data access mechanism**. It queries **Microsoft Grap
 3. **Response generation** — the grounded prompt goes to the model.
 4. **Post-processing** — the orchestrator formats output and applies **compliance checks, sensitivity label inheritance, and content filtering** before display, with **citations** back to source.
 
-**🛑 Data quality determines Copilot quality, and it is the honest answer to "why is Copilot giving bad answers."** Poorly organized SharePoint, stale content, missing metadata, and permissive sharing degrade output — irrelevant answers, or worse, confidently surfacing a superseded document as current. "Fix your data estate" is a legitimate technical answer, not a deflection. Ranking signals Graph applies include **recency of file activity, direct sharing with the user, breadth of sharing within the team, titles and metadata, and people relationships** — every one of which a neglected tenant gets wrong.
+**🛑 Data quality determines Copilot quality, and it is the proper answer to "why is Copilot giving bad answers."** Poorly organized SharePoint, stale content, missing metadata, and permissive sharing degrade output — irrelevant answers, or worse, confidently surfacing a superseded document as current. "Fix your data estate" is a legitimate technical answer, not a deflection. Ranking signals Graph applies include **recency of file activity, direct sharing with the user, breadth of sharing within the team, titles and metadata, and people relationships** — every one of which a neglected tenant gets wrong.
 
 ---
 
@@ -7797,7 +7797,7 @@ How they show up in the product, and what you tell users:
 
 **🛑 The single most important thing to put in user training: review and verify before using Copilot output.** Not because Copilot is unreliable, but because accountability does not transfer to a tool. A user who sends a Copilot-drafted client email without reading it has made a decision about their own professional standards, and the organization will be held to it, not to Microsoft's.
 
-**⚠ Do not oversell.** Clients who are told Copilot is accurate will treat its output as verified. Clients who are told it is a fast first draft that requires a human check will get value out of it and will not be blindsided. **The second framing is both more honest and the one that produces successful deployments.**
+**⚠ Do not oversell.** Clients who are told Copilot is accurate will treat its output as verified. Clients who are told it is a fast first draft that requires a human check will get value out of it and will not be blindsided. **The second framing is both more truthful and the one that produces successful deployments.**
 
 ---
 
@@ -8695,7 +8695,7 @@ See `[APX-B]` and `[M365-14]` for the rest of the break-glass configuration — 
 
 **The production answer is Privileged Identity Management** — roles held *eligible* rather than *active*, elevated just-in-time with justification and a time limit (`[M365-15]`).
 
-**🛑 PIM requires Entra ID P2. Microsoft 365 Business Premium includes P1 only.** There is no P1 workaround and no partial version. **The honest answer to a Business Premium client asking for just-in-time elevation is that it requires a license upgrade.**
+**🛑 PIM requires Entra ID P2. Microsoft 365 Business Premium includes P1 only.** There is no P1 workaround and no partial version. **The real answer to a Business Premium client asking for just-in-time elevation is that it requires a license upgrade.**
 
 **The Business Premium approximation** is a **separate admin account** holding the roles, used only for admin work, with MFA and no mailbox or license beyond what it needs. It is not JIT — the privilege is standing — but it does separate the blast radius of a compromised daily-driver account from the tenant's administrative control, which is most of the value. **Say plainly that it is an approximation**; do not describe it to a client as equivalent to PIM.
 

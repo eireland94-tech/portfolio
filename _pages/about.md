@@ -27,7 +27,7 @@ field manuals, and keep the scripts I find useful along the way.
   <div class="gallery gallery-columns-1">
     {% include img.html src="/assets/battlestation.jpg" alt="Home workstation: two monitors, a terminal running on the left screen, and a desktop PC under red lighting" caption="The desk everything gets built and broken on" %}
   </div>
-  <em>Where the magic happens</em>
+  <em>Home Sweet Home</em>
 </div>
 
 ## Certifications

@@ -58,7 +58,7 @@ through the other, and it costs nothing but a naming convention.
 
 ## 1.2 and 1.3 – the half of the job that is not on-premises
 
-Version 1.0 was honest about where it came from. It came out of building a
+Version 1.0 was straightforward about where it came from. It came out of building a
 hybrid environment on hardware, so it was strongest on Active Directory, Group
 Policy, file services, and the sync bridge into the cloud. Actual cloud
 administration was one thin section.

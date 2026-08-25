@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Certifications
-description: What I hold, what I am studying for, and public verification links.
+description: Completed and in-progress certifications (with public verification links).
 permalink: /certifications/
 image:
 ---
