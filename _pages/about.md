@@ -32,10 +32,11 @@ field manuals, and keep the scripts I find useful along the way.
 
 ## Certifications
 
-I hold the [AB-900 - Microsoft 365  Certified: Copilot and Agent Administration Fundamentals](/certifications/), 
-[AZ-900 - Microsoft Certified: Azure Fundamentals](/certifications/) and the 
-[Google IT Support Professional Certificate](/certifications/), and I am
-currently working toward the **CompTIA A+** certification.
+I hold the [AB-900 - Copilot and Agent Administration Fundamentals Certificate](/certifications/), 
+[AZ-900 - Azure Fundamentals Certificate](/certifications/), and the 
+[Google IT Support Professional Certificate](/certifications/). I am
+currently working toward the **CompTIA A+** certification with an 
+estimated completion timeframe (both Cores) of September 2026.
 
 Every certification on the [certifications page](/certifications/) links to the
 public verification record.
