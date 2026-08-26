@@ -15,7 +15,7 @@ Microsoft Learn transcript, etc.
 |---|---|---|
 | **AB-900 - Copilot and Agent Administration Fundamentals** | Microsoft | [Microsoft Learn transcript](https://learn.microsoft.com/api/credentials/share/en-us/EvanIreland-0590/66B9E4485DBB86AC?sharingId=D76202EF71203820) |
 | **AZ-900 - Azure Fundamentals** | Microsoft | [Microsoft Learn transcript](https://learn.microsoft.com/en-us/users/evanireland-0590/credentials/19d9d49483bbbe4e) |
-| **Google IT Support Professional Certificate** | Google | [Credly badge](https://www.credly.com/badges/257eceef-5740-4c12-b3bf-a72147a9bee0/linked_in_profile) |
+| **Google IT Support Professional Certificate** | Google | [Credly Badge](https://www.credly.com/badges/257eceef-5740-4c12-b3bf-a72147a9bee0/linked_in_profile) |
 
 ## In progress
 
