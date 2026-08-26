@@ -11,7 +11,7 @@ image:
 
 I enjoy anything and everything that broadens my skill set and knowledge base in
 the world of IT. Home lab projects, developing my proficiency in the Microsoft
-ecosystem, exploring Linux distributions (Ubuntu and Ubuntu Server), scripting
+ecosystem, exploring Linux distributions (Ubuntu, Ubuntu Server, Kali, Arch, Tails), scripting
 basics – I simply can't get enough of it.
 
 I created this site to serve as my living, breathing portfolio and personal
