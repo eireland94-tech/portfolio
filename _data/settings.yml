@@ -113,7 +113,7 @@ author:
   career_start: "2025-01-01"
 
   # Counts up as you publish. Keep it matching the number of files in _projects/.
-  projects_completed: 3
+  projects_completed: 4
 
   # Shown by the terminal's `status` command.
   # available | busy | open_to_offers

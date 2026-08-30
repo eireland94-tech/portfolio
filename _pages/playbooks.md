@@ -96,6 +96,46 @@ screenshots are from the lab as it actually ran.
 
 ---
 
+## Proxmox VE Greenfield Cluster Build & Troubleshooting Guide
+
+**[Download the PDF →](/assets/docs/proxmox-cluster-playbook-v1.pdf)** · 19 pages · v1.0, August 2026 · 0.4 MB
+
+A complete procedure for standing up a multi-node Proxmox VE cluster from bare
+hardware, including the decisions that shape it and the failures most likely to be
+encountered. Written to be followed by someone who has not done it before.
+
+Executed and verified on a live three-node build rather than compiled from
+documentation - every command in it was run, and every failure in the
+troubleshooting section was actually hit.
+
+**What is in it**
+
+| Part | Contents |
+|---|---|
+| **Pre-flight** | Network reachability, VLAN delivery, firmware settings, memory configuration, drive health baselines, installation media |
+| **Installation** | First node, post-install hygiene (repositories, updates, virtualization verification), remaining nodes |
+| **Cluster formation** | Timing, configuration replacement, joining, quorum behavior, migration capability, corosync, high availability |
+| **Storage** | Root filesystem protection, storage type selection, node restriction, tiering |
+| **Access & identity** | Administrative accounts, two-factor authentication, SSH, container security |
+| **Backup infrastructure** | Placement, disk layout, least-privilege credentials, job scope, prune/GC/verification, restore testing |
+| **Troubleshooting reference** | DNS interception, authentication vs. reachability failures, SSH key rejection, permission errors |
+| **Checklists** | A verification checklist and a deferred-decision register with the condition that reverses each deferred item |
+
+**The finding worth the download.** A recursive DNS resolver that returns SERVFAIL
+for every query can still pass a DNSSEC validation test - because when every query
+fails, a test expecting failure looks like a pass and proves nothing. The guide
+walks through the two-command diagnosis that actually isolates the real cause: a
+router transparently intercepting outbound DNS and starving the resolver's own
+queries before they ever reach the root servers.
+
+**Conventions.** Written as direct instruction to a practitioner executing the
+build, not a narrative account. Rationale for every non-obvious decision sits next
+to the step it governs rather than in a separate discussion.
+
+**Companion case study:** [Three-Node Proxmox Cluster →](/projects/proxmox-cluster/)
+
+---
+
 ## Decommissioning a hybrid environment
 
 **Covered in the Field Manual – [§17 `[DECOM]`](/reference/field-manual/#17--decommissioning-a-hybrid-environment-decom)**
