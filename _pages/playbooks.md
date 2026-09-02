@@ -175,7 +175,7 @@ Playbooks being written up as the work gets done:
      2. Copy one of the blocks above and edit it. The download line is:
             **[Download the PDF →](/assets/docs/YOUR-FILE.pdf)** · NN pages · vX.X · Month Year · N.N MB
 
-     3. Keep the page count, version and file size honest — people decide
+     3. Keep the page count, version and file size honest - people decide
         whether to open a link based on how big it is.
 
      Keep PDFs under about 10 MB. If one is bigger, it is usually uncompressed

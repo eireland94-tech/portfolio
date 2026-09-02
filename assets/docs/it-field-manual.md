@@ -6632,7 +6632,7 @@ Confirm-SecureBootUEFI     # errors on legacy BIOS systems — that is itself th
 
 ### `[SYSF-04]` Directory services and LDAP
 
-**Directory service** — a service that organises data about an organization's resources and makes it searchable: users, groups, computers, printers, policies.
+**Directory service** — a service that organizes data about an organization's resources and makes it searchable: users, groups, computers, printers, policies.
 
 **Replication** — directory data is copied and distributed across multiple physically separated servers while presenting as **one unified datastore** for querying and administration. This is what makes a second domain controller meaningful, and why replication health is checked after every change: `[AD-HEALTH]`.
 

@@ -4,6 +4,10 @@ title: Formatting Cheat Sheet
 description: Every piece of formatting this site supports, rendered live. This page exists so I can see what a thing looks like before I use it in a post.
 permalink: /elements/
 image:
+# Working reference, not portfolio content. Kept reachable by URL but out of
+# the sitemap and told not to index, so it does not surface in search results.
+sitemap: false
+noindex: true
 ---
 
 This page is a working reference for me. It is not linked in the menu, but it is

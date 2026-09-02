@@ -32,7 +32,7 @@ Microsoft Learn transcript, etc.
 
      In-progress ones go in the bullet list. Copy the line and edit it.
 
-     Always link to a public verification page — a Credly badge, a Microsoft
+     Always link to a public verification page - a Credly badge, a Microsoft
      Learn transcript, or a CompTIA verification ID. Never upload a PDF or a
      screenshot of a certificate; it is not verifiable and it reads as weaker,
      not stronger.

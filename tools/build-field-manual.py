@@ -56,7 +56,7 @@ from pathlib import Path
 FRONT_MATTER = """---
 layout: page
 title: IT Field Manual
-description: "A living operational reference: networking and security fundamentals, Windows, Active Directory, hybrid identity, Intune, Microsoft 365, Exchange Online, public DNS and mail flow, Purview, Copilot administration, and Azure. Every block is tagged — search the tag, not the prose."
+description: "A living operational reference: networking and security fundamentals, Windows, Active Directory, hybrid identity, Intune, Microsoft 365, Exchange Online, public DNS and mail flow, Purview, Copilot administration, and Azure. Every block is tagged - search the tag, not the prose."
 permalink: /reference/field-manual/
 image:
 toc: true
@@ -66,11 +66,11 @@ toc_depth: 2
 """
 
 # Dropped into the page just under the front matter, above the manual itself.
-INTRO = """> **This page is the full manual, rendered.** It is long on purpose — it is
+INTRO = """> **This page is the full manual, rendered.** It is long on purpose - it is
 > built to be searched, not read front to back. Use **Ctrl+F** (**Cmd+F** on a
 > Mac) and search the bracketed tag, for example `[GPO-TRIAGE]` or `[HYB-SCP]`.
 > Prefer it offline? [Download the raw Markdown](/assets/docs/it-field-manual.md)
-> — it opens in VS Code, Obsidian, or any text editor.
+> - it opens in VS Code, Obsidian, or any text editor.
 
 """
 

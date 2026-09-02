@@ -4,22 +4,22 @@ title: About Me
 description: Former Army officer with a logistics background, changing careers into IT
 permalink: /about/
 # No `image:` here on purpose. The photo appears once, further down, in the
-# "Where I work" gallery — where it gets a caption and a click-to-enlarge.
+# "Where I work" gallery - where it gets a caption and a click-to-enlarge.
 # Setting `image:` as well would print the same photo twice on one page.
 image:
 ---
 
+I am a former Army logistics officer changing careers into IT, and I am looking
+for IT support work in the Rapid City / Black Hills area.
+
 I enjoy anything and everything that broadens my skill set and knowledge base in
 the world of IT. Home lab projects, developing my proficiency in the Microsoft
-ecosystem, exploring Linux distributions (Ubuntu, Ubuntu Server, Kali, Arch, Tails), scripting
-basics – I simply can't get enough of it.
+ecosystem, working with Linux and Proxmox (Ubuntu, Ubuntu Server, Proxmox VE),
+scripting basics – I simply can't get enough of it.
 
 I created this site to serve as my living, breathing portfolio and personal
 repository. I post documentation about my home lab projects, store runbooks and
 field manuals, and keep the scripts I find useful along the way.
-
-> You can't go and download a Windows update for stupidity...
-> – Kevin Mitnick
 
 ## Where I work
 
@@ -32,11 +32,12 @@ field manuals, and keep the scripts I find useful along the way.
 
 ## Certifications
 
-I hold the [AB-900 - Copilot and Agent Administration Fundamentals Certificate](/certifications/), 
-[AZ-900 - Azure Fundamentals Certificate](/certifications/), and the 
+I hold the [AB-900 - Copilot and Agent Administration Fundamentals
+Certification](/certifications/),
+[AZ-900 - Azure Fundamentals Certification](/certifications/), and the
 [Google IT Support Professional Certificate](/certifications/). I am
-currently working toward the **CompTIA A+** certification with an 
-estimated completion timeframe (both Cores) of September 2026.
+currently working toward the **CompTIA A+** certification (both Cores),
+which I expect to sit this fall.
 
 Every certification on the [certifications page](/certifications/) links to the
 public verification record.
@@ -52,8 +53,6 @@ public verification record.
 - **[Posts](/posts/)** – shorter notes and runbooks as I go
 
 ## Getting in touch
-
-I am looking for IT support work in the Rapid City / Black Hills area.
 
 The fastest way to reach me is by email at
 [evan@evanireland.tech](mailto:evan@evanireland.tech). I am also on

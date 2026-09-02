@@ -28,7 +28,7 @@ baseurl: ""
 # Used by the RSS feed and sitemap. The title shown in the header/browser tab
 # comes from _data/settings.yml instead.
 title: Evan Ireland
-description: "IT enthusiast — home lab builds, runbooks, and scripting."
+description: "Windows, Microsoft 365, home lab builds, and documentation."
 
 
 # -----------------------------------------------------------------------------
