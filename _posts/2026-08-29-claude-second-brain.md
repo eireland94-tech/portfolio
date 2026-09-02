@@ -11,7 +11,7 @@ toc: true
 
 Definition from [storyflow.so](https://storyflow.so/blog/what-is-ai-second-brain-complete-guide), author Justkay.
 
-Inb4: I'm a huge Claude stan by now; I'm into Claude-maxxing. Use your preferred frontier AI model for this, but my bias should be known upfront. Except for Copilot - Copilot sucks.
+Inb4: I'm into Claude-maxxing. Use your preferred frontier AI model for this, but my bias should be known upfront.
 
 ---
 
