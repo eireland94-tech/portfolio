@@ -23,7 +23,7 @@ The single reference. Networking and security fundamentals, Windows, Active
 Directory, Group Policy, file services, hybrid identity, Intune, Microsoft 365,
 Exchange Online, public DNS and mail flow, SharePoint sharing, Purview, Copilot
 administration, Azure, PowerShell, and the standard operating procedures that
-tie them together – about 93,000 words across 31 sections.
+tie them together – about 104,000 words across 36 sections.
 
 Every block carries a search tag in brackets, like `[GPO-TRIAGE]` or
 `[AD-LOCKOUT]`, so you search the tag rather than the prose and the reference
@@ -39,8 +39,8 @@ It is a living document. New sections get added as I hit new problems.
 
 | | |
 |---|---|
-| **Current version** | 1.3 – August 2026 |
-| **Sections** | 31 (§00 – §30), ~93,000 words, 54 logged corrections in `[APX-C]` |
+| **Current version** | 1.4 – September 2026 |
+| **Sections** | 36 (§00 – §35), ~104,000 words, 74 logged corrections in `[APX-C]` |
 | **Read online** | [/reference/field-manual/](/reference/field-manual/) |
 | **Download** | [Raw Markdown](/assets/docs/it-field-manual.md) – opens in VS Code, Obsidian, or any text editor |
 | **Changelog** | [End of the manual](/reference/field-manual/#changelog) – every version, what changed, and where it came from |

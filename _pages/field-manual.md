@@ -19,8 +19,8 @@ toc_depth: 2
 
 | | |
 |---|---|
-| **Version** | 1.3 |
-| **Compiled** | 19 August 2026 · **Updated 23 August 2026** |
+| **Version** | 1.4 |
+| **Compiled** | 19 August 2026 · **Updated 19 September 2026** |
 | **Scope** | Networking and security fundamentals → endpoint support → AD/hybrid infrastructure → public DNS and mail flow → cloud administration → data governance and AI administration |
 | **Format** | Markdown. Renders on phone, laptop, GitHub, Obsidian, VS Code. Search with Ctrl+F / Cmd+F. |
 | **Status** | Living document. See [§00.3 Maintenance Protocol](#003--maintenance-protocol-how-to-add-to-this-manual). |
@@ -34,7 +34,7 @@ toc_depth: 2
 | § | Section | Key tags |
 |---|---|---|
 | **00** | [How to use this manual](#00--how-to-use-this-manual) | search tags · conventions · **maintenance protocol** |
-| **01** | [Troubleshooting doctrine](#01--troubleshooting-doctrine-doctrine) | `[DOCTRINE-01]`…`[DOCTRINE-10]` |
+| **01** | [Troubleshooting doctrine](#01--troubleshooting-doctrine-doctrine) | `[DOCTRINE-01]`…`[DOCTRINE-14]` |
 | **02** | [PowerShell fundamentals](#02--powershell-fundamentals-ps) | `[PS-01]`…`[PS-11]` · `[PS-BULK]` · `[PS-EXEC]` |
 | **03** | [CMD ↔ PowerShell equivalents](#03--cmd--powershell-equivalents-ps-cmd) | `[PS-CMD]` · `[WIN-INV]` |
 | **04** | [Network diagnostics](#04--network-diagnostics-net) | `[NET-01]`…`[NET-11]` · `[NET-TRIAGE]` |
@@ -44,11 +44,11 @@ toc_depth: 2
 | **08** | [File services and permissions](#08--file-services-and-permissions-file) | `[FILE-02]` · `[FILE-502]` · `[FILE-TRIAGE]` |
 | **09** | [Hybrid identity](#09--hybrid-identity-hyb) | `[HYB-SCP]` · `[HYB-SYNC]` · `[HYB-LIC]` · `[HYB-JOIN]` |
 | **10** | [Intune and device management](#10--intune-and-device-management-mdm) | `[MDM-OWNERSHIP]` · `[MDM-02]`…`[MDM-09]` |
-| **11** | [Microsoft 365 administration](#11--microsoft-365-administration-m365) | `[M365-01]`…`[M365-07]` |
+| **11** | [Microsoft 365 administration](#11--microsoft-365-administration-m365) | `[M365-01]`…`[M365-21]` |
 | **12** | [Azure fundamentals reference](#12--azure-fundamentals-reference-az) | `[AZ-01]`…`[AZ-11]` · `[AZ-RBAC-VS-ENTRA]` |
 | **13** | [Windows client build and domain join](#13--windows-client-build-and-domain-join-win) | `[WIN-OOBE]` · `[WIN-PREJOIN]` · `[AD-JOIN-FAIL]` · `[WIN-POSTJOIN]` |
-| **14** | [Storage and disk operations](#14--storage-and-disk-operations-disk) | `[DISK-01]`…`[DISK-03]` |
-| **15** | [Standard operating procedures](#15--standard-operating-procedures-sop) | `[SOP-01]`…`[SOP-12]` · `[SEC-IR]` |
+| **14** | [Storage and disk operations](#14--storage-and-disk-operations-disk) | `[DISK-01]`…`[DISK-05]` · RAID · cross-platform file systems |
+| **15** | [Standard operating procedures](#15--standard-operating-procedures-sop) | `[SOP-01]`…`[SOP-18]` · `[SEC-IR]` · change management · backups · safety |
 | **16** | [Assessing an inherited network](#16--assessing-an-inherited-network-assess) | `[ASSESS-01]`…`[ASSESS-03]` |
 | **17** | [Decommissioning a hybrid environment](#17--decommissioning-a-hybrid-environment-decom) | `[DECOM-P0]`…`[DECOM-P12]` |
 | **18** | [Error → cause → fix master index](#18--error--cause--fix-master-index-err) | `[ERR]` — **search here first** |
@@ -57,13 +57,18 @@ toc_depth: 2
 | **21** | [Appendices](#21--appendices) | `[APX-A]` checklists · `[APX-C]` **corrections log** · `[APX-D]` rebuild drill |
 | **22** | [Networking fundamentals](#22--networking-fundamentals-netf) | `[NETF-01]`…`[NETF-19]` · **layer-based triage** · CIDR · DNS records · DORA |
 | **23** | [Security fundamentals](#23--security-fundamentals-secf) | `[SECF-01]`…`[SECF-17]` · **authn vs authz** · Kerberos flow · crypto · AAA |
-| **24** | [Systems and directory fundamentals](#24--systems-and-directory-fundamentals-sysf) | `[SYSF-01]`…`[SYSF-06]` · MBR/GPT · LDAP bind · SAM |
+| **24** | [Systems and directory fundamentals](#24--systems-and-directory-fundamentals-sysf) | `[SYSF-01]`…`[SYSF-07]` · MBR/GPT · LDAP bind · SAM · domain vs. workgroup |
 | **25** | [Personal additions](#25--personal-additions) | your new entries go here |
 | **26** | [Microsoft Purview and data governance](#26--microsoft-purview-and-data-governance-purv) | `[PURV-01]`…`[PURV-19]` · labels · DLP · IRM · retention · eDiscovery · DSPM for AI · **simulation-mode trap** |
 | **27** | [Copilot and agent administration](#27--copilot-and-agent-administration-ai) | `[AI-01]`…`[AI-21]` · oversharing · RAC/RCD/RSS · licensing · agents · Agent 365 |
-| **28** | [Public DNS for mail](#28--public-dns-for-mail-dns-mail) | `[DNS-MAIL-00]`…`[DNS-MAIL-08]` · MX · SPF · DKIM · DMARC · DNSSEC · wildcards |
-| **29** | [Exchange Online administration](#29--exchange-online-administration-exo) | `[EXO-00]`…`[EXO-14]` · message trace · quarantine · shared mailboxes · delegation · `[EXO-PROXY]` |
+| **28** | [Public DNS for mail](#28--public-dns-for-mail-dns-mail) | `[DNS-MAIL-00]`…`[DNS-MAIL-09]` · MX · SPF · DKIM · DMARC · DNSSEC · wildcards · third-party gateways |
+| **29** | [Exchange Online administration](#29--exchange-online-administration-exo) | `[EXO-00]`…`[EXO-15]` · message trace · quarantine · shared mailboxes · delegation · `[EXO-PROXY]` · skip listing |
 | **30** | [SharePoint Online and OneDrive — sharing and guest access](#30--sharepoint-online-and-onedrive--sharing-and-guest-access-spo) | `[SPO-01]`…`[SPO-08]` · external sharing · guests · people picker |
+| **31** | [Printers and imaging](#31--printers-and-imaging-prn) | `[PRN-01]`…`[PRN-07]` · laser process · toner safety · spooler vs. mechanical |
+| **32** | [macOS field reference](#32--macos-field-reference-mac) | `[MAC-01]`…`[MAC-06]` · Windows↔macOS translation · RSR |
+| **33** | [Physical layer and connectors](#33--physical-layer-and-connectors-conn) | `[CONN-01]`…`[CONN-03]` · T568A/B · fiber · connector ID · video signal |
+| **34** | [Site survey](#34--site-survey-site) | `[SITE-01]`…`[SITE-06]` · shot list · evidence handling · service-tag lookup |
+| **35** | [Vendor and platform due diligence](#35--vendor-and-platform-due-diligence-vend) | `[VEND-01]`…`[VEND-03]` · is the platform alive · reading an incumbent's invoices |
 
 ### <a id="fast-paths--the-five-things-you-will-look-up-most"></a>Fast paths — the five things you will look up most
 
@@ -85,6 +90,8 @@ toc_depth: 2
 | A message "never arrived" | `[EXO-01]` — read the trace boundary before anything else |
 | Someone shared a file externally and the recipient got nothing | `[SPO-06]` — read the confirmation dialog first |
 | A test passed and you are not sure you believe it | `[DOCTRINE-11]` — inventory the overrides |
+| A vendor's newsroom has gone quiet and directory listings are all you can find | `[DOCTRINE-13]` — require a live website or a state registry record |
+| You are on site and need to know what is actually racked | `[SITE-03]` — the shot list |
 
 ## <a id="00--how-to-use-this-manual"></a>00 — HOW TO USE THIS MANUAL
 
@@ -119,6 +126,11 @@ Every major block carries a bracketed tag. **Search the tag, not the prose.** Ta
 | `[SYSF]` | OS, filesystem, partitioning, directory service concepts |
 | `[PURV]` | Microsoft Purview — classification, labels, DLP, retention, eDiscovery, compliance |
 | `[AI]` | Microsoft 365 Copilot and agents — readiness, licensing, governance, administration |
+| `[PRN]` | Printers and imaging — technology, symptoms, safety |
+| `[MAC]` | macOS field reference — for a Windows-centric technician supporting mixed fleets |
+| `[CONN]` | Physical layer and connectors — cable standards, connector identification, video signal capability |
+| `[SITE]` | Physical site survey — walking an environment, photographing it, turning what is on the racks into documented fact |
+| `[VEND]` | Vendor and platform due diligence — assessing whether a product or company is alive, and what an incumbent actually delivers |
 
 ### <a id="002--conventions"></a>00.2 — Conventions
 
@@ -274,6 +286,50 @@ Three separate incidents in one project were solved by information **already dis
 **The rule: before you form a theory, re-read every banner, confirmation, and error detail already in front of you. Expand the truncated ones.**
 
 Diagnostic effort spent before this step is usually wasted, and it is worse than wasted when it produces a plausible wrong theory that then has to be unwound. **The screen is a source. Treat it like one.**
+
+### <a id="doctrine-13-a-search-that-returns-only-aggregators-has-told-you-the-company-is-dead"></a>`[DOCTRINE-13]` A search that returns only aggregators has told you the company is dead
+
+**A directory listing proves a filing existed once. It does not prove a company is trading.**
+
+When a company-name search returns nothing but scraped-directory aggregators — ZoomInfo, Manta, Dun & Bradstreet, Yelp, Birdeye, Seamless.AI, yellow.place, government vendor registries — **and not one result is the company's own website** — that pattern is the signature of a defunct business. Aggregators never delete records; they are populated once from a public filing and persist indefinitely, which is exactly why a dead company looks well-documented.
+
+**The failure mode is reading volume as vitality.** Nine hits feels like evidence. It is nine copies of one filing.
+
+| Signal | Weight |
+|---|---|
+| Live company website that resolves | Strong positive |
+| Current state Secretary of State registration in good standing | **Strongest positive — authoritative and usually free** |
+| Recent dated reviews, recent job postings, recent social activity | Moderate positive |
+| Aggregator directory listings | No weight in either direction |
+| Aggregator listings and nothing else | **Strong negative** |
+
+**Before asserting a company is active, require one of the two strong positives.** The state business-entity registry settles the question in about two minutes — active versus administratively dissolved — but most state registries are form-driven applications, so this is a human step, not something you can script or fetch.
+
+**Generalizes beyond companies:** the same shape appears wherever a record outlives the thing it describes — a DNS record for a decommissioned host, a monitoring entry for a retired server, a license seat for a machine that no longer exists. Ask what would have deleted this record if the thing were gone. If the answer is "nothing," the record proves nothing. See `[VEND-01]`.
+
+### <a id="doctrine-14-physical-inspection-answers-what-documents-cannot"></a>`[DOCTRINE-14]` Physical inspection answers what documents cannot
+
+**Paper describes the part of the world its author touched. Nothing else.**
+
+A complete, reconciled set of one vendor's invoices can be read exhaustively and still say nothing about a second vendor, a decommissioned appliance, an unlabeled system, or anything installed before the first invoice in the set. This is not a defect in the documents — it is the definition of their scope, and it is invisible from inside them because the documents carry no marker where their coverage ends.
+
+**One hour walking an environment with a written shot list routinely surfaces things weeks of document analysis cannot:** equipment nobody bills for, a device that is racked and cabled but powered off, a vendor sticker from a company that no longer exists, a serial number that converts an estimate into a manufacturer-stated fact. Full procedure at `[SITE]`.
+
+**Corollary — front-panel LEDs are primary evidence of operating state and cost nothing to read.** A device with every front LED dark is not in service, whatever the cabling, rack position, or documentation says. Photograph the LED panel of every powered device, straight on, and read the states later. A racked appliance that is dark is either abandoned in place or a fault nobody has noticed — different findings, different urgency.
+
+**WHY this ranks alongside `[DOCTRINE-07]`:** an untested backup is a hypothesis; a document set assumed to be complete is the same hypothesis wearing different clothes.
+
+### <a id="doctrine-15-a-cloud-migrations-real-savings-for-a-small-organization-is-avoided-capital-spend-not-a-recurring-discount"></a>`[DOCTRINE-15]` A cloud migration's real savings for a small organization is avoided capital spend, not a recurring discount
+
+**The generic pitch — "moving to the cloud saves you money on IT" — is not reliably true for a small organization, and treating it as automatically true is a credibility risk with a technically literate buyer.** Work the comparison in two separate halves instead of one blended claim.
+
+**Recurring cost is usually close to even, sometimes a small win, rarely a dramatic one** — and the direction depends entirely on what the organization already owns. If it already holds a license tier that includes cloud storage and identity capacity it isn't using, the marginal recurring cost of using that capacity is close to zero, because it's sunk cost. If it does not already own that capacity, a cloud migration is a **new** recurring cost being introduced, not a savings. **Check which situation applies before making any recurring-cost claim** — the two produce opposite answers from the same migration.
+
+**Capital cost is where the real, defensible number usually lives.** Aging on-premises hardware needs periodic replacement regardless of the cloud decision — if any on-premises role survives a migration decision, that capital cost still arrives on schedule. A migration to fully cloud-hosted infrastructure is frequently the only path that actually avoids that recurring capital cycle, not because the cloud is inherently cheaper, but because there is no hardware left to refresh. **This is the number to lead with when a decision-maker asks "will this actually save us money" — not a vague claim about operating costs.**
+
+**Administrative labor does not disappear; it changes shape.** A common unstated assumption behind "the cloud needs less maintenance" is that maintenance work goes away. It does not — cloud identity, access, and policy administration still needs a person. What changes is the *category* of risk: physical hardware failure, with its unplanned emergency-recovery labor, is replaced by the infrastructure provider's own redundancy, while day-to-day administrative labor continues largely unchanged. **State this distinction plainly to a buyer rather than letting "less maintenance" imply "less need for a technician"** — overclaiming here is the kind of thing a client remembers and checks against reality within the first year.
+
+**Generalization:** any total-cost argument that blends a one-time cost with a recurring cost into a single "savings" number should be distrusted until it's split back into its two halves. The blended number is where the persuasive-but-misleading version of the pitch usually hides. File-share migration mechanics: `[FILE-10]`.
 
 ---
 
@@ -773,6 +829,8 @@ Write-Host "`n=== Scan Complete ===" -ForegroundColor Green
 | **49152–65535** | TCP | Dynamic RPC | AD replication. **The range firewalls block by accident.** |
 | **67 / 68** | UDP | DHCP server / client | Address assignment |
 | **1645/1646, 1812/1813** | UDP | RADIUS | 802.1X, VPN auth |
+| **69** | UDP | TFTP | Firmware and config transfer for switches, APs, and phones |
+| **161 / 162** | UDP | SNMP | Device polling / traps — the standard way network gear reports health |
 
 ### <a id="net-09-port-reference--services-and-homelab"></a>`[NET-09]` Port reference — services and homelab
 
@@ -2115,6 +2173,29 @@ icacls "D:\Departments\Sales" /grant "SYSTEM:(OI)(CI)F" /T
 
 Then rebuild from the standard model in `[FILE-05]`. `(OI)` = object inherit (files), `(CI)` = container inherit (folders), `/T` = recurse.
 
+### <a id="file-10-migrating-an-on-premises-file-share-to-sharepointonedrive--tooling-and-sequencing"></a>`[FILE-10]` Migrating an on-premises file share to SharePoint/OneDrive — tooling and sequencing
+
+**Decision table — sizing the tool to the actual job:**
+
+| Data volume / connectivity | Tool | Why |
+|---|---|---|
+| **Tens of GB up to low single-digit TB, normal business internet connection** | **SharePoint Migration Tool (SPMT)** — free, Microsoft-supported, purpose-built for this job | Copies directly over the existing connection; supports incremental/delta syncs, which is what makes low-disruption migration possible |
+| **Larger managed migrations across many sources, needing centralized task tracking** | **Migration Manager** (Microsoft's agent-based migration console, in the Microsoft 365 admin center) | Built for scale and multi-source coordination that a single small-office migration does not need |
+| **Very large data volume (tens to hundreds of TB) and/or genuinely poor connectivity** | **Azure Data Box** (physical device shipped to site, data copied locally, shipped back, uploaded to Azure, then moved into SharePoint via SPMT) | Only justified at real scale or genuinely bad connectivity — most large customers don't use it even for enterprise SharePoint migrations. Current usable capacity runs from **~35 TB (Data Box Disk) up through 120 TB and 525 TB (the larger Data Box tiers)** — see the correction at `[AZ-07]`, `[APX-C]` #74. **Do not reach for this by default just because a client's data "feels like a lot" — verify actual volume first; a single office's file share is almost never in this tier** |
+
+**The failure mode this table exists to prevent:** defaulting to the most enterprise-sounding tool because it's the most impressive-sounding answer, rather than sizing the tool to the actual job. Confirm real data volume before choosing — don't reason from an assumption about how much data "a business this size" probably has.
+
+**Sequencing for minimal disruption, once actual volume is confirmed:**
+
+1. **Run the migration tool's pre-scan/validation pass before moving anything.** Cloud file storage commonly rejects things a traditional file share tolerates — illegal characters, over-length paths, reserved names. Finding this before the migration avoids silently skipped files.
+2. Bulk-copy while the source stays live and users keep working normally against it — schedule for off-hours if bandwidth is a shared concern.
+3. Run a short delta/incremental sync immediately before the cutover date to catch anything changed since the bulk copy began.
+4. **Verify file counts and spot-check content on the destination before making any change to the source.**
+5. **Cut users over to the new location on an announced date, not gradually.** A soft, gradual transition produces files split across two locations that never get reconciled — pick a date and communicate it.
+6. Retain the untouched source copy for a defined window after cutover (a few weeks is reasonable) before it is safe to consider it disposable.
+
+**WHY the capital-vs-recurring framing matters here:** `[DOCTRINE-15]`.
+
 
 ---
 
@@ -3039,6 +3120,15 @@ Defender XDR correlates signals across email, endpoints, identities, and cloud a
 
 **Positioning: Purview is not part of Defender XDR.** Defender does threat detection and response; Purview (§26) does data governance, compliance, and insider risk. They interoperate — DLP alerts route into Defender XDR and Sentinel — but they are separate product families with separate portals and separate role models.
 
+### <a id="m365-21-assessing-security-tool-overlap-before-recommending-a-cancellation"></a>`[M365-21]` Assessing security-tool overlap before recommending a cancellation
+
+Two rules that sit on top of the product map in `[M365-20]` and the licensing table above, for the specific moment of recommending that a client cancel a third-party product because Microsoft 365 already does the same job.
+
+1. **Check overlap seat by seat, not tenant-wide.** A tenant with a mix of license tiers only has the higher-tier protections on the seats that actually carry the higher-tier license. A straight cancel-and-switch recommendation made against the tenant's *nominal* SKU silently drops coverage on whichever seats are actually on a lower tier.
+2. **The reasoning stops dead at backup.** "They already own an equivalent" is a legitimate argument against a redundant security tool. It is never a legitimate argument against backup. Cloud-suite retention, recycle bins, and versioning protect the cloud suite — they do not protect an on-premises domain controller or file server. **Never recommend canceling the only backup in an environment on license-overlap grounds.**
+
+**Naming discipline, restated from `[M365-20]`:** "Defender" alone is not a product — **Defender for Business** is endpoints, **Defender for Office 365** is email, and **Defender for Office 365 Plan 1** specifically ships only in Business Premium and up, not the entry or mid-tier business plans. **Purview is not security filtering** — citing it in an anti-spam argument is a tell that the speaker has not used it.
+
 ---
 
 ## <a id="12--azure-fundamentals-reference-az"></a>12 — AZURE FUNDAMENTALS REFERENCE `[AZ]`
@@ -3286,7 +3376,7 @@ Management Groups     (nestable up to 6 levels, excluding root and subscription 
 | **Azure Storage Explorer** | Moving files | "GUI," "drag and drop," "browse storage visually" |
 | **Azure File Sync** | Moving files | "Keep the local Windows File Server but centralize the data in Azure," ongoing sync rather than a one-time move |
 | **Azure Migrate** | Migration | "Assess our on-premises servers," "plan and track a datacenter migration" |
-| **Azure Data Box** | Migration | **"Bandwidth is the constraint."** Physical device, max usable capacity **80 TB**, shipped by carrier. Also works in the **export** direction. |
+| **Azure Data Box** | Migration | **"Bandwidth is the constraint."** Physical device, shipped by carrier. Also works in the **export** direction. **🔄 UPDATED, verified Sep 2026 — capacity is now tiered**, not a flat 80 TB: **Data Box Disk** ~35 TB usable (small jobs), **Data Box** 120 TB usable, **Data Box** 525 TB usable for very large transfers. See `[APX-C]` #74. |
 
 *AzCopy vs Data Box is decided by one variable: bandwidth.*
 
@@ -3606,6 +3696,48 @@ Start-Service Spooler
 
 **Checklist:** printer powered and on the network → user on the correct network/VLAN or VPN → ping the printer IP → check the queue → clear stuck jobs **if authorized** → restart the spooler → confirm the correct driver → **test print from another user and another device** (this isolates user vs printer vs driver) → escalate if hardware or vendor issue.
 
+### <a id="win-08-windows-edition-capabilities-and-product-lifecycle"></a>`[WIN-08]` Windows edition capabilities and product lifecycle
+
+| Feature | Home | Pro | Pro for Workstations | Enterprise |
+|---|---|---|---|---|
+| Join an AD domain | ✗ | ✓ | ✓ | ✓ |
+| Local Group Policy Editor (`gpedit.msc`) | ✗ | ✓ | ✓ | ✓ |
+| BitLocker | ✗ | ✓ | ✓ | ✓ |
+| RDP **host** (accept incoming connections) | ✗ | ✓ | ✓ | ✓ |
+| RDP **client** (`mstsc.exe`, connect out) | ✓ | ✓ | ✓ | ✓ |
+| Hyper-V | ✗ | ✓ | ✓ | ✓ |
+| Max RAM (64-bit) | 128 GB | 2 TB | 6 TB | 6 TB |
+
+**Every edition, including Home, ships the RDP client.** Only non-Home editions can act as an RDP host — this is the distinction that gets over-applied in the wrong direction. See `[APX-C]` #59.
+
+**N and KN editions** ship without Windows Media Player and related media components (N is the EU SKU, KN the South Korean equivalent). If line-of-business software fails on an N-edition machine with a media-component error, install the **Media Feature Pack** rather than treating it as an application bug.
+
+**Product lifecycle, and why it matters operationally:** mainstream support (feature and security updates) → extended support (security patches only, no new features) → **end of life** — no updates of any kind. An end-of-life system still runs, and running it connected to a network or the internet is a standing, unpatched risk that only grows over time. Flag it as a finding, not a footnote.
+
+### <a id="win-09-admin-console-quick-reference--snap-ins-and-their-file-names"></a>`[WIN-09]` Admin console quick reference — snap-ins and their file names
+
+| Tool | Command | Does |
+|---|---|---|
+| Local Group Policy Editor | `gpedit.msc` | Local system and user policy. Pro and above |
+| Group Policy Management Console | `gpmc.msc` | Domain GPOs — RSAT feature, not installed by default on a client. See `[APX-C]` #66 |
+| Computer Management | `compmgmt.msc` | Container for Device Manager, Disk Management, Event Viewer, Services, Local Users and Groups |
+| Local Users and Groups | `lusrmgr.msc` | Local accounts |
+| Device Manager | `devmgmt.msc` | Hardware and drivers |
+| Disk Management | `diskmgmt.msc` | Partitions, volumes, drive letters |
+| Event Viewer | `eventvwr.msc` | Logs |
+| Services | `services.msc` | Start, stop, set startup type |
+| Task Scheduler | `taskschd.msc` | Scheduled jobs |
+| Performance Monitor | `perfmon.msc` | Counters and data collector sets |
+| Certificate Manager | `certmgr.msc` | Certificates |
+| System Configuration | `msconfig` | Boot options, services, startup |
+| System Information | `msinfo32` | Detailed system report |
+| Registry Editor | `regedit` | Registry |
+| Resource Monitor | `resmon` | Live CPU, memory, disk, network |
+| System Properties | `sysdm.cpl` | **Computer name and domain membership**, remote settings |
+
+**System Properties (`sysdm.cpl`), not Computer Management, is where domain membership is verified** — it is the same dialog used to join a machine to the domain in the first place. Computer Management has no domain-membership view at all. See `[APX-C]` #66.
+
+
 ---
 
 ## <a id="14--storage-and-disk-operations-disk"></a>14 — STORAGE AND DISK OPERATIONS `[DISK]`
@@ -3720,6 +3852,34 @@ Resume-BitLocker  -MountPoint "C:"
 **🛑 Suspend BitLocker before a BIOS/firmware/TPM update.** A firmware change alters the measurements the TPM seals against, and the machine will demand the recovery key at next boot. `-RebootCount 1` auto-resumes after one reboot.
 
 **🛑 Never enable BitLocker without confirming the recovery key is escrowed.** Encryption with an unrecoverable key is data destruction on a delay.
+
+### <a id="disk-04-raid-levels--and-the-misconception-that-costs-data"></a>`[DISK-04]` RAID levels — and the misconception that costs data
+
+| RAID | Minimum drives | Provides | Survives |
+|---|---|---|---|
+| **0** | 2 | Striping — speed and full combined capacity | **No drive loss.** One failure loses everything |
+| **1** | 2 | Mirroring | One drive loss. 50% usable capacity |
+| **5** | 3 | Striping with distributed parity | One drive loss |
+| **6** | 4 | Striping with double distributed parity | Two drive losses |
+| **10** | 4 | Mirrored stripes | Speed plus redundancy — the common choice for demanding workloads |
+
+**🛑 RAID is not a backup, at any level.** It protects against a drive failure, not against ransomware, accidental deletion, a bad update, fire, or theft — all of which propagate to every mirrored or parity-protected copy just as fast as to a single drive. A RAID array with no separate backup is one incident away from total loss with full redundancy. See `[DOCTRINE-07]`.
+
+**⚠ Modern-capacity RAID 5 carries real rebuild risk.** Rebuilding a failed drive in a RAID 5 array means reading every remaining drive in full under sustained load — and on today's multi-terabyte drives, that read can take long enough that a second drive failure or an unrecoverable read error during the rebuild is a real, documented failure mode, not a theoretical one. RAID 6 or RAID 10 are the more defensible choices at large drive capacities for exactly this reason.
+
+### <a id="disk-05-cross-platform-file-system-recognition"></a>`[DISK-05]` Cross-platform file system recognition
+
+The Windows-native choice among NTFS, exFAT, and ReFS is at `[DISK-03]`. This is for recognizing a drive formatted by something other than Windows:
+
+| File system | Native to | Notes |
+|---|---|---|
+| **ext3 / ext4** | Linux | Windows cannot read these natively without third-party drivers |
+| **APFS** | Modern macOS | Windows cannot read this natively |
+| **HFS+** | Older macOS | Predates APFS |
+| **FAT32** | Universal legacy | 4 GB max file size, 2 TB max volume — the ceiling that explains "why won't this drive take my large file" |
+
+**Quick format vs. full format** — a distinction worth stating plainly because the names invite the wrong assumption: **quick format** removes the file system's references to the data but does **not** overwrite it and does **not** check for bad sectors — the data is still recoverable, which makes quick format fine for reuse or an OS install but **not appropriate before resale or disposal**. **Full format** overwrites the data and checks for bad sectors, is significantly slower, and is the correct choice before a drive leaves your control.
+
 
 ---
 
@@ -3949,6 +4109,97 @@ See `[AD-LOCKOUT]`. **Find the source before you unlock.**
 **During the day:** **document as you troubleshoot, not after** · validate fixes with users · escalate with clear notes · save useful commands · **avoid undocumented changes.**
 
 **End of day:** update ticket statuses · record unresolved blockers · add new fixes to the Lessons Learned KB · add reusable commands to the script library · **review what you learned.**
+
+### <a id="sop-13-malware-removal--the-sequence-not-just-the-scan"></a>`[SOP-13]` Malware removal — the sequence, not just the scan
+
+A different procedure from `[SOP-09]` suspected-compromise containment: this is for a single infected endpoint, not a compromised account. Taxonomy and containment doctrine for a genuine compromise: `[SECF-01]`.
+
+1. **Investigate and verify** the symptoms actually indicate malware rather than a different fault.
+2. **Quarantine** the system — disconnect it from the network before doing anything else.
+3. **Disable System Restore.** Otherwise a restore point can reintroduce the infection later.
+4. **Remediate** — update the anti-malware definitions first, then scan and remove, using Safe Mode or a boot media (WinPE) scan when the infection resists an in-OS scan.
+5. **Schedule follow-up scans** and confirm the system is fully patched.
+6. **Re-enable System Restore and create a new, clean restore point** — only after remediation and patching, so the new baseline is not itself contaminated.
+7. **Educate the end user** on what happened and how to avoid a repeat.
+
+**WHY step 3 and step 6 are a matched pair:** enabling System Restore before the system is clean and patched risks capturing the infection in a future restore point. Delaying it until after remediation *and* patching protects the new baseline.
+
+### <a id="sop-14-change-management-vocabulary"></a>`[SOP-14]` Change management vocabulary
+
+Real ITSM terms — expect to hear these in a ticketing system's dropdown and in an MSP interview, not just a textbook.
+
+| Term | Meaning |
+|---|---|
+| **Standard change** | Pre-approved, low risk, repeatable. No CAB review required. |
+| **Normal change** | Requires assessment and CAB approval — the default path for anything non-routine. |
+| **Emergency change** | Expedited, outside the normal window; approval is often retroactive. |
+| **CAB** (Change Advisory Board) | The body that formally authorizes a change. Not "a manager's sign-off." |
+| **Maintenance window** | The recurring, authorized timeframe changes are performed in. |
+| **Change freeze** | A period when changes are blocked — year-end, audit, peak season. |
+| **Rollback plan** | The documented procedure to reverse a change if it fails. |
+
+**A change request should state:** the purpose (why), the scope (what and where), the affected systems and impact (what breaks if this goes wrong), the assessed risk level, the date and time, the responsible party, and the rollback plan. **Formal authorization is CAB approval, not a verbal go-ahead** — and a rollback plan written after a change has already failed is not a rollback plan.
+
+### <a id="sop-15-backup-strategy--types-and-the-3-2-1-rule"></a>`[SOP-15]` Backup strategy — types and the 3-2-1 rule
+
+| Type | Backs up | Restore requires |
+|---|---|---|
+| **Full** | Everything | The full backup only |
+| **Incremental** | Changes since the last backup of any kind | The full backup plus **every** incremental since |
+| **Differential** | Changes since the last full backup | The full backup plus only the **latest** differential |
+
+**The 3-2-1 rule:** three copies of the data, on two different media types, with one copy stored offsite. **Test restoration periodically — a backup that has never been restored is not yet a backup**, it is an untested hypothesis. See `[DOCTRINE-07]` and the System State backup procedure at `[AD-13]`.
+
+### <a id="sop-16-physical-safety-environmental-controls-and-disposal"></a>`[SOP-16]` Physical safety, environmental controls, and disposal
+
+**Personal and equipment safety:**
+
+- **ESD strap and mat** — bonds the technician to the same electrical potential as the equipment before any internal work.
+- **Antistatic bags** for component transport and storage.
+- **Disconnect power before opening a case.** Never open a PSU or a CRT — both store lethal charge in their capacitors long after being unplugged.
+- Remove jewelry, lift with your legs, use proper cable management to prevent trip hazards.
+
+**Environmental controls:**
+
+| Item | Key fact |
+|---|---|
+| **SDS** (Safety Data Sheet, formerly MSDS) | Handling, disposal, and first-aid information for a specific material — check it before disposing of anything unfamiliar |
+| **Humidity** | Low humidity increases ESD risk; high humidity risks condensation |
+| **UPS vs. surge protector** | A **UPS provides battery runtime** for a graceful shutdown; a surge protector only clamps voltage spikes and provides no runtime at all — they solve different problems |
+
+**Data destruction and disposal:**
+
+| Method | Type | Notes |
+|---|---|---|
+| Shredding | Physical | Paper and drives |
+| Drilling / hammering | Physical | Renders platters unusable |
+| Degaussing | Physical | **Magnetic media only — does nothing to an SSD.** See `[APX-C]` #63 |
+| Full/low-level format, or a wipe utility | Sanitization | Appropriate for reuse; a **quick** format is not sufficient — see `[DISK-05]` |
+| Certificate of destruction | Documentation | Required proof when disposal is handled by a third party |
+
+Battery and toner disposal follow local e-waste regulation, never general waste.
+
+### <a id="sop-17-regulated-data--the-acronyms-a-client-conversation-assumes-you-know"></a>`[SOP-17]` Regulated data — the acronyms a client conversation assumes you know
+
+| Acronym | Covers |
+|---|---|
+| **PII** | Personally identifiable information |
+| **PHI** | Protected health information — governed by **HIPAA** |
+| **PCI DSS** | Payment card data |
+| **GDPR** | EU data protection regulation |
+| **FERPA** | Education records |
+
+Knowing which acronym applies to a client's data is what turns "we should probably be careful with this" into a specific, defensible control — see `[SECF-13]` for the access-control mechanics and `[PURV]` for classification and DLP tooling.
+
+### <a id="sop-18-client-communication-essentials"></a>`[SOP-18]` Client communication essentials
+
+- **State assurance while managing expectations** — confident, not overpromising.
+- **Actively listen and do not interrupt.** Treat every reported symptom as legitimate until it is actually investigated and ruled out.
+- **Avoid jargon, acronyms, and slang** with a non-technical client.
+- **Maintain confidentiality.** Never discuss a client's issue outside work or on social media.
+- **Document what was done and follow up** to confirm the fix actually held from the client's side, not just from the ticket's.
+
+**🛑 When troubleshooting requires a password-protected account, ask the user to type the password themselves.** Never ask for it directly, never disable the protection, and never create a shadow account to get around it.
 
 
 ---
@@ -4504,6 +4755,10 @@ Only now, with everything torn down and nothing left to administer.
 | Server begins shutting down on a schedule | **Windows Server Evaluation expired (180 days)** | `slmgr /dlv`. **Cannot convert while a DC — demote, convert, re-promote** `[BUILD-P0]` |
 | Domain controller missing from `OU=Servers` | **Not a fault.** DCs live in the built-in Domain Controllers OU. | **Leave it.** Moving a DC out breaks its default policy. `[BUILD-P13]` |
 | `sfc /scannow` reports unrepairable corruption | The component store itself is damaged | Run `DISM /Online /Cleanup-Image /RestoreHealth` **first**, then SFC `[WIN-06]` |
+| Random crashes, no consistent BSoD stop code | Driver or hardware instability not yet isolated | Event Viewer, **Reliability Monitor** (`perfmon /rel`), memory diagnostic, roll back the most recent driver `[WIN-09]` |
+| System clock resets every power-off, on a **standalone** (non-domain) machine | **CMOS battery** exhausted — not a time-sync setting | Replace the CMOS battery. On a domain machine, check the time hierarchy first `[AD-07]` before assuming hardware |
+| Service will not start | A dependency is stopped, or the service account lacks the required rights | `services.msc`, check the **Dependencies** tab, check Event Viewer for the specific failure reason |
+| No OS found at boot | Boot order, drive not detected in firmware, or a damaged boot sector | Verify boot order and drive detection in firmware first; `bootrec` from Windows Recovery Environment if the drive is detected |
 
 ### <a id="microsoft-365-identity-and-licensing"></a>Microsoft 365, identity, and licensing
 
@@ -4625,6 +4880,22 @@ Only now, with everything torn down and nothing left to administer.
 | Auto-labeling not available in the portal | Not licensed at E3 / Business Premium — **recommended labeling is also P2** | E5 / AIP P2 required `[PURV-14]` |
 | Told a client label encryption needs E3 or E5 | **Wrong — Business Premium includes AIP P1**, which covers RMS encryption and visual markings | Correct it before it becomes a quoted upgrade `[PURV-14]` |
 | More DLP rule events in a trace than policies you created | **Microsoft-provisioned default policies ship enabled** in newer tenants | Inventory Purview → DLP → Policies in full `[PURV-19]` |
+
+### <a id="mail-flow--third-party-gateways-in-front-of-microsoft-365"></a>Mail flow — third-party gateways in front of Microsoft 365
+
+| Symptom | Actual cause | Fix |
+|---|---|---|
+| Legitimate inbound mail misclassified as spam after a third-party gateway was introduced | Microsoft sees the gateway's IP, not the sender's; IP reputation, spoof intelligence and DMARC all evaluate the wrong source | Configure **Enhanced Filtering for Connectors** with every relaying public IP. Verify via `X-MS-Exchange-SkipListedInternetSender`. `[EXO-15]` |
+| Legitimate mail fails DKIM after passing through a security gateway | Gateway modifies messages in transit and does not ARC-seal, invalidating the original signature | Add the gateway as a **trusted ARC sealer** where supported; otherwise allow the affected spoofed senders. `[EXO-15]` |
+| All inbound mail defers then bounces, with no delivery to mailboxes | MX points solely at a third-party gateway whose tenant has lapsed or been suspended — **no fallback to Microsoft** | Restore the gateway tenant, or cut MX to Microsoft after verifying native protections. `[DNS-MAIL-09]` |
+| Outbound mail intermittently fails recipient SPF checks after a gateway was removed | SPF still authorizes only the gateway while mail now originates from the cloud provider | Correct the SPF record to match the live topology. `[DNS-MAIL-09]` |
+
+### <a id="site-survey-and-vendor-assessment"></a>Site survey and vendor assessment
+
+| Symptom | Actual cause | Fix |
+|---|---|---|
+| Endpoint protection appears licensed but a subset of machines is uncovered after a third-party product was canceled | License overlap was assessed tenant-wide; lower-tier seats never carried the equivalent entitlement | Assess overlap **seat by seat** before canceling anything. `[M365-21]` |
+| Device is racked and cabled but passes no traffic | Device is powered off and abandoned in place | Read the front LED panel before troubleshooting the path. `[SITE-03]` `[DOCTRINE-14]` |
 
 ---
 
@@ -5010,6 +5281,26 @@ These are things I found wrong, outdated, or misleading in the source material. 
 | 52 | Quarantine actions and user self-release are fully admin-configurable | **High confidence phishing and malware are always quarantined**, and **users can never self-release high confidence phishing regardless of the quarantine policy applied.** The "Move to Junk Email" action is effectively deprecated for that verdict — selecting it still quarantines. Quarantine cannot be disabled tenant-wide. See `[EXO-06]`. | Microsoft Learn, verified Aug 2026 |
 | 53 | "Microsoft DNS hosting does not support DNSSEC" (stated without qualification) | **True only of Microsoft 365 DNS hosting** (`ns1-4.bdm.microsoftonline.com`). **Azure Public DNS does support DNSSEC** — ECDSAP256SHA256, with automatic ZSK rollover. Conflating the two produces a wrong recommendation in both directions. See `[DNS-MAIL-04]`. | Microsoft Learn, verified Aug 2026 |
 | 54 | Tenant Allow/Block List allow entries all expire | **Sender, domain, URL, and file allow entries** expire — 45 days after the filtering system determines the entity is clean, or up to 30 days if set manually. **Spoof allow entries never expire**, and **anti-spam policy allowed-sender lists never expire either.** Those two are where permanent allows accumulate. See `[EXO-07]`. | Microsoft Learn, verified Aug 2026 |
+| 55 | Share permissions apply to all users of a resource, the same as NTFS | **Share permissions apply exclusively to network users** — accessed locally, only NTFS applies. Share permissions can be set on **folders only**; NTFS applies to folders and files. When the two conflict on a network access, the **most restrictive** wins. See `[FILE-02]`. | Dell KB 000137238, verified Sep 2026 |
+| 56 | With NTFS permissions, an explicit Deny always wins | **Explicitness is the primary sort key, not allow-vs-deny.** Evaluation order is Explicit Deny > Explicit Allow > Inherited Deny > Inherited Allow — an explicit Allow on the object overrides an inherited Deny from a parent folder. | Microsoft Learn, verified Sep 2026 |
+| 57 | Moving or copying a file always preserves its original permissions | **Only one case retains the original permissions: a move within the same volume.** A copy always inherits from the new parent, on the same volume or a different one. A move to a **different** volume also inherits, because it is implemented as a copy-then-delete. | Microsoft Learn, verified Sep 2026 |
+| 58 | 64-bit Windows client editions support up to 8 TB of RAM | **There is no 8 TB tier.** Home caps at **128 GB**; Pro and Education at **2 TB**; Pro for Workstations and Enterprise at **6 TB**. All 32-bit editions cap at 4 GB, and Windows 11 has no 32-bit edition. See `[WIN-08]`. | Microsoft Learn, verified Aug 2026, re-confirmed Sep 2026 |
+| 59 | Windows Home edition cannot use Remote Desktop at all | **Every edition, including Home, ships the RDP client** (`mstsc.exe`) and can connect out. Only non-Home editions can act as an RDP **host** (accept incoming connections). See `[WIN-08]`. | Verified Sep 2026 |
+| 60 | Telnet provides no authentication | **Telnet authenticates** with a username and password — it just transmits both, and everything else, in cleartext. *No encryption* is not *no authentication*. | RFC 2941; verified Sep 2026 |
+| 61 | SMB/CIFS is a Linux protocol | **SMB is Microsoft's protocol.** Samba is the Linux/Unix *implementation* of it — implementing a protocol does not make you its native platform. CIFS is the older, now-obsolete name for the original SMB1 dialect. | Verified Sep 2026 |
+| 62 | Windows has supported direct SMB hosting on TCP 445, bypassing NetBIOS, since Windows 2000 | **Two different dates, often conflated.** Direct hosting on TCP 445 was introduced in Windows 2000 as an *option* running alongside legacy NetBIOS on TCP 139 — both are attempted and the first to respond is used. It did not become the **only** supported method until **SMB 2.0.2 (Windows Vista / Server 2008)**. NetBIOS is an API, not a protocol, and originally rode non-routable NetBEUI; NetBT is the shim that makes it routable over TCP/IP. | Microsoft Learn, verified Sep 2026 |
+| 63 | Degaussing sanitizes any drive | **Degaussing works only on magnetic media.** It does nothing to an SSD, which stores data as electrical charge in flash cells rather than magnetic domains. See `[SOP-16]`. | Verified Sep 2026 |
+| 64 | Compressed air is an appropriate tool for cleaning toner | **Never on toner.** Compressed air aerosolizes it — an inhalation hazard that spreads contamination. A standard vacuum can **ignite** fine toner dust at the motor brushes. Toner vacuum only. See `[PRN-06]`. | Verified Sep 2026 |
+| 65 | Mixing RAM modules of different sizes and speeds wastes capacity | **The system uses the full combined capacity of all installed modules, running at the speed of the slowest one.** The speed penalty is real; the capacity is not lost. | Verified Sep 2026 |
+| 66 | `gpmc.msc` manages local system and user policy | **`gpedit.msc`** is the **Local** Group Policy Editor. **`gpmc.msc`** manages **domain** GPOs and their Active Directory links, and is an **RSAT feature not installed by default on a client OS**. Opening `gpedit.msc` does not open GPMC and does not edit a domain GPO. See `[WIN-09]`. | Verified Sep 2026 |
+| 67 | `sfc` and `chkdsk` are interchangeable repair tools | **`sfc /scannow` scans and repairs protected system files.** **`chkdsk` addresses the file system and the physical disk** — `/f` fixes file-system errors, `/r` locates bad sectors and recovers readable data. If the report mentions corrupted or missing system files, it is `sfc`; if it mentions file-system integrity or bad sectors, it is `chkdsk`. | Verified Sep 2026 |
+| 68 | A third-party mail gateway in front of Microsoft 365 is "redundant spend" | **Without Enhanced Filtering for Connectors it is worse than redundant — it degrades the protection already owned.** The correct finding is conditional on skip listing, not on the presence of the gateway. | Microsoft Learn, *Manage mail flow using a third-party cloud service* and *Enhanced filtering for connectors*, verified Sep 2026 |
+| 69 | A lapsed mail-security gateway means weaker filtering | **It means a mail outage.** Where MX points solely at the gateway there is no fallback path to the cloud provider. | Microsoft Learn, mail-flow connector documentation, verified Sep 2026 |
+| 70 | "Defender" protects endpoints | **Two products share the brand: Defender for Business (endpoints) and Defender for Office 365 (email).** Never use the term unqualified. | Microsoft Learn, service descriptions, verified Sep 2026 |
+| 71 | Purview provides email security | **Purview is data governance — DLP, retention, eDiscovery, labels. It does not filter mail.** | Microsoft Learn, service descriptions, verified Sep 2026 |
+| 72 | A company with numerous business-directory listings is an active business | **Aggregator listings persist indefinitely after a company dies and carry no evidential weight.** Require a live website or a current state registry record. | `[DOCTRINE-13]` |
+| 73 | A complete set of an incumbent's invoices documents a client's full IT spend | **It documents that incumbent's spend only.** Equipment from other vendors, decommissioned hardware, and anything predating the set are all invisible. | `[DOCTRINE-14]` |
+| 74 | Azure Data Box has a flat max usable capacity of 80 TB | **Capacity is now tiered.** Data Box Disk offers ~35 TB usable per order (up to 5 disks); the standard Data Box cube now offers a 120 TB usable tier; Data Box 525 covers very large transfers (usable up to 525 TB). The flat "80 TB" figure describes only the original cube tier, which is being superseded for new orders. | Microsoft Learn, Azure Data Box overview and FAQ, verified Sep 2026 |
 
 ### <a id="apx-d-rebuild-from-scratch-drill"></a>`[APX-D]` Rebuild-from-scratch drill
 
@@ -5274,11 +5565,11 @@ Two models are in circulation. They describe the same reality at different resol
 | **4** | **Transport** | Transport | **Segment** (TCP) / **Datagram** (UDP) | **Port number** | TCP, UDP |
 | **3** | **Network** | Network | **Packet** | **IP address** | IP, ICMP |
 | **2** | **Data Link** | Data Link | **Frame** | **MAC address** | Ethernet, Wi-Fi, 802.1Q |
-| **1** | **Physical** | Physical | **Bits** | — | Copper, fibre, radio |
+| **1** | **Physical** | Physical | **Bits** | — | Copper, fiber, radio |
 
 **WHY two models:** OSI is the teaching and vendor-documentation model. TCP/IP 5-layer is what the stack actually implements — it folds OSI's Session, Presentation, and Application into one Application layer, because in practice a single application protocol handles all three. Interviewers ask about OSI. Packet captures show you TCP/IP.
 
-**The one thing worth memorising is the PDU and address at each layer**, because that is what tells you which tool can see your problem. A switch cannot help you with an IP problem. A router cannot help you with a port problem.
+**The one thing worth memorizing is the PDU and address at each layer**, because that is what tells you which tool can see your problem. A switch cannot help you with an IP problem. A router cannot help you with a port problem.
 
 #### <a id="the-layer-based-triage-table--this-is-the-actual-point-of-the-model"></a>The layer-based triage table — this is the actual point of the model
 
@@ -5300,7 +5591,7 @@ Extends `[NET-TRIAGE]`. Work **bottom up**. Do not troubleshoot a layer until th
 # L1 — is the interface physically up?
 Get-NetAdapter | Where-Object Status -eq 'Up' | Format-Table Name, LinkSpeed, MacAddress
 
-# L2 — can I see neighbours on my own segment?
+# L2 — can I see neighbors on my own segment?
 Get-NetNeighbor -AddressFamily IPv4 | Where-Object State -ne 'Unreachable'
 
 # L3 — do I have a sane address and a reachable gateway?
@@ -5368,7 +5659,7 @@ Physical:   1010110101110100101110101110100101011101011101001011101...
 
 | Field | Size | Purpose |
 |---|---|---|
-| Preamble | 7 bytes | Clock synchronisation |
+| Preamble | 7 bytes | Clock synchronization |
 | SFD (Start Frame Delimiter) | 1 byte | Marks the start of the frame proper |
 | **Destination MAC** | 6 bytes | Who it is for |
 | **Source MAC** | 6 bytes | Who sent it |
@@ -5610,7 +5901,7 @@ A **router** forwards traffic between independent networks based on destination 
 | Column | Meaning |
 |---|---|
 | **Destination network** | The prefix this entry describes |
-| **Next hop** | The IP of the neighbouring router to hand the packet to |
+| **Next hop** | The IP of the neighboring router to hand the packet to |
 | **Metric / hops** | Cost. Lower wins when two routes match equally |
 | **Interface** | The local NIC used to reach the next hop |
 
@@ -5821,7 +6112,7 @@ ipconfig /all                              # current lease, server, and expiry
 ipconfig /release ; ipconfig /renew        # force a new DORA cycle
 Get-DhcpServerv4Scope                      # on the Windows DHCP server
 Get-DhcpServerv4Lease -ScopeId 10.10.10.0
-Get-DhcpServerInDC                         # AUTHORISED DHCP servers — see the trap below
+Get-DhcpServerInDC                         # AUTHORIZED DHCP servers — see the trap below
 ```
 
 **⚠ TRAP — the rogue DHCP server.** A consumer router plugged into a LAN port hands out its own scope and gateway. Symptom: *some* clients break, seemingly at random, with a wrong gateway or wrong DNS. Compare `ipconfig /all`'s "DHCP Server" field against the address you expect. Windows Server DHCP requires AD authorization, which is precisely why you should serve DHCP from Windows where a server exists.
@@ -5899,7 +6190,7 @@ Extends a private network to hosts that are not physically on it, by encrypting 
 
 **🛑 MAC filtering is not a security control.** MAC addresses are transmitted **unencrypted in every frame**, including on WPA networks. An attacker sniffs an allowed MAC in seconds and spoofs it in one command. It is an inconvenience to legitimate users and no obstacle to anyone else. Its only legitimate use is inventory hygiene, never access control.
 
-**Rogue AP** — an unauthorised access point attached to your network, usually by a well-meaning employee. Distinguish it from an **evil twin**, which impersonates your SSID *without* touching your network in order to harvest credentials. Different threats, different responses: the rogue AP is a network breach to be found and unplugged; the evil twin is an attack on your users that MAC filtering and WPA cannot address.
+**Rogue AP** — an unauthorized access point attached to your network, usually by a well-meaning employee. Distinguish it from an **evil twin**, which impersonates your SSID *without* touching your network in order to harvest credentials. Different threats, different responses: the rogue AP is a network breach to be found and unplugged; the evil twin is an attack on your users that MAC filtering and WPA cannot address.
 
 ---
 
@@ -6100,7 +6391,7 @@ Concepts and vocabulary. The operational security procedures live at `[SEC-IR]` 
 | **Injection (SQLi, command)** | Untrusted input is interpreted as code | Parameterised queries; input validation; least privilege on the service account |
 | **Cross-Site Scripting (XSS)** | Injected script executes **in another user's browser** — the attack targets the *user* of the service, not the server | Output encoding, Content Security Policy |
 | **Man-in-the-Middle** | Attacker relays and possibly alters traffic between two parties | TLS with **validated** certificates; 802.1X; avoid untrusted networks |
-| **Rogue AP** | Unauthorised access point **attached to your network** | Wireless scanning, switch port security, 802.1X |
+| **Rogue AP** | Unauthorized access point **attached to your network** | Wireless scanning, switch port security, 802.1X |
 | **Evil twin** | AP **impersonating your SSID**, not attached to your network | Certificate-based Wi-Fi auth (EAP-TLS); user awareness |
 | **Password spraying** | One common password tried against **many** accounts, staying under lockout thresholds | **Lockout policy alone does not stop this.** Requires MFA, banned-password lists, sign-in risk detection |
 | **Credential stuffing** | Credentials breached elsewhere replayed against your services | MFA; leaked-credential detection |
@@ -6142,7 +6433,7 @@ Operational handling of a reported phishing message: `[SOP-10]`. Handling of a c
 | **Encryption algorithm** | The underlying logic converting plaintext to ciphertext |
 | **Key** | The secret parameter that makes the output unique to you |
 | **Cryptosystem** | The full collection of algorithms for key generation, encryption, and decryption |
-| **Seed value** | A secret initialising value for a generation process |
+| **Seed value** | A secret initializing value for a generation process |
 
 **Kerckhoffs's principle:** a cryptosystem must remain secure **even if everything about the system is known, except the key.** This is why proprietary "secret" algorithms are a red flag, and why open, peer-reviewed standards (AES, RSA, TLS) are trusted precisely *because* everyone can inspect them. If a vendor's security argument depends on their algorithm being undisclosed, that is security by obscurity and it is not a control.
 
@@ -6716,6 +7007,21 @@ Study material frequently describes the SAM as "a database in Windows that store
 **🛑 Untested failover is not failover.** Powering off DC01 and logging in successfully proves **cached credentials work**, not that failover works. A real test requires DNS handing out both DCs and an account that has **never** signed into that machine. Full procedure: `[AD-FAILOVER]` §13.3. This is correction #12 in `[APX-C]`, and it is the same principle as `[DOCTRINE-07]` — an untested backup is a hypothesis, and so is untested redundancy.
 
 **Scaling vocabulary:** **scale up / vertical** = a bigger machine. **Scale out / horizontal** = more machines. Horizontal scaling is what load balancing and autoscaling enable, and it is the cloud-native default.
+
+### <a id="sysf-07-domain-vs-workgroup-and-the-vocabulary-the-operational-sections-assume"></a>`[SYSF-07]` Domain vs. workgroup, and the vocabulary the operational sections assume
+
+| Term | Meaning |
+|---|---|
+| **Domain** | Centrally administered; single sign-on across every member computer; client-server model |
+| **Workgroup** | Peer-to-peer — **each computer holds its own local security policy**, and logging in requires an account that exists **on that specific computer**. Generally recommended only under roughly 20 machines, where the administrative overhead of a domain outweighs the benefit |
+| **OU** (Organizational Unit) | A container used for delegation and for linking Group Policy — see `[GPO]` |
+| **Home folder** | A dedicated, per-user network location for personal documents |
+| **Folder redirection** | Stores profile folders (Desktop, Documents) on a network share instead of locally — operational procedure at `[FILE-06]`, common failure mode at `[FILE-502]` |
+| **Roaming profile** | The user's entire profile follows them between machines, not just specific folders |
+| **Log-in script** | A legacy mechanism for mapping drives and connecting printers at logon — mostly superseded by Group Policy Preferences (`[GPO-DRIVEMAP]`) but still encountered in older environments |
+
+This section defines the vocabulary; the operational how-to lives where each term is cross-referenced above and in `[AD]` and `[GPO]`.
+
 
 ---
 
@@ -7914,7 +8220,7 @@ Resolve-DnsName -Name contoso.com -Type MX      # no -Server: uses configured DN
 - `enterpriseregistration` and `enterpriseenrollment` silently resolve to the wrong place, and device enrollment fails with an error that points nowhere near DNS.
 - A TXT query that hits a wildcard **CNAME** throws `Property "Strings" cannot be found` — because `Resolve-DnsName` returned a `DnsRecord_PTR` object (the type used for CNAME/PTR/NS), which has `NameHost`, not `Strings`. **That error is a finding, not a syntax mistake.**
 
-Wildcards never match the zone apex, which is why an apex MX query still returns honest NODATA while every subdomain lies. **That asymmetry is the tell:** apex answers look sane, subdomain answers look too good.
+Wildcards never match the zone apex, which is why an apex MX query still returns truthful NODATA while every subdomain lies. **That asymmetry is the tell:** apex answers look sane, subdomain answers look too good.
 
 **✅ VERIFY wildcard removal:**
 ```powershell
@@ -8119,6 +8425,35 @@ What actually happened: **no MX record existed**, so under RFC 5321 the sending 
 **Signature: outbound works, inbound fails = verified-but-unconfigured domain.** Outbound from Exchange Online needs none of your public DNS records. Inbound needs all of them. Any time those two directions disagree, check the record set before you check anything else.
 
 **🔄 Build order revision — see `[BUILD-P0]` §0.7 and `[BUILD-P9]`.** Verifying a domain (the `MS=` TXT record) is enough to set a UPN suffix and run Entra Connect, so it is tempting to stop there and continue with identity work. **That defers work that must be done anyway and does it later under worse conditions** — with users already synced, licensed, and expecting a working mailbox. Complete the full record set at the same sitting as domain verification.
+
+### <a id="dns-mail-09-third-party-mail-gateways-in-front-of-microsoft-365--reading-the-topology"></a>`[DNS-MAIL-09]` Third-party mail gateways in front of Microsoft 365 — reading the topology
+
+A third-party secure email gateway placed in front of Microsoft 365 means the domain's **MX records point at the gateway**, and the gateway relays to Microsoft afterward. Inbound internet mail therefore arrives at Microsoft **from the gateway's IP address**, not from the original sender's.
+
+**WHY this is not a free second layer of filtering.** That single fact breaks three Microsoft protections at once, because all three key off the connecting IP: IP reputation and connection filtering, spoof intelligence, and DMARC evaluation (SPF as it is actually applied). Microsoft's own documentation is unusually blunt about it: *"Failure to follow this step inevitably results in misclassification of inbound mail into your organization, and a subpar experience for Microsoft 365 email and protection features."* The corrective configuration is `[EXO-15]` — read it before recommending either keeping or removing a gateway.
+
+**Reading a mail path from public DNS — zero credentials, external, immediate:**
+
+```powershell
+Resolve-DnsName -Type MX  <domain> | Select-Object Name, NameExchange, Preference
+Resolve-DnsName -Type TXT <domain> | Where-Object { $_.Strings -like "*spf*" }
+```
+
+| MX points at | Reading |
+|---|---|
+| `*.mail.protection.outlook.com` | Mail goes directly to Microsoft. No gateway in the inbound path |
+| A third-party gateway hostname | **The gateway IS the mail path.** `[EXO-15]` applies |
+| Two or more records at the *same* third party | That is the gateway's own redundancy, **not** a failover to Microsoft — there is no fallback |
+
+**Read the SPF record against the topology, not in isolation.** An SPF record of the form
+
+```
+v=spf1 include:spf.protection.outlook.com include:<gateway-spf-domain> -all
+```
+
+is **correct and complete** for a gateway topology — it authorizes Microsoft for mail sent directly and the gateway for anything relayed outbound. ⚠ **Do not flag a third-party include as stale on sight.** The stale case is the *mismatch*: an SPF include for a gateway the MX no longer points at, or an SPF that authorizes only the gateway while mail now flows direct from Microsoft — the latter causes intermittent outbound delivery failures that nobody connects to a DNS record.
+
+**✅ VERIFY:** a mail path read from DNS costs nothing and needs no client credentials — run it before the first call with a prospective client, not after.
 
 ---
 ---
@@ -8549,12 +8884,42 @@ Changing a primary SMTP therefore produces a user who **emails as one string and
 
 **⚠ If you do enable the feature, know the collision rule:** within a tenant, a **cloud-only** user's UPN can be the same string as another user's synced proxy address. With alternate login ID enabled, **the cloud-only user can no longer sign in with their own UPN.** That is a real outage created by a feature toggle, and it will not be obvious.
 
+### <a id="exo-15-enhanced-filtering-for-connectors--the-fix-a-gateway-topology-needs-and-the-failure-mode-if-its-skipped"></a>`[EXO-15]` Enhanced Filtering for Connectors — the fix a gateway topology needs, and the failure mode if it's skipped
+
+**Enhanced Filtering for Connectors, also called *skip listing*,** is configured on the inbound connector that receives mail from a third-party gateway (`[DNS-MAIL-09]`). It preserves the **original** source IP and sender information so Microsoft's filtering stack evaluates the real sender rather than the gateway.
+
+**DO:** list every public IP of every non-Microsoft hop that relays inbound mail on the connector, **including intermediate hops** — a partial list is not a smaller version of correct, it is incorrect.
+
+**✅ VERIFY by message header.** With skip listing working, inbound messages carry one or both of:
+
+```
+X-MS-Exchange-SkipListedInternetSender
+X-MS-Exchange-ExternalOriginalInternetSender
+```
+
+**Second-order issue: DKIM.** A gateway that **modifies messages in transit** and does not support **ARC sealing** invalidates the original DKIM signature, which causes legitimate mail to fail authentication. Where the gateway supports ARC, add it as a **trusted ARC sealer**.
+
+> **The field judgment that matters: a gateway without skip listing is not redundant — it is actively worse than nothing.** The client is paying for a second filter *and* degrading the filter they already own. Check for skip listing before recommending either keeping or removing a gateway.
+
+**🛑 The failure mode of this topology is an outage, not weaker filtering.** When every MX record points at the gateway, there is no fallback path to Microsoft. If the gateway tenant is suspended, deprovisioned, or lapses for non-payment, inbound mail defers and then bounces — it does not quietly degrade to unfiltered delivery. The gateway's commercial status is therefore an operational dependency, not an accounting detail: establish who holds the tenant, who pays for it, and when it renews. **In a vendor transition, the party holding the gateway tenant controls the client's inbound mail — treat it as the highest-priority credential in the environment, ahead of backup consoles.**
+
+**Removing a gateway is a project, never a cancellation.** Changing MX is the most dangerous DNS change in a mail environment, because there is no graceful failure:
+
+1. Verify and enable the native protections that will replace it, and confirm policies are actually configured, not merely licensed.
+2. Lower the TTLs on the MX records **ahead** of the change and let the old TTL expire.
+3. Cut the MX.
+4. Watch mail flow and message trace.
+5. **Keep the gateway tenant alive through a bake period.**
+6. Only then cancel.
+
+**⚠ Never recommend canceling before establishing the renewal date and the account of record.** Canceling mid-term wastes the client's money and signals the check was not done.
+
 ---
 ---
 
 ## <a id="30--sharepoint-online-and-onedrive--sharing-and-guest-access-spo"></a>30 — SHAREPOINT ONLINE AND ONEDRIVE — SHARING AND GUEST ACCESS `[SPO]`
 
-`[M365-03]` covers the SharePoint Online PowerShell module and the OneDrive sync checklist. `[M365-11]` covers site objects, permission levels, and the content hierarchy. **This section covers external sharing and guest access** — the surface where SMB tenants leak data, and the surface Copilot makes visible (`[AI-03]`).
+`[M365-03]` covers the SharePoint Online PowerShell module and the OneDrive sync checklist. `[M365-11]` covers site objects, permission levels, and the content hierarchy. **This section covers external sharing and guest access** — the surface where SMB tenants leak data, and the surface Copilot makes visible (`[AI-03]`). **Migrating an on-premises file share into this environment is covered separately at `[FILE-10]`.**
 
 ---
 
@@ -8710,17 +9075,275 @@ See `[APX-B]` and `[M365-14]` for the rest of the break-glass configuration — 
 
 **The production answer is Privileged Identity Management** — roles held *eligible* rather than *active*, elevated just-in-time with justification and a time limit (`[M365-15]`).
 
-**🛑 PIM requires Entra ID P2. Microsoft 365 Business Premium includes P1 only.** There is no P1 workaround and no partial version. **The real answer to a Business Premium client asking for just-in-time elevation is that it requires a license upgrade.**
+**🛑 PIM requires Entra ID P2. Microsoft 365 Business Premium includes P1 only.** There is no P1 workaround and no partial version. **The legitimate answer to a Business Premium client asking for just-in-time elevation is that it requires a license upgrade.**
 
 **The Business Premium approximation** is a **separate admin account** holding the roles, used only for admin work, with MFA and no mailbox or license beyond what it needs. It is not JIT — the privilege is standing — but it does separate the blast radius of a compromised daily-driver account from the tenant's administrative control, which is most of the value. **Say plainly that it is an approximation**; do not describe it to a client as equivalent to PIM.
+---
+
+## <a id="31--printers-and-imaging-prn"></a>31 — PRINTERS AND IMAGING `[PRN]`
+
+### <a id="prn-01-the-four-printer-technologies--do-not-cross-diagnose-between-them"></a>`[PRN-01]` The four printer technologies — do not cross-diagnose between them
+
+| | **Laser** | **Inkjet** | **Impact** | **Thermal** |
+|---|---|---|---|---|
+| **Marks paper by** | Fused toner | Sprayed liquid ink | Pins striking an inked ribbon | Heat on heat-sensitive paper |
+| **Consumable** | Toner cartridge | Ink cartridge | Ribbon | Thermal paper roll |
+| **Key parts** | Imaging drum, fuser, transfer roller/belt, corona wire, pickup rollers, separation pad | Printhead, nozzles, carriage/belt, roller, feeder | Printhead pins, ribbon, tractor feed, platen | Heating element, feed assembly |
+| **Paper** | Plain | Plain | Continuous, perforated, multipart | Thermal roll |
+| **Maintenance** | Maintenance kit (fuser, transfer roller, rollers), then reset the page counter | Clean/calibrate printheads | Replace ribbon, printhead, tractor | Clean heating element, replace paper |
+
+**🛑 TRAP — do not let parts float between technologies.** Laser has no printhead, no nozzles, no carriage, and no ink. Inkjet has no toner, no drum, and no fuser. Rule out any explanation that names a part from the wrong technology before reasoning about the symptom.
+
+**WHY this still matters in 2026 field work — none of these four are legacy.** Laser dominates SMB and office deployments on cost-per-page at volume. Inkjet remains the low-volume home and photo-quality option. Impact is now genuinely rare outside multi-part carbonless forms — warehouse, manufacturing, and legacy point-of-sale — but where it survives, nothing else does the job. Thermal is not a legacy technology at all: it is the standard for receipts and shipping labels and is more common today than a decade ago.
+
+### <a id="prn-02-the-laser-imaging-process-in-order"></a>`[PRN-02]` The laser imaging process, in order
+
+1. **Processing** — the image is rasterized into a bitmap.
+2. **Charging** — the primary charge roller or corona wire applies a uniform negative charge to the drum.
+3. **Exposing** — the laser writes the image, discharging the imaged areas.
+4. **Developing** — toner is attracted to the discharged areas.
+5. **Transferring** — toner moves from the drum to the paper via the transfer roller or belt.
+6. **Fusing** — heat and pressure bond the toner permanently.
+7. **Cleaning** — residual toner and charge are removed from the drum before the cycle repeats.
+
+**WHY the order matters diagnostically:** each symptom in `[PRN-03]` maps to exactly one step, so identifying which step failed identifies the part, without guessing.
+
+### <a id="prn-03-symptom--cause-laser-printers"></a>`[PRN-03]` Symptom → cause, laser printers
+
+| Symptom | Failed step / cause |
+|---|---|
+| Vertical lines or streaks on every page | **Imaging drum** — scratched or contaminated |
+| Faded print | Low or uneven toner |
+| Toner rubs off the page after printing | **Fuser** not reaching temperature |
+| Speckling or background spatter | Leaking toner, paper dust, contaminated drum |
+| Double or echo images (ghosting) | Residual latent image on the drum — check drum wear and fuser temperature |
+| Repeating marks at a fixed interval | A roller with a physical defect — the interval identifies which roller by its circumference |
+
+### <a id="prn-04-paper-path-faults--a-different-failure-class-than-print-quality-faults"></a>`[PRN-04]` Paper path faults — a different failure class than print-quality faults
+
+Jams, multi-feed (two sheets pulled at once), and failure-to-feed are pickup roller, separation pad, or tray faults — not toner, not drum, not spooler. Worn separation pads are the single most common cause of both jams and multi-feed on a printer that has been in service more than a year or two.
+
+### <a id="prn-05--do-not-confuse-a-queue-fault-with-a-mechanical-fault"></a>`[PRN-05]` 🛑 Do not confuse a queue fault with a mechanical fault
+
+**The print spooler is software. It cannot cause a mechanical feed failure**, and a mechanical fault cannot be fixed by restarting a service. If jobs are stuck *in the queue*, that is the spooler — see `[WIN-07]` for the restart and clear-queue procedure. If paper physically will not pick up or feed at all, that is `[PRN-04]` — rollers, separation pad, or tray. Confirming which class of fault you have, before doing anything, saves the first several minutes of the ticket.
+
+### <a id="prn-06--danger--never-compressed-air-or-a-standard-vacuum-on-toner"></a>`[PRN-06]` 🛑 DANGER — never compressed air or a standard vacuum on toner
+
+Toner is a combustible fine powder. Compressed air aerosolizes it, creating an inhalation hazard and spreading contamination inside the unit. A standard vacuum passes fine toner through its filter, and **the motor brushes can ignite it**. Use a HEPA, ESD-safe toner vacuum with no exposed brush motor — nothing else is acceptable on toner. Verified against current guidance — see `[APX-C]` #64.
+
+### <a id="prn-07-network-printer-connectivity-triage"></a>`[PRN-07]` Network printer connectivity triage
+
+Confirm the printer is powered and on the network → confirm the requesting device is on the correct network/VLAN or VPN → ping the printer's IP → check the print queue → clear stuck jobs if authorized → restart the spooler (`[WIN-07]`) → confirm the correct driver is installed → **test print from another user and another device**, which isolates user vs. printer vs. driver as the actual fault → escalate if the cause is hardware or a vendor issue.
+
+---
+
+## <a id="32--macos-field-reference-mac"></a>32 — macOS FIELD REFERENCE `[MAC]`
+
+The manual is Microsoft-centric by design, but an MSP technician supports mixed fleets. This section is the minimum needed to navigate a Mac without guessing.
+
+### <a id="mac-01-windows--macos-translation"></a>`[MAC-01]` Windows → macOS translation
+
+| Windows | macOS |
+|---|---|
+| File Explorer | **Finder** |
+| Search | **Spotlight** |
+| Taskbar | **Dock** |
+| Task View / virtual desktops | **Mission Control** / **Spaces** |
+| Start menu app list | **Launchpad** |
+| Control Panel / Settings | **System Settings** |
+| Disk Management | **Disk Utility** (creates `.dmg` files) |
+| BitLocker | **FileVault** |
+| Credential Manager | **Keychain** |
+| Task Manager → End Task | **Force Quit** |
+| File History / Backup | **Time Machine** |
+| Command Prompt / PowerShell | **Terminal** |
+| Windows Update | **General → Software Update** |
+| Out-of-band security patch | **RSR** — Rapid Security Response |
+| Defender / SmartScreen | **XProtect** / **Gatekeeper** |
+| OneDrive | **iCloud Drive** |
+| Microsoft Store | **App Store** |
+| MDM | **MDM** — same term, different enrollment mechanics |
+
+### <a id="mac-02-file-system-layout--mind-the-two-library-folders"></a>`[MAC-02]` File system layout — mind the two Library folders
+
+| Path | Holds |
+|---|---|
+| **`/Applications`** | Installed software — Apple-supplied and user-installed |
+| **`/Library`** | **System-wide** resources and settings |
+| **`/System`** | Core OS files required to run |
+| **`/Users/[username]`** | Personal files |
+| **`/Users/[username]/Library`** | **Per-user** app data and settings |
+
+**⚠ TRAP — there are two Library folders.** `/Library` is system-wide; `/Users/[username]/Library` is per-user. Confusing them sends a technician looking for a per-user setting or a per-user app-data cache in the system-wide location, or vice versa.
+
+### <a id="mac-03-file-types-and-uninstall-behavior"></a>`[MAC-03]` File types and uninstall behavior
+
+- **`.dmg`** — a disk image. Mount it as a volume, then drag the application out.
+- **`.pkg`** — an installer package processed by the Installer utility.
+- **`.app`** — the application bundle itself, a folder presented to the user as a single file.
+
+Uninstall by dragging the `.app` to the Trash, or from Launchpad for App Store apps. Some `.pkg` installs ship their own vendor uninstaller — check for one before assuming drag-to-Trash removed everything.
+
+### <a id="mac-04-built-in-tooling"></a>`[MAC-04]` Built-in tooling
+
+**Disk Utility** (disk and volume management, creates/mounts `.dmg`), **Time Machine** (built-in backup), **Keychain** (credential store), **FileVault** (full-disk encryption), **Gatekeeper** (blocks unsigned/unnotarized apps from running), **XProtect** (built-in malware signature scanning), **Terminal**, **Force Quit** (Cmd+Option+Esc), **Mission Control** / **Spaces** (window and virtual-desktop management), **Spotlight** (system-wide search, Cmd+Space), **AirDrop** (peer-to-peer file transfer between Apple devices on the same network), **Continuity** (hand off tasks — a call, a document, a clipboard — between a user's own Apple devices).
+
+### <a id="mac-05-patching-including-out-of-band-security-response"></a>`[MAC-05]` Patching, including out-of-band security response
+
+Routine updates: **General → Software Update**. **RSR (Rapid Security Response)** is Apple's out-of-band mechanism for shipping a security fix between full OS releases, without the size or restart profile of a full update — the macOS equivalent of an emergency out-of-band patch, not a feature to disable.
+
+### <a id="mac-06-corporate-management"></a>`[MAC-06]` Corporate management
+
+MDM enrollment mechanics differ from Windows/Intune but the concept is identical — see `[MDM]`. **Apple ID** functions as the ecosystem's SSO across iCloud, the App Store, and Continuity; a managed Apple ID (via Apple Business Manager) is the enterprise equivalent and keeps the organization, not the user, as the account owner of record.
+
+---
+
+## <a id="33--physical-layer-and-connectors-conn"></a>33 — PHYSICAL LAYER AND CONNECTORS `[CONN]`
+
+### <a id="conn-01-cable-standards"></a>`[CONN-01]` Cable standards
+
+| Item | Facts |
+|---|---|
+| **T568A / T568B** | Define the pinout for RJ45 connectors — which wire goes to which pin. Same standard on both ends of a cable = straight-through. A on one end, B on the other = crossover, now rarely needed since modern NICs auto-negotiate (Auto-MDIX). |
+| **UTP** (unshielded twisted pair) | Low cost, easy to install, no shielding. The default for office Ethernet. |
+| **STP** (shielded twisted pair) | Added shielding reduces external interference — used near heavy electrical equipment or long runs subject to EMI. |
+| **Plenum-rated cable** | Fire-retardant jacket required for air-handling spaces above a dropped ceiling. **This is fire code, not a preference** — pulling non-plenum cable through a plenum space is a code violation, not a cost-saving choice. |
+| **Single-mode fiber** | Laser source, distances over 100 km, more expensive. The choice for long backbone runs and carrier links. |
+| **Multimode fiber** | LED source, up to roughly 2 km, less expensive. The common choice for in-building and campus backbone runs today. |
+| **Coaxial** | Single copper conductor with insulation and shielding. Still the physical layer for cable internet and cable TV. |
+
+### <a id="conn-02-connector-identification--what-actually-turns-up-in-the-field-in-2026"></a>`[CONN-02]` Connector identification — what actually turns up in the field in 2026
+
+| Connector | Used for | Distinguishing feature | 2026 field currency |
+|---|---|---|---|
+| **RJ45** | Ethernet, twisted-pair copper | 8-position | **Ubiquitous.** The default. |
+| **USB-C** | Data, charging, and video (via Alt Mode) | Reversible, oval | **Ubiquitous and still displacing everything else.** Apple moved iPhones to USB-C starting with the iPhone 15 (2023), driven in part by the EU's common-charger mandate — Lightning is now the legacy case, not the current one. |
+| **F-type** | Coax — cable internet, cable TV | Threaded, screw-on | **Common** — real ISP and cable-modem troubleshooting still runs through this connector. |
+| **ST / SC / LC** (fiber) | Fiber — LC especially in data centers and modern in-building runs | ST: bayonet twist-lock, large. SC: push-pull, square. LC: RJ45-style latch, small form factor | **Increasingly common**, not legacy — more networks are running fiber to the closet or the desk than a decade ago. |
+| **RJ11** | Analog telephone, DSL | 6-position, narrower than RJ45 | **Declining but not gone** — still shows up on DSL lines, fax lines, and alarm-panel dial-outs at smaller sites. |
+| **DB-9 (serial)** | Console access to switches, routers, and other network gear | 9-pin D-sub | **Still relevant, but not for PCs** — the reason to own a USB-to-serial adapter today is console cable access to network hardware, not connecting to an old computer. |
+| **Lightning** | Older iOS devices | 8-pin, proprietary Apple | **Legacy and shrinking.** Current iPhones and iPads use USB-C; expect Lightning only on older or budget Apple devices still in service. |
+| **Punchdown block** | Permanent, solderless wire termination | Not a keystone jack or a patch panel | **Still standard** for structured cabling termination behind a patch panel. |
+| BNC, Molex, Mini-DIN (PS/2) | Legacy coax/video, legacy internal power, legacy keyboard/mouse | — | **Rare today.** Encountered mainly on older lab/industrial/CCTV equipment. Recognize them on sight; do not expect to need them regularly. |
+
+### <a id="conn-03-video-signal-capability--why-is-there-no-sound-through-my-monitor"></a>`[CONN-03]` Video signal capability — "why is there no sound through my monitor"
+
+| Interface | Signal |
+|---|---|
+| **VGA** | Analog, video only |
+| **DVI-A** | Analog only |
+| **DVI-D** | Digital only |
+| **DVI-I** | Both digital and analog |
+| **HDMI** | Digital, video **and** audio |
+| **DisplayPort** | Digital, video **and** audio |
+| **USB-C** | Video via Alt Mode (carries DisplayPort or HDMI signaling over the same connector) |
+
+**HDMI and DisplayPort carry audio. DVI and VGA do not.** This is the actual answer to "why is there no sound through my monitor" — a real, recurring helpdesk ticket, not a settings problem. VGA and DVI are increasingly rare on new hardware but still turn up on projectors and older monitors in the field.
+
 
 ---
 ---
 
+## <a id="34--site-survey-site"></a>34 — SITE SURVEY `[SITE]`
+
+### <a id="site-01-why-a-survey-pays-for-itself"></a>`[SITE-01]` Why a survey pays for itself
+
+See `[DOCTRINE-14]`. One hour with a written shot list, before any engagement is priced, converts recollection into evidence and routinely finds equipment that appears in no document.
+
+### <a id="site-02-permission-and-standing"></a>`[SITE-02]` Permission and standing
+
+Establish permission explicitly if you are not currently staff or under contract. A prospective vendor photographing an environment is a different act from an employee doing it, even when the same person did it last year in a different capacity — one sentence to the responsible manager is enough.
+
+### <a id="site-03-the-shot-list"></a>`[SITE-03]` The shot list
+
+**Priority 1 — identity of every powered device:**
+
+1. **Front bezel, straight on, whole faceplate.** Model designations are usually silkscreened here.
+2. **Rear or underside service label**, close enough to read the serial.
+3. **Front-panel LCD, where one exists.** On many server chassis this displays the service tag or express service code without opening anything or logging in.
+4. **The rear port field**, which establishes interface counts — how many analog trunks, how many uplinks, what is actually cabled versus merely present.
+5. **LED panel of every device** — see `[DOCTRINE-14]`.
+
+**Priority 2 — the environment, since you are already standing there:**
+
+6. **Drive bays as they sit.** Populated versus empty, and carrier labels, which usually state capacity, spindle speed, and interface. **Do not pull a drive from a production array.**
+7. Any UPS: front, model label, and the battery date sticker.
+8. **Network edge:** firewall, switches, modem or ONT, with model labels.
+9. **Vendor service stickers on equipment** — these carry installer identity and often install dates, from a source with no stake in the current engagement.
+10. The demarcation point and any analog punchdown, which establishes how many carrier lines actually enter the building.
+11. Wide establishing shot of each area, plus the cable-management state as found.
+12. Wireless access points — make, model, count, mounting.
+
+### <a id="site-04-technique-which-decides-whether-the-trip-was-worth-anything"></a>`[SITE-04]` Technique, which decides whether the trip was worth anything
+
+- **Straight on for every label, never at an angle.** A serial read at thirty degrees is a serial transcribed wrong.
+- **Equipment spaces are dark. Use the flash, and verify each shot on screen before moving on** — legibility is checked on site, not at the desk.
+- One wide shot per area before the close-ups. Context is what makes a photo useful months later.
+- **Touch nothing.** No unplugging, reseating, re-racking, or power cycling. The entire value of a survey is that it carries no operational risk.
+- Record what you did not cover, explicitly, in the write-up. An unstated gap reads as a completed survey.
+
+### <a id="site-05-evidence-handling--the-rule-that-protects-you"></a>`[SITE-05]` Evidence handling — the rule that protects you
+
+**🛑 Never photograph credentials.** Passwords on monitors, inside rack doors, and taped under keyboards are common and you will eventually find one. When you do, it is a written finding, not an image — a photograph of a client's password sitting in your personal cloud storage is a liability you created for yourself, and it is precisely the practice you would charge that client to fix.
+
+File photographs under descriptive names with a date stamp, not carrier filenames. A folder of `IMG_####` is unsearchable within a month.
+
+### <a id="site-06-turning-a-service-tag-into-manufacturer-stated-fact"></a>`[SITE-06]` Turning a service tag into manufacturer-stated fact
+
+Major server vendors expose a free, public support lookup keyed on the service tag or serial. It returns ship date, original configuration, and support status.
+
+**This is the highest-value item on the shot list per second spent.** It converts "this machine is roughly a decade old" — an estimate, arguable — into a ship date the manufacturer states, which is not arguable. In front of a non-technical decision-making body, a manufacturer-stated fact outperforms any argument the assessor can construct.
+
+---
+
+## <a id="35--vendor-and-platform-due-diligence-vend"></a>35 — VENDOR AND PLATFORM DUE DILIGENCE `[VEND]`
+
+### <a id="vend-01-is-the-platform-alive--reading-a-product-lines-real-state"></a>`[VEND-01]` Is the platform alive? — reading a product line's real state
+
+Vendor marketing never announces decline. Assess it structurally instead:
+
+| Signal | What it means |
+|---|---|
+| **Date of the most recent item on the vendor's own newsroom** | **The single strongest neutral signal.** A vendor's own press page going years without an entry is not ambiguous, and it is not a competitor's claim |
+| Date of the last hardware or major version release | Multi-year gaps indicate a maintained installed base, not a roadmap |
+| Ownership history — divestiture from a larger parent, especially to a financial buyer | Frequently marks the transition into harvest mode |
+| Explicit end-of-support on older ranges, with a current range still sold | Normal, but check which range the client actually runs — the difference is unpatched versus supported |
+| Reseller and replacement-vendor commentary | **Weight it against the source's interest.** Both a dealer and a replacement seller will agree on the facts and disagree on the outlook — take the facts, discard both outlooks |
+
+**Vocabulary discipline: "dead," "harvest mode," and "declining" are three different claims.** A platform maintained for its installed base with no roadmap is **not** unsafe to run today, and saying otherwise in front of a client who runs it destroys credibility on everything else you said. See `[DOCTRINE-13]` for reading the "is this company even alive" question specifically.
+
+### <a id="vend-02-should-you-learn-a-declining-platform"></a>`[VEND-02]` Should you learn a declining platform?
+
+Generally no, with one clear exception.
+
+- A vendor-specific certification on a stagnant platform depreciates and does not transfer. Every hour spent there is an hour not compounding on a platform that is growing.
+- Trailing-edge specialization is genuinely profitable — fewer competitors, a captive installed base — **but it is a poor bet for someone still building transferable skill.**
+- The exception: learn it on an employer's payroll, alongside senior people, where the cost of the skill is not yours and the exposure comes with supervision.
+
+**The middle position is almost always correct and is routinely overlooked: know the client's specific installation well enough to speak to it and plan around it, without adopting the platform.** *"I do not do that work; here is what I would recommend and here is who would do it"* is a complete, credible answer. *"I do not know"* is not.
+
+### <a id="vend-03-reading-what-an-incumbent-actually-delivers"></a>`[VEND-03]` Reading what an incumbent actually delivers
+
+Compare the incumbent's **claimed** service surface against its **delivered** service surface. The claimed surface is its website. The delivered surface is its invoices.
+
+**Invoice structure is the more honest document, and it reveals the business model directly:**
+
+| Pattern in the invoices | What the vendor actually is |
+|---|---|
+| Flat monthly subscription resale + time-and-materials labor, and **no monitoring, patching, reporting, or SLA line** | **A reseller with a break/fix labor line** — not a managed service provider, whatever the marketing says |
+| Labor entries that are mostly tending the vendor's own subscription products | The labor exists to keep the annuity, not to serve the client |
+| Months with subscription lines and **zero labor** | Measure cost per hour of human attention actually delivered — that ratio is frequently an order of magnitude worse than the headline hourly rate, and it is the honest basis for comparison |
+| No PO, no term, no renewal, no notice period | **There is no contract.** Displacement is a purchasing decision, not a legal one — arriving with a written agreement is a differentiator in that market rather than over-lawyering |
+
+**⚠ Do not anchor your own pricing on an incumbent's rates.** A single incumbent in a small market is **n = 1**, and if its own staff say the pricing is stale, it is an anchor to a number the vendor itself does not defend. Compare on delivered value per unit of attention, not on headline rate.
+
+---
+---
 ## <a id="changelog"></a>CHANGELOG
 
 | Version | Date | Changes |
 |---|---|---|
+| **1.4** | **2026-09-19** | Reconciled a three-way wording divergence between the vault master and the published site — the 9 previously known "honest" → **proper** fixes (§6 voice-reference compliance) plus 1 further instance the original audit missed — bringing the vault master back into line as the single source of truth. Merged the **A+ Study Guide module**, filtered hard for 2026 field relevance rather than exam completeness (roughly 60% of the source discarded as exam scaffolding or superseded-by-existing-coverage): added **§31 Printers and imaging `[PRN]`**, **§32 macOS field reference `[MAC]`**, **§33 Physical layer and connectors `[CONN]`**; extended `[NET-08]` (SNMP, TFTP), added `[WIN-08]`/`[WIN-09]`, `[DISK-04]`/`[DISK-05]`, `[SOP-13]`…`[SOP-18]`, `[SYSF-07]`; five new `[ERR]` rows; 13 new `[APX-C]` rows #55–#67. Merged the **vendor-assessment module**: added **§34 Site survey `[SITE]`** and **§35 Vendor and platform due diligence `[VEND]`**; added `[DOCTRINE-13]` and `[DOCTRINE-14]`; extended `[DNS-MAIL-09]` and `[EXO-15]` (Enhanced Filtering for Connectors) rather than creating a new section; added `[M365-21]` (security-tool overlap and the backup-boundary rule, cross-referencing rather than duplicating `[M365-20]`); six new `[ERR]` rows; six `[APX-C]` rows #68–#73. Merged the **cloud-migration module**: added `[DOCTRINE-15]` (a cloud migration's real saving is avoided capital spend, not a recurring discount) and `[FILE-10]` (file-share-to-SharePoint/OneDrive migration tooling and sequencing — placed under `[FILE]` rather than the module's own `[SPO]`/`[AZ]` suggestions, with cross-references added from both). **One further factual correction found independently while placing that content, not sourced from either module**: `[AZ-07]`'s Azure Data Box entry corrected from a stale flat "80 TB" figure to the current tiered lineup (~35 TB / 120 TB / 525 TB usable) — logged as `[APX-C]` #74. **Whole-document validation run clean across the combined result**: 344 fence markers balanced; zero tags lost across the full pre-merge → post-merge diff; every CONTENTS anchor resolves under a GitHub-accurate slug check bar the one pre-existing §00.3 anchor issue; all 277 tables zero-anomaly; non-destructive diff showed only the intended changes; fresh leak-check found no client- or project-identifying text. **Manual-wide spelling normalized to American English** as a final pass: 11 corrections across 10 lines, including three (`cancelled`/`cancelling`/`Licence`) that corrected a mistake introduced earlier in this same v1.4 pass, plus two pre-existing `unauthorised` instances missed by every prior normalization run. Source: three staged integration modules (A+ Study Guide, vendor-assessment-and-site-survey, cloud-migration-economics-and-tooling) plus a site/vault divergence audit — all client- and project-identifying material stripped. **20 further factual corrections applied in total across this release — see `[APX-C]` #55–#74.** Section numbers and tags §00–§30 unchanged; `[DOCTRINE-01]`…`[DOCTRINE-12]` unchanged. |
 | **1.3** | **2026-08-23** | Added **§28 Public DNS for mail `[DNS-MAIL]`**, **§29 Exchange Online administration `[EXO]`**, **§30 SharePoint Online and OneDrive — sharing and guest access `[SPO]`**. Extended §26 with `[PURV-14]`…`[PURV-19]` (Business Premium licensing boundary, create-vs-publish, the DLP confidence dial, the **simulation-mode trap**, Encrypt vs Block, reporting lag). Added `[DOCTRINE-11]` (an override makes your diagnostics lie) and `[DOCTRINE-12]` (read the screen before you diagnose). Added `[DNS-MAIL-PRE]` public-DNS pre-flight and a matching `[APX-A]` checklist; added `[BUILD-P0]` §0.6 and amended `[BUILD-P9]` so the full public DNS record set is completed at domain-verification time. Four new `[ERR]` subsections, 15 new `[APX-F]` rows, 14 new `[APX-H]` rows. Source: M365 administration project, 22–23 August 2026 — project-specific hosts, domains, and tenant names stripped. **12 further factual corrections applied — see `[APX-C]` #43–#54**, including a corrected DKIM CNAME format, a corrected message-trace retention boundary, and a corrected quarantine retention default. The module's own integration instructions were **not** followed on two points, both documented in `[APX-C]`-adjacent notes: it targeted §23–§26, which are occupied, and it proposed a `[PUR]` tag prefix that collides with the existing `[PURV]`. **Purview material was merged into §26 rather than creating a second Purview section.** Manual-wide spelling normalized to American English. Section numbers and tags §00–§27 unchanged. |
 | **1.2** | **2026-08-21** | Added **§26 Microsoft Purview and data governance `[PURV]`** and **§27 Copilot and agent administration `[AI]`**. Expanded §11 with `[M365-08]`…`[M365-20]` (portal decision table, Exchange recipient objects, Entra group types, SharePoint objects and inheritance, Teams policies, licensing mechanics, Conditional Access anatomy, PIM, app registrations vs enterprise apps, the three security scores, unified audit log, authentication methods, Defender XDR). Added `[APX-F]` disambiguation index, `[APX-G]` requirement → tool index, `[APX-H]` hard limits and defaults. Added Microsoft 365 / Purview / Copilot rows to `[ERR]`. Source: AB-900 study guide (Microsoft 365 Copilot and Agent Administration Fundamentals) — exam mechanics, domain weighting, self-test, and study plan stripped; principles, procedures, and click-paths retained. **16 further factual corrections applied — see `[APX-C]` #27–#42.** Ten load-bearing claims independently verified against Microsoft Learn and Microsoft blogs in August 2026; the two that could not be verified are labeled as such in `[APX-C]` #40. Section numbers and tags §00–§25 unchanged; CHANGELOG relocated to the end of the document. |
 | **1.1** | **2026-08-20** | Added **§22 Networking fundamentals `[NETF]`**, **§23 Security fundamentals `[SECF]`**, **§24 Systems and directory fundamentals `[SYSF]`**. Source: Google IT Support Specialist course notes — course and assessment scaffolding stripped, principles retained. Closes the manual's largest gap: it had operational depth with no protocol/security fundamentals layer (no prior coverage of OSI, CIDR, subnet math, DNS record types, DORA, TCP handshake semantics, cryptography, AAA, or the Kerberos ticket flow). Cross-references added from `[NET]`, `[AD-TIME]`, `[AD-LOCKOUT]`, `[SEC-LAPS]`, and `[DISK-02]`. **10 further factual corrections applied — see `[APX-C]` #17–26.** Personal additions renumbered §22 → §25. |
