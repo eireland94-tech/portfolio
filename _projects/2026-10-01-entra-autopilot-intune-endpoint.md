@@ -2,7 +2,7 @@
 title: "Entra Join, Autopilot & Intune - Cloud-Native Windows Endpoint"
 description: "A business laptop provisioned the way a client device would be: Autopilot device preparation with device association, Entra join, Intune, BitLocker, Windows LAPS and a standard-user daily account."
 date: 2026-10-01 12:00:00 -0600
-image: '/assets/projects/entra-autopilot-intune-endpoint/hero.jpg'
+image: '/assets/projects/entra-autopilot-intune-endpoint/hero.png'
 labels: [Intune, Autopilot, Entra ID, Windows 11, BitLocker, LAPS, PowerShell]
 toc: true
 ---

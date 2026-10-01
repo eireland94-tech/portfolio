@@ -2,7 +2,7 @@
 title: "My New Work Laptop Was Not Quite What It Said on the Box"
 description: "Setting up a business laptop the way I would for a client with Autopilot, Intune and Entra join, and what the laptop itself turned out to be hiding."
 date: 2026-10-01 12:30:00 -0600
-image: '/assets/projects/entra-autopilot-intune-endpoint/hero.jpg'
+image: '/assets/projects/entra-autopilot-intune-endpoint/hero.png'
 tags: [Intune, Autopilot, Entra ID, BitLocker, LAPS, Hardware, Troubleshooting, MSP]
 toc: true
 ---
