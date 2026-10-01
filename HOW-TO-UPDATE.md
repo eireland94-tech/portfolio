@@ -389,7 +389,7 @@ files in `_pages/`:
 | `_pages/reference.md` | `/reference/` | The hub. Four numbered areas, each linking onward. |
 | `_pages/field-manual.md` | `/reference/field-manual/` | **Generated — do not hand-edit.** See below. |
 | `_pages/playbooks.md` | `/reference/playbooks/` | Downloadable playbook PDFs, one block each. |
-| `_pages/scripts.md` | `/reference/scripts/` | Script toolkit. Currently a stub. |
+| `_pages/scripts.md` | `/reference/scripts/` | Published scripts (two so far) plus the toolkit pattern. |
 
 Downloadable documents live in `assets/docs/`.
 

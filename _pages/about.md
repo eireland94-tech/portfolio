@@ -14,7 +14,8 @@ for IT support work in the Rapid City / Black Hills area.
 
 I enjoy anything and everything that broadens my skill set and knowledge base in
 the world of IT. Home lab projects, developing my proficiency in the Microsoft
-ecosystem, working with Linux and Proxmox (Ubuntu, Ubuntu Server, Proxmox VE),
+ecosystem (including Entra join, Autopilot and Intune endpoint management),
+working with Linux and Proxmox (Ubuntu, Ubuntu Server, Proxmox VE),
 scripting basics – I simply can't get enough of it.
 
 I created this site to serve as my living, breathing portfolio and personal
@@ -46,7 +47,7 @@ public verification record.
 
 - **[Reference Library](/reference/)** – the documentation I'm building as I go along: 
   the [IT Field Manual](/reference/field-manual/), build playbooks, and a
-  script toolkit in progress
+  growing set of published scripts
 - **[Projects](/projects/)** – full write-ups of what I have built, including
   what went wrong and how I fixed it.
 - **[Certifications](/certifications/)** – with verification links

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Playbooks and Runbooks
-description: Long-form procedures for work measured in hours – greenfield builds, inherited-network assessments, and controlled teardowns. Follow top to bottom.
+description: Long-form procedures for work measured in hours – greenfield builds, endpoint provisioning, inherited-network assessments, and controlled teardowns. Follow top to bottom.
 permalink: /reference/playbooks/
 image:
 ---
@@ -133,6 +133,52 @@ build, not a narrative account. Rationale for every non-obvious decision sits ne
 to the step it governs rather than in a separate discussion.
 
 **Companion case study:** [Three-Node Proxmox Cluster →](/projects/proxmox-cluster/)
+
+---
+
+## Entra Join, Autopilot & Intune - Cloud-Native Windows Endpoint Playbook
+
+**[Download the PDF →](/assets/docs/entra-autopilot-intune-playbook-v1.pdf)** · 33 pages · v1.0, October 2026 · 0.3 MB
+
+A complete procedure for provisioning a business Windows laptop with no domain
+controller anywhere in the picture: Microsoft Entra joined, Intune managed,
+encrypted, with a managed local administrator account and a standard-user daily
+account. It uses Windows Autopilot device preparation with device association,
+the August 2026 feature that marks a device as corporate-owned without
+registering a hardware hash, which is the situation for any laptop bought from a
+reseller who never registered one.
+
+It was executed on a real laptop in a live Microsoft 365 Business Premium
+tenant, and the places where the product or the device disagreed with the
+documentation are marked in the text. Those places are the reason it exists.
+
+**What is in it**
+
+| Part | Contents |
+|---|---|
+| **1** | Concepts and terminology – Entra join vs domain join vs hybrid join, Autopilot v1 vs device preparation, device association, enrollment time grouping |
+| **2** | Prerequisites, kit, licensing, and the decisions to make before starting |
+| **3** | Tenant preparation – Entra device settings, groups, apps, a debloat script, BitLocker and Windows LAPS policies, the device preparation policy |
+| **4–5** | Device intake, firmware, a pre-flight inspection of the seller's image, the license decision gate, and the clean install |
+| **6** | Device association, OOBE, and the fallback path |
+| **7** | Verification – every check with the command, what the output means, and the portal-side proof |
+| **8–9** | User applications through Company Portal · the hardening backlog |
+| **10–11** | Troubleshooting reference and a 25-point verification checklist |
+
+**The finding worth the download.** An Intune BitLocker policy can report
+**Succeeded** on every setting while the drive sits at the wrong cipher
+strength. Windows encrypted the disk at XTS-AES 128 before the policy arrived,
+and a cipher setting never re-encrypts a drive that is already encrypted.
+Decrypting and waiting for Intune does not fix it either: the policy has already
+been processed and nothing replays it. The playbook has the registry check that
+proves the policy arrived and the manual re-encryption that fixes the disk.
+
+**Conventions.** Written against placeholders – `<ORG>`, `contoso.com`,
+`user@contoso.com` – so the procedures transfer. It is text only. The
+screenshots are in the case study, with identifying details blacked out. The two
+scripts it uses are on the [scripts page](/reference/scripts/).
+
+**Companion case study:** [Entra Join, Autopilot & Intune →](/projects/entra-autopilot-intune-endpoint/)
 
 ---
 

@@ -56,9 +56,13 @@ hybrid environment from bare metal, administering one day to day, assessing a
 network you have just inherited, and tearing an environment down without
 stranding anything.
 
-Two are published – the **Hybrid Microsoft Network Build & Troubleshooting
-Playbook** (48 pp.) and the **Microsoft 365 Administration Playbook** (70 pp.).
-The first covers standing an environment up; the second covers running it.
+Four are published – the **Hybrid Microsoft Network Build & Troubleshooting
+Playbook** (48 pp.), the **Microsoft 365 Administration Playbook** (70 pp.), the
+**Proxmox VE Greenfield Cluster Build & Troubleshooting Guide** (19 pp.), and the
+**Entra Join, Autopilot & Intune Playbook** (33 pp.). The first covers standing
+a Microsoft environment up, the second covers running it, the third covers the
+virtualization layer underneath a lab, and the fourth covers provisioning a
+cloud-native Windows laptop for a client.
 
 These are checklists you follow top to bottom, with the reasoning attached – the
 kind of document you would want in your hands the first time you do the job
@@ -68,11 +72,14 @@ alone.
 
 ## 3 · Script template repository
 
-**[See what is planned →](/reference/scripts/)**
+**[See the scripts →](/reference/scripts/)**
 
-A parameterized PowerShell toolkit – configuration data separated from logic,
-CSV input, dry-run support. In progress; the pattern it is being built to is
-documented in the Field Manual under `[TOOLKIT-01]` through `[TOOLKIT-07]`.
+PowerShell scripts published from real builds, plus a parameterized toolkit
+pattern – configuration data separated from logic, CSV input, dry-run support –
+that the rest are being converted to. Two scripts are live (a logged app-removal
+script and a read-only laptop inspection script); the toolkit is in progress. The
+pattern is documented in the Field Manual under `[TOOLKIT-01]` through
+`[TOOLKIT-07]`.
 
 ---
 
