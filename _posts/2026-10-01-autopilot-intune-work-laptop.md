@@ -353,8 +353,9 @@ So nobody has to ask:
 
 ## What is next
 
-The work phone arrives today, and it gets the same treatment as its own project. After that, one
-hardening project covers both devices at once: compliance policies, Conditional Access, update
+The work phone got the same treatment as its own project: [Setting Up My Work Phone the Way I Would for a
+Client](/posts/android-enterprise-intune-work-phone/), with the [project write-up](/projects/android-enterprise-intune-endpoint/).
+After that, one hardening project covers both devices at once: compliance policies, Conditional Access, update
 rings, Defender for Business, and the decisions this laptop surfaced - application control and
 stopping Windows from encrypting before the policy arrives.
 

@@ -235,7 +235,8 @@ does not affect it.
 
 ## Next
 
-- Enroll the business Android phone through Android Enterprise.
+- Done since this was written: the business Android phone is enrolled through Android Enterprise. See
+  [Android Enterprise Fully Managed with Intune](/projects/android-enterprise-intune-endpoint/).
 - A single hardening project across both devices: compliance policies with the default changed to
   Not compliant, Conditional Access (report-only first, emergency account excluded), update rings,
   Defender for Business onboarding, Widgets and biometric sign-in disabled by policy, and an

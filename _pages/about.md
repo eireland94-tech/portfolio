@@ -14,7 +14,8 @@ for IT support work in the Rapid City / Black Hills area.
 
 I enjoy anything and everything that broadens my skill set and knowledge base in
 the world of IT. Home lab projects, developing my proficiency in the Microsoft
-ecosystem (including Entra join, Autopilot and Intune endpoint management),
+ecosystem (including Entra join, Autopilot, and Intune endpoint management for both
+Windows and Android Enterprise),
 working with Linux and Proxmox (Ubuntu, Ubuntu Server, Proxmox VE),
 scripting basics – I simply can't get enough of it.
 

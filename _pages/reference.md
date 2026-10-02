@@ -56,13 +56,15 @@ hybrid environment from bare metal, administering one day to day, assessing a
 network you have just inherited, and tearing an environment down without
 stranding anything.
 
-Four are published – the **Hybrid Microsoft Network Build & Troubleshooting
+Five are published – the **Hybrid Microsoft Network Build & Troubleshooting
 Playbook** (48 pp.), the **Microsoft 365 Administration Playbook** (70 pp.), the
-**Proxmox VE Greenfield Cluster Build & Troubleshooting Guide** (19 pp.), and the
-**Entra Join, Autopilot & Intune Playbook** (33 pp.). The first covers standing
-a Microsoft environment up, the second covers running it, the third covers the
-virtualization layer underneath a lab, and the fourth covers provisioning a
-cloud-native Windows laptop for a client.
+**Proxmox VE Greenfield Cluster Build & Troubleshooting Guide** (19 pp.), the
+**Entra Join, Autopilot & Intune Playbook** (33 pp.), and the **Android
+Enterprise Fully Managed with Intune Playbook** (19 pp.). The first covers
+standing a Microsoft environment up, the second covers running it, the third
+covers the virtualization layer underneath a lab, the fourth covers provisioning
+a cloud-native Windows laptop for a client, and the fifth does the same for a
+corporate-owned Android phone.
 
 These are checklists you follow top to bottom, with the reasoning attached – the
 kind of document you would want in your hands the first time you do the job

@@ -17,7 +17,7 @@
 # -----------------------------------------------------------------------------
 # `title` shows in the top-left of the header and in the footer.
 title: "Evan Ireland"
-description: "Windows, Microsoft 365, Intune, home lab builds, and documentation."
+description: "Windows, Android, Microsoft 365, Intune, home lab builds, and documentation."
 
 # Leave `logo` blank to show the title as text (current behaviour). To use an
 # image instead, drop a PNG in /assets/ and put the path here, e.g. '/assets/logo.png'
@@ -113,7 +113,7 @@ author:
   career_start: "2025-01-01"
 
   # Counts up as you publish. Keep it matching the number of files in _projects/.
-  projects_completed: 5
+  projects_completed: 6
 
   # Shown by the terminal's `status` command.
   # available | busy | open_to_offers
@@ -151,7 +151,9 @@ author:
     - name: DNS & Email Infrastructure
       percent: 60
     - name: Intune / Endpoint Management
-      percent: 55
+      percent: 60
+    - name: Android / Android Enterprise
+      percent: 45
     - name: Linux (Ubuntu)
       percent: 40
 
@@ -239,7 +241,7 @@ about:
 
     I like anything that widens the skill set - home lab builds,
     going deeper into the **Microsoft ecosystem** (Entra, Intune,
-    Autopilot), working with
+    Autopilot, Android Enterprise), working with
     **Linux distros (Arch btw)**, and picking up scripting as I go along.
 
     This site is the living version of that. Project write-ups

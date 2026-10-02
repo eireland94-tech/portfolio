@@ -182,6 +182,51 @@ scripts it uses are on the [scripts page](/reference/scripts/).
 
 ---
 
+## Android Enterprise Fully Managed with Intune - Corporate-Owned Android Phone Playbook
+
+**[Download the PDF →](/assets/docs/android-enterprise-intune-playbook-v1.pdf)** · 19 pages · v1.0, October 2026 · 0.2 MB
+
+A complete procedure for provisioning a business Android phone as a
+corporate-owned, fully managed device in Microsoft Intune: managed Google Play
+bound with an Entra account, a QR-code enrollment profile with enrollment-time
+grouping, a baseline device restrictions policy, and a carrier eSIM added after
+enrollment. It is the Android companion to the Windows laptop playbook above,
+built in the same tenant on the same pattern.
+
+It was executed on a real phone, and the places where the phone or the product
+disagreed with the documentation are marked in the text. One of them is a
+mistake worth learning from: the phone turned out to be a Japan-region model,
+and the warranty check that would have said so was done after the build instead
+of before it.
+
+**What is in it**
+
+| Part | Contents |
+|---|---|
+| **1** | Concepts and terminology – why corporate enrollment only happens from the setup wizard, who does what, patch-before-provision, eSIM ordering, enrollment-time grouping |
+| **2** | Prerequisites, kit, time budget, and the decisions to make before starting |
+| **3** | Tenant preparation – checking for an existing Google identity, binding managed Google Play with an Entra account, the device group, the enrollment profile |
+| **4** | Apps and the baseline device restrictions policy |
+| **5** | Device intake (including the model and warranty-region check), patching, factory reset, provisioning, enrollment |
+| **6** | Verification – eleven checks that prove state on the phone, and re-enabling disabled system apps |
+| **7** | Carrier line, eSIM, and hotspot |
+| **8–10** | Hardening backlog · troubleshooting reference · documenting a build safely |
+
+**The finding worth the download.** A fully managed phone arrives with most of
+its preinstalled apps disabled, and the portal path for bringing them back is
+not the one Microsoft Learn describes. The playbook has the current path, the
+package names, and the one look-alike app type that does not work on Android
+Enterprise.
+
+**Conventions.** Written against placeholders – `<ORG>`, `contoso.com`,
+`user@contoso.com` – so the procedures transfer. It is text only. The
+screenshots are in the case study, with identifying details blacked out, and the
+enrollment QR code appears nowhere.
+
+**Companion case study:** [Android Enterprise & Intune →](/projects/android-enterprise-intune-endpoint/) · **Write-up:** [Setting Up My Work Phone the Way I Would for a Client →](/posts/android-enterprise-intune-work-phone/)
+
+---
+
 ## Decommissioning a hybrid environment
 
 **Covered in the Field Manual – [§17 `[DECOM]`](/reference/field-manual/#17--decommissioning-a-hybrid-environment-decom)**
