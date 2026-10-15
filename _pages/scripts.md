@@ -9,7 +9,7 @@ image:
 [← Back to the Reference Library](/reference/)
 
 {: .note }
-Two scripts are published so far, both from the [Entra join, Autopilot & Intune project](/projects/entra-autopilot-intune-endpoint/). The toolkit pattern below is settled and documented; the remaining scripts are being converted to it one at a time as I use them.
+Two scripts are published so far, both from the [Entra join, Autopilot & Intune project](/projects/entra-autopilot-intune-endpoint/). The master copies live in a private Git repo; what is published here are reviewed copies with the organization-specific values removed. The toolkit pattern below is settled and documented; the remaining scripts are being converted to it one at a time as I use them.
 
 Most of the PowerShell I have written so far lives inline inside the [Field
 Manual](/reference/field-manual/) and the [build
@@ -21,20 +21,24 @@ guts edited before every run is not a tool, it is a snippet.
 
 These two came out of a real build, the cloud-native Windows laptop documented in the [project write-up](/projects/entra-autopilot-intune-endpoint/) and the [companion post](/posts/autopilot-intune-work-laptop/). Both have had the organization-specific values removed. Neither is converted to the config-file pattern below yet; each is a single standalone script with its settings at the top.
 
-### Remove-Bloat.ps1
+Both were renamed in October 2026 to use PowerShell's approved verbs, so the name says what the script does: `Get-` only reads, `Remove-` changes something. The old files, `Remove-Bloat.ps1` and `Inspect-Laptop.ps1`, still download from their original links.
+
+### Remove-InboxApps.ps1
 
 Removes a short, explicit list of consumer inbox apps (Solitaire, Xbox, News, Clipchamp and similar) from a Windows 11 Pro device during Autopilot device preparation. It matches exact package names only, refuses to touch a protected list (Copilot, Teams, Outlook, winget, the Store, Windows Security, Company Portal), is safe to run twice, and writes a full transcript so the result can be proven later. It exists because the Microsoft-native app removal policy only applies to Enterprise and Education editions, and Microsoft 365 Business Premium licenses Pro. Set `$DryRun = $true` to log what would be removed without removing anything.
 
-**[Download →](/assets/scripts/Remove-Bloat.ps1)**
+**[Download →](/assets/scripts/Remove-InboxApps.ps1)**
 
 ```powershell
+# ==================== EDIT THIS BLOCK, NOT THE CODE BELOW ====================
+
 # Set to $true to log what WOULD be removed without removing anything.
 $DryRun = $false
 
-# Folder name used under C:\ProgramData for the log. Change it to your organization's short name.
-$OrgName = 'ORG'
+# Folder name under C:\ProgramData for the log - use the org that manages the device.
+# The verification step checks C:\ProgramData\<this>\Logs\ afterwards.
+$OrgFolder = 'Servitor'
 
-# ---- EDIT THIS LIST, NOT THE CODE BELOW ----
 # Exact package names (the part before the first underscore in the full package name).
 # Anything not listed here is left alone.
 $RemoveList = @(
@@ -48,18 +52,25 @@ $RemoveList = @(
 )
 ```
 
-### Inspect-Laptop.ps1
+### Get-DeviceIntakeReport.ps1
 
-A read-only pre-flight inspection for a new or unknown Windows laptop, run before the machine is wiped. It reports the hardware as actually installed (model, serial, RAM sticks, disks), the Windows license carried in the firmware versus the one in use, license channel and activator traces, reseller customizations that a Windows reset would not remove, and whether the platform is ready for Entra join and device association (TPM 2.0, Secure Boot, network adapters). It changes nothing. It prints the report on screen and saves a text file beside itself, so it can run from a USB stick at the OOBE command prompt.
+A read-only intake inspection for a new or unknown Windows device, run before the machine is wiped, enrolled or taken over. It reports the hardware as actually installed (model, serial, RAM sticks, disks), the Windows license carried in the firmware versus the one in use, license channel and activator traces, OEM or reseller customizations that a Windows reset would not remove, and whether the platform is ready for Entra join and device association (TPM 2.0, Secure Boot, network adapters). It changes nothing. It prints the report on screen and saves a text file beside itself, or to the folder given with `-OutputPath`, so it can run from a USB stick at the OOBE command prompt and the report survives the wipe.
 
-**[Download →](/assets/scripts/Inspect-Laptop.ps1)**
+**[Download →](/assets/scripts/Get-DeviceIntakeReport.ps1)**
 
 ```powershell
+[CmdletBinding()]
+param(
+    [string]$OutputPath
+)
+
 $ErrorActionPreference = 'Continue'
 
-# ---- Where to write the report: the folder this script lives in (the USB stick) ----
-$outDir = $PSScriptRoot
+# ---- Where to write the report: -OutputPath if given, otherwise the folder this script lives in ----
+$outDir = $OutputPath
+if (-not $outDir) { $outDir = $PSScriptRoot }
 if (-not $outDir) { $outDir = (Get-Location).Path }
+if (-not (Test-Path -LiteralPath $outDir)) { New-Item -Path $outDir -ItemType Directory -Force | Out-Null }
 $stamp  = Get-Date -Format 'yyyyMMdd-HHmmss'
 $out    = Join-Path $outDir "Inspection-$env:COMPUTERNAME-$stamp.txt"
 
@@ -80,14 +91,18 @@ one script that takes parameters, one config file per environment, and no
 editing of the script itself between runs.
 
 ```
-toolkit\
+Servitor\
+├── _Template\
+│   └── Script-Template.ps1         every new script starts from this
 ├── config\
-│   ├── contoso.psd1          per-environment values: OU paths, UPN suffix, share roots
-│   └── homebiz.psd1
-├── scripts\
-│   ├── New-LabUsers.ps1      takes -ConfigPath and -CsvPath, supports -WhatIf
-│   ├── Test-DomainHealth.ps1
-│   └── Get-NetworkInventory.ps1
+│   └── example.psd1                per-client values live in a .psd1; real ones never enter the repo
+├── Windows\
+│   ├── Intake\
+│   │   └── Get-DeviceIntakeReport.ps1
+│   └── Intune\
+│       └── Remove-InboxApps.ps1
+├── BACKLOG.md                      what gets converted next, and where the code already exists
+├── CHANGELOG.md
 └── README.md
 ```
 
@@ -109,14 +124,19 @@ Manual under `[TOOLKIT-01]` through `[TOOLKIT-07]`, with the safety pattern at
 
 In the order they are actually needed:
 
-1. **`Test-DomainHealth.ps1`** – wraps the `dcdiag` / `repadmin` / `w32tm`
+1. **`Test-NetworkTriage.ps1`** – the `[NET-TRIAGE]` ladder (IP stack, gateway,
+   off-LAN by IP, DNS, domain controller, the service itself), stopping at the
+   first layer that fails and saying which one
+2. **`Test-DomainHealth.ps1`** – wraps the `dcdiag` / `repadmin` / `w32tm`
    block from `[AD-HEALTH]` into one command with readable output
-2. **`New-LabUsers.ps1`** – bulk user creation from CSV with unique generated
-   passwords, `-WhatIf` support, and per-row error handling
-3. **`Get-NetworkInventory.ps1`** – the discovery block from `[ASSESS-01]`,
+3. **`Test-DomainJoinReadiness.ps1`** – the four pre-domain-join verifications
+   from `[WIN-PREJOIN]`, run in order, with a clear pass or fail
+4. **`Get-EnvironmentDiscovery.ps1`** – the discovery block from `[ASSESS-01]`,
    exporting to CSV instead of scrolling past in a console
-4. **`Invoke-PreJoinCheck.ps1`** – the four pre-domain-join verifications from
-   `[WIN-PREJOIN]`, run in order, with a clear pass or fail
+
+The order changed in October 2026, once the job turned into working a queue:
+triage comes up every day, bulk user creation (`New-LabUsers.ps1`) does not, so
+it moved down the list.
 
 In the meantime, the working versions of all four are readable in the [Field
 Manual](/reference/field-manual/). They run; they just need editing first.
