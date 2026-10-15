@@ -34,6 +34,7 @@
     Version  : 1.1
     Date     : 14OCT26
     Author   : Evan Ireland
+    Status   : 1.0 ran through Intune on a real build 30SEP26. The 1.1 change ($OrgFolder) is UNTESTED
     Risk     : Modifies config (removes apps; reinstallable from the Store)
     Runs as  : SYSTEM via Intune, or elevated admin by hand
     Changes  : 1.1 (14OCT26) - renamed; log folder moved into the EDIT block as $OrgFolder so

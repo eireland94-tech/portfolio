@@ -31,6 +31,7 @@
     Version  : 1.1
     Date     : 14OCT26
     Author   : Evan Ireland
+    Status   : 1.0 ran on a real laptop build 30SEP26. The 1.1 changes (wording, -OutputPath) are UNTESTED
     Risk     : Read-only
     Runs as  : Elevated admin (TPM and Secure Boot checks need it; everything else works without)
     Tested   : PowerShell 5.1 syntax (built into Windows 10/11). No modules required.
