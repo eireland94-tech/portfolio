@@ -137,6 +137,9 @@
                   {% elsif status == 'open_to_offers' %}
                     {% assign status_text = 'OPEN TO OFFERS' %}
                     {% assign status_class = 't-warning' %}
+                  {% elsif status == 'employed' %}
+                    {% assign status_text = 'EMPLOYED' %}
+                    {% assign status_class = 't-accent' %}
                   {% else %}
                     {% assign status_text = 'AVAILABLE' %}
                     {% assign status_class = 't-accent' %}

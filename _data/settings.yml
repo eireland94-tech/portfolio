@@ -104,7 +104,7 @@ author:
   username: "sysadmin"
   hostname: "evanireland"
 
-  role: "IT Support"
+  role: "IT Support Technician"
   email: "evan@evanireland.tech"
 
   # Shown by the terminal's `about` command as "career: NNNd (since ...)".
@@ -115,14 +115,14 @@ author:
   # Counts up as you publish. Keep it matching the number of files in _projects/.
   projects_completed: 6
 
-  # Shown by the terminal's `status` command.
-  # available | busy | open_to_offers
-  status: "available"
+  # Shown in the hero terminal and by the terminal's `status` command.
+  # available | employed | open_to_offers | busy
+  status: "employed"
 
   # Photo in the "Author" box in the sidebar of post and project pages.
   avatar_image: "/assets/pfp2.jpg"
 
-  bio: "Former Army logistics officer changing careers into IT support."
+  bio: "Former Army logistics officer, now an IT Support Technician at a managed service provider in the Black Hills."
 
   # Links in that same Author box. Icon names come from Font Awesome — search
   # https://fontawesome.com/icons and use the class string it shows you.
@@ -185,7 +185,7 @@ hero:
   # Responsive text size: minimum, how it scales, maximum.
   title_size: "32px, 8vw, 110px"
 
-  description: I am changing careers into IT support, building hands-on skills through home lab work, documentation, and scripting. This site is my working portfolio. Currently looking for IT support work in the Rapid City / Black Hills area.
+  description: I am an IT Support Technician at a managed service provider in the Rapid City / Black Hills area, and a former Army logistics officer. I keep building hands-on skills through home lab work, documentation, and scripting. This site is my working portfolio.
 
   # A full-width photo behind the hero. Left blank on purpose: the interactive
   # terminal sits on top of this area and a busy photo makes the text hard to
@@ -236,8 +236,8 @@ about:
   # The | below means "this is a multi-line block". Every line must stay
   # indented by 4 spaces. Blank lines become paragraph breaks. **bold** works.
   description: |
-    Former Army officer with a logistics background, now moving
-    into IT full time.
+    Former Army officer with a logistics background, now working
+    in IT as a support technician.
 
     I like anything that widens the skill set - home lab builds,
     going deeper into the **Microsoft ecosystem** (Entra, Intune,
@@ -248,8 +248,8 @@ about:
     with lessons learned, documentation so it works better next time,
     and building my own personal repository of information.
 
-    Currently looking for IT support work in the
-    Rapid City / Black Hills area.
+    Currently working as an IT Support Technician at a managed
+    service provider (MSP) in the Rapid City / Black Hills area.
 
 # The photo slider next to that text. Add or remove blocks of three lines to
 # change what is in the slider. `alt` is read aloud by screen readers and shown

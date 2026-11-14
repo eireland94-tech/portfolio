@@ -1,16 +1,17 @@
 ---
 layout: page
 title: About Me
-description: Former Army officer with a logistics background, changing careers into IT
+description: Former Army officer with a logistics background, now working as an IT Support Technician
 permalink: /about/
 # No `image:` here on purpose. The photo appears once, further down, in the
-# "Where I work" gallery - where it gets a caption and a click-to-enlarge.
+# "Where the lab work happens" gallery - where it gets a caption and a click-to-enlarge.
 # Setting `image:` as well would print the same photo twice on one page.
 image:
 ---
 
-I am a former Army logistics officer changing careers into IT, and I am looking
-for IT support work in the Rapid City / Black Hills area.
+I am a former Army logistics officer who changed careers into IT. I now work as an
+IT Support Technician at a managed service provider (MSP) in the Rapid City /
+Black Hills area.
 
 I enjoy anything and everything that broadens my skill set and knowledge base in
 the world of IT. Home lab projects, developing my proficiency in the Microsoft
@@ -23,7 +24,10 @@ I created this site to serve as my living, breathing portfolio and personal
 repository. I post documentation about my home lab projects, store runbooks and
 field manuals, and keep the scripts I find useful along the way.
 
-## Where I work
+Everything here is my own work on my own time and my own hardware. Nothing on
+this site comes from my employer or its clients, and the opinions are mine.
+
+## Where the lab work happens
 
 <div class="gallery-box">
   <div class="gallery gallery-columns-1">
@@ -38,8 +42,7 @@ I hold the [AB-900 - Copilot and Agent Administration Fundamentals
 Certification](/certifications/),
 [AZ-900 - Azure Fundamentals Certification](/certifications/), and the
 [Google IT Support Professional Certificate](/certifications/). I am
-currently working toward the **CompTIA A+** certification (both Cores),
-which I expect to sit this fall.
+currently studying for the **CompTIA Network+** certification.
 
 Every certification on the [certifications page](/certifications/) links to the
 public verification record.

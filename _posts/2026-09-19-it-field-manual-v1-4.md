@@ -140,7 +140,7 @@ naturally as ending with "now retire it." Cross-references went in from both `[S
 intro and `[AZ-07]`'s Data Box entry, so the content stays reachable from every path
 someone might search it from.
 
-`[TRANSITION SLOT - he may want to make this a joke]` Neither of those was the module's
+Neither of those was the module's
 fault. A module is written against a snapshot of the manual that gets more stale the
 longer it sits staged, and both of these had been sitting for a couple of weeks.
 
@@ -182,8 +182,6 @@ The Linux Field Manual is still a separate, not-yet-started document - a full ba
 Proxmox cluster build guide is staged and waiting for it, untouched, exactly where it was
 last time. Section 25, "Personal additions," is also still empty, on purpose, same as
 every prior version.
-
-`[TRANSITION SLOT - self-deprecation about predicting his own roadmap goes here]`
 
 That all being said, the manual stays public for the same reason it always has: a
 document I know somebody might actually read is a document I write more carefully. If

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ["contact", "contact info"],
         ["cat avatar.txt", "ASCII self-portrait"],
         ["skills", "skills with progress bars"],
-        ["status", "availability for work"],
+        ["status", "current work status"],
         ["theme <name>", "azure | matrix | dracula | nord | gruvbox | mono"],
         ["sudo <anything>", "try it ;)"],
         ["history", "show command history"],
@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
     status: function() {
       const statusLabels = {
         available: { icon: "🟢", text: "available for work", color: "success" },
+        employed: { icon: "🟢", text: "employed - working in IT support", color: "success" },
         open_to_offers: { icon: "🟡", text: "open to offers", color: "alt" },
         busy: { icon: "🔴", text: "not available right now", color: "error" }
       };

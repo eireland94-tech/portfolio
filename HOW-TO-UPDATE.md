@@ -553,7 +553,7 @@ line by line. The highlights:
 | Hide the colour-dot switcher | `theme.theme_switcher: false` |
 | Terminal prompt (`evan@evanireland`) | `author.username`, `author.hostname` |
 | Job title, email, bio | `author.role`, `author.email`, `author.bio` |
-| Availability badge | `author.status` — `available`, `busy`, `open_to_offers` |
+| Availability badge | `author.status` — `available`, `employed`, `open_to_offers`, `busy` |
 | Skill bars | `author.skills` |
 | Big text on the homepage | `hero.title`, `hero.description` |
 | Homepage About text | `about.description` |

@@ -19,7 +19,7 @@ Microsoft Learn transcript, etc.
 
 ## In progress
 
-- **[CompTIA A+ Certification](https://www.comptia.org/en/certifications/a/core-1-and-2-v15/)** | CompTIA
+- **[CompTIA Network+ Certification](https://www.comptia.org/en/certifications/network/)** | CompTIA
 
 <!-- ===========================================================================
      HOW TO ADD A CERTIFICATION

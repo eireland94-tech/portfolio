@@ -22,7 +22,7 @@ toc: true
 
 ## Why this project exists
 
-I am changing careers into IT, and I had no production environment to learn in. Reading about Active Directory does not teach you what happens when Group Policy silently fails to apply, or why a laptop refuses to join a domain that answers `ping` without complaint.
+When I built this I was changing careers into IT, and I had no production environment to learn in. Reading about Active Directory does not teach you what happens when Group Policy silently fails to apply, or why a laptop refuses to join a domain that answers `ping` without complaint.
 
 So I built the environment, broke it, diagnosed the breakage, wrote down what I learned, tore the whole thing down, and built it again – the second time from my own documentation rather than from tutorials.
 
