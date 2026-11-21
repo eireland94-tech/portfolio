@@ -78,10 +78,11 @@ alone.
 
 PowerShell scripts published from real builds, plus a parameterized toolkit
 pattern – configuration data separated from logic, CSV input, dry-run support –
-that the rest are being converted to. Two scripts are live (a logged app-removal
-script and a read-only laptop inspection script); the toolkit is in progress. The
-pattern is documented in the Field Manual under `[TOOLKIT-01]` through
-`[TOOLKIT-07]`.
+that the rest are being converted to. The toolkit holds 25 scripts, each listed
+with its status; the two that have run on a real build (a logged app-removal
+script and a read-only device intake script) are published as downloads, and the
+rest follow once they are tested. The pattern is documented in the Field Manual
+under `[TOOLKIT-01]` through `[TOOLKIT-07]`.
 
 ---
 

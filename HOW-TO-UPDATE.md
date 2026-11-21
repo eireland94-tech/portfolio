@@ -280,7 +280,8 @@ toc: true
 
 ### Post gotchas, in the order they will bite you
 
-- **`-0600` is your timezone offset** (Mountain, currently daylight time). A
+- **The offset is `-0600` in summer (MDT) and `-0700` in winter (MST).**
+  Check `TZ=America/Denver date` before writing `date:`. A
   post dated in the *future* silently does not publish — no error, it just is
   not there. If a new post does not appear, check this first.
 - **Titles with `:` or `&` must be in double quotes.** `title: AD: a primer`
@@ -293,6 +294,9 @@ toc: true
   `Group Policy` and `group policy` become two separate tags.
 - **`featured: true`** is an optional extra line. Any post with it appears in
   the "Recommended" sidebar widget. With one or two posts, skip it.
+- **`published: false`** keeps a post off the site even when it is committed
+  and pushed. Use it for a draft that lives in the repo. Delete the line (and
+  update `date:`) when the post is ready to go live.
 
 ---
 
@@ -389,7 +393,7 @@ files in `_pages/`:
 | `_pages/reference.md` | `/reference/` | The hub. Four numbered areas, each linking onward. |
 | `_pages/field-manual.md` | `/reference/field-manual/` | **Generated — do not hand-edit.** See below. |
 | `_pages/playbooks.md` | `/reference/playbooks/` | Downloadable playbook PDFs, one block each. |
-| `_pages/scripts.md` | `/reference/scripts/` | Published scripts (two so far) plus the toolkit pattern. |
+| `_pages/scripts.md` | `/reference/scripts/` | The script toolkit: two published downloads, every other script listed with its status, how the copies are kept, and the toolkit pattern. |
 
 Downloadable documents live in `assets/docs/`.
 
@@ -458,12 +462,18 @@ Two more things worth checking on a PDF before it goes up:
 ### Adding a script
 
 `_pages/scripts.md` has a commented block at the bottom with the exact steps.
-Short version: put the `.ps1` in `assets/scripts/`, add a section with a
-description, a download link, and the first 15–20 lines pasted in a
-```` ```powershell ```` block so people can see its shape without downloading it.
+Short version: only a script marked Tested in the master repo gets published.
+Copy it from a clean commit **unchanged** (compare SHA-256 hashes; never edit
+the copy here), put the `.ps1` in `assets/scripts/`, and add a section with a
+description, a status line, a download link, and the first 15–20 lines pasted
+in a ```` ```powershell ```` block so people can see its shape without
+downloading it. Then update that script's row in the "Everything in the toolkit"
+tables and the counts at the top of the page.
 
-Delete the "This section is being built" note at the top of that page once there
-is at least one real script on it.
+Keep `Inspect-Laptop.ps1` and `Remove-Bloat.ps1` in `assets/scripts/`. They are
+the 1.0 files published 01OCT26 under the old names. No page on the site links
+to them any more, but links saved elsewhere still point at them, and deleting the
+files would break those.
 
 ---
 
