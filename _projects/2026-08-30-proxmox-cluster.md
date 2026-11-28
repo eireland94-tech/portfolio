@@ -7,6 +7,9 @@ labels: [Proxmox, Virtualization, Linux, Homelab, DNS, Backup, Networking]
 toc: true
 ---
 
+> **Retired October 2026.** The cluster was replaced by a single host -
+> see [px-01 - Single-Host Proxmox Home Server](/projects/px-01-home-server/).
+
 I had a domain controller sitting on a desk, a spare small-form-factor office PC, and a
 box of parts for a machine I had not built yet. Three separate computers doing three
 separate things, none of them backed up, and a home lab that had to be destroyed every
